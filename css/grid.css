@@ -1,0 +1,54 @@
+/* grid.css */
+body {
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    height: 100vh;
+    margin: 0;
+}
+
+/* Center the entire game content */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    grid-template-rows: repeat(5, 60px);
+    gap: 5px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* Style for each grid cell */
+.cell {
+    width: 60px;
+    height: 60px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+}
+
+/* Highlight the inner grid cells */
+.cell.inner {
+    background: #ffe6e6;
+    border-color: red;
+}
+
+/* Styles for the main container on the landing page */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
