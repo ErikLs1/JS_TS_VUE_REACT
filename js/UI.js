@@ -4,12 +4,15 @@ export function renderBoard(boardState) {
     const gridContainer = document.createElement("div");
     gridContainer.classList.add("grid-container");
 
+    const gridPosition = gameController.gameBrain.gridPosition;
+
     boardState.forEach((row, rowIndex) => {
         row.forEach((cellValue, colIndex) => {
             const cellEl = document.createElement("div");
             cellEl.classList.add("cell");
 
-            if (rowIndex >= 1 && rowIndex <= 3 && colIndex >= 1 && colIndex <= 3) {
+            if (rowIndex >= gridPosition.top && rowIndex < gridPosition.bottom
+                && colIndex >= gridPosition.left && colIndex < gridPosition.right) {
                 cellEl.classList.add("inner");
             }
 
@@ -17,6 +20,7 @@ export function renderBoard(boardState) {
 
             cellEl.addEventListener("click", () => {
                 gameController.handleCellClick(rowIndex, colIndex);
+                console.log("Clicked cell:", rowIndex, colIndex);
             });
 
             gridContainer.appendChild(cellEl);
