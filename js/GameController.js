@@ -17,6 +17,18 @@ class GameController {
     }
 
     handleCellClick(x, y) {
+        // Check if user chose the action
+        if (this.actionACtive === "choose") {
+            alert("Please choose action before making a move!!");
+            return;
+        }
+
+        // If user chose to move the grid, block the cells
+        if (this.actionACtive === "grid") {
+            alert("You can only move the grid!!");
+            return;
+        }
+
         if (this.actionACtive === "movePiece") {
             // If cell has not been chosen yet
             if (!this.movePieceStartCell) {
@@ -47,7 +59,7 @@ class GameController {
                     return;
                 }
 
-                const { x: startX, y: startY} = this.movePieceStartCell;
+                const {x: startX, y: startY} = this.movePieceStartCell;
                 const success = this.gameBrain.moveAPiece(startX, startY, x, y);
                 this.movePieceStartCell = null;
                 this.actionACtive = null;
@@ -55,12 +67,6 @@ class GameController {
                     this.updateUI();
                 }
             }
-
-            return;
-        }
-
-        if (this.actionACtive && this.actionACtive !== "movePiece") {
-            alert("Please finish this action first!")
             return;
         }
 

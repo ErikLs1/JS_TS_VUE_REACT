@@ -94,7 +94,7 @@ function updateActionContainer() {
 
     if (gameController.gameBrain.moveCount >= gameController.gameBrain.movePieceAfterNMoves &&
         !gameController.gameBrain.gameOver) {
-        // gameController.actionACtive = true;
+        gameController.actionACtive = "choose";
 
         const btnMakeAMove = document.createElement("button");
         btnMakeAMove.textContent = "Make a Move";
@@ -110,7 +110,7 @@ function updateActionContainer() {
         btnMoveTheGrid.classList.add("btn", "btn-primary", "m-1");
         btnMoveTheGrid.onclick = () => {
             showGridDirectionButtons(actionContainer);
-            gameController.actionACtive = "moveGrid";
+            gameController.actionACtive = "grid";
         }
         actionContainer.appendChild(btnMoveTheGrid);
 
@@ -143,7 +143,7 @@ function showGridDirectionButtons(container) {
         btn.textContent = dir.label;
         btn.classList.add("btn", "btn-secondary", "m-1");
         btn.onclick = () => {
-            const isValidMove = gameController.gameBrain.moveGrid(dir.label);
+            const isValidMove = gameController.gameBrain.moveGrid(dir.label, dir.dy);
             if (isValidMove) {
                 container.innerHTML = "";
                 gameController.actionACtive = false;
