@@ -75,7 +75,8 @@ export class TicTacTwoBrain {
         const gridTop = gridPosition.y
         const gridRight = gridLeft + this._gameConfig.gridWidth;
         const gridBottom = gridTop + this._gameConfig.gridHeight;
-        return x >= gridLeft && x < gridRight && y >= gridTop && y < gridBottom;
+        return x >= gridLeft && x < gridRight &&
+               y >= gridTop && y < gridBottom;
     }
 
     makeAMove(x, y) {
@@ -176,19 +177,19 @@ export class TicTacTwoBrain {
     moveGrid(direction) {
         switch (direction) {
             case "Up":
-                return this.canMoveGrid(0, -1);
-            case "Down":
-                return this.canMoveGrid(0, 1);
-            case "Left":
                 return this.canMoveGrid(-1, 0);
-            case "Right":
+            case "Down":
                 return this.canMoveGrid(1, 0);
+            case "Left":
+                return this.canMoveGrid(0, -1);
+            case "Right":
+                return this.canMoveGrid(0, 1);
             case "Up-Left":
                 return this.canMoveGrid(-1, -1);
             case "Up-Right":
-                return this.canMoveGrid(1, -1);
-            case "Down-Left":
                 return this.canMoveGrid(-1, 1);
+            case "Down-Left":
+                return this.canMoveGrid(1, -1);
             case "Down-Right":
                 return this.canMoveGrid(1, 1);
             default:

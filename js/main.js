@@ -128,14 +128,14 @@ function updateActionContainer() {
 function showGridDirectionButtons(container) {
     container.innerHTML = "";
     const directions = [
-        {label: "Up", dx: 0, dy: -1},
-        {label: "Down", dx: 0, dy: 1},
-        {label: "Left", dx: -1, dy: 0},
-        {label: "Right", dx: 1, dy: 0},
-        {label: "Up-Left", dx: -1, dy: -1},
-        {label: "Up-Right", dx: 1, dy: -1},
-        {label: "Down-Left", dx: -1, dy: 1},
-        {label: "Down-Right", dx: 1, dy: 1}
+        {label: "Up"},
+        {label: "Down"},
+        {label: "Left"},
+        {label: "Right"},
+        {label: "Up-Left"},
+        {label: "Up-Right"},
+        {label: "Down-Left"},
+        {label: "Down-Right"}
     ];
 
     directions.forEach(dir => {
@@ -143,7 +143,7 @@ function showGridDirectionButtons(container) {
         btn.textContent = dir.label;
         btn.classList.add("btn", "btn-secondary", "m-1");
         btn.onclick = () => {
-            const isValidMove = gameController.gameBrain.moveGrid(dir.label, dir.dy);
+            const isValidMove = gameController.gameBrain.moveGrid(dir.label);
             if (isValidMove) {
                 container.innerHTML = "";
                 gameController.actionACtive = false;
