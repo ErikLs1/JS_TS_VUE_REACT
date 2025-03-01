@@ -6,7 +6,10 @@ export class TicTacTwoBrain {
         this._gameConfig = gameState.gameConfig;
         this._gameBoard = gameState.gameBoard;
         this._nextMoveBy = gameState.nextMoveBy;
-        this._gridPostion = { x: gameState.gridPositionX, y: gameState.gridPositionY };
+        this._gridPostion = {
+            x: gameState.gridPositionX,
+            y: gameState.gridPositionY
+        };
         this.moveCount = gameState.moveCount;
         this.movePieceAfterNMoves = this._gameConfig.movePieceAfterNMoves;
         this.gameOver = false;
@@ -32,15 +35,6 @@ export class TicTacTwoBrain {
         return this._gameBoard.map(row => [...row]);
     }
 
-    get gridPosition() {
-        return {
-            left: this._gameState.gridPositionX,
-            top: this._gameState.gridPositionY,
-            right: this._gameState.gridPositionX + this._gameConfig.gridWidth,
-            bottom: this._gameState.gridPositionY + this._gameConfig.gridHeight,
-        };
-    }
-
     get currentPlayer() {
         return this._nextMoveBy;
     }
@@ -49,9 +43,36 @@ export class TicTacTwoBrain {
         return this._winner;
     }
 
+    get gridCenter() {
+        const startX = Math.floor((this._gameConfig.boardSizeWidth - this._gameConfig.gridWidth) / 2);;
+        const startY = Math.floor((this._gameConfig.boardSizeHeight - this._gameConfig.gridHeight) / 2);;
+        return {startX, startY};
+    }
+
+    get gridPosition() {
+        const left = this._gridPostion.x;
+        const top = this._gridPostion.y;
+        const right = left + this._gameConfig.gridWidth;
+        const bottom = top + this._gameConfig.gridHeight;
+        return { left, top, right, bottom };
+    }
+
+    getPiece(x, y) {
+        return this._gameBoard[x][y];
+    }
+
+    isWithinBounds(x, y) {
+        let boardWidth = this._gameConfig.boardSizeWidth;
+        let boardHeight = this._gameConfig.boardSizeHeight;
+
+        return x >= 0 && x < boardWidth && y >= 0 && y < boardHeight;
+    }
+
     isWithinBoundsGrid(x, y) {
-        const gridLeft = this._gameState.gridPositionX;
-        const gridTop = this._gameState.gridPositionY;
+        const gridPosition = this._gridPostion;
+
+        const gridLeft = gridPosition.x;
+        const gridTop = gridPosition.y
         const gridRight = gridLeft + this._gameConfig.gridWidth;
         const gridBottom = gridTop + this._gameConfig.gridHeight;
         return x >= gridLeft && x < gridRight && y >= gridTop && y < gridBottom;
@@ -67,23 +88,21 @@ export class TicTacTwoBrain {
             return false;
         }
 
-        const currentPLayer = this._nextMoveBy;
-        this._gameBoard[x][y] = currentPLayer;
+        const currentPlayer = this._nextMoveBy;
+        this._gameBoard[x][y] = currentPlayer;
+
+        const winner = this.checkForWin(x, y, currentPlayer);
+
+        if (winner) {
+            alert(`${currentPlayer} wins!`);
+            this.gameOver = true;
+            this._winner = currentPlayer;
+        } else {
+            this._nextMoveBy = currentPlayer === 'X' ? 'O' : 'X';
+        }
+
         this.moveCount++;
 
-        if (this.isWithinBoundsGrid(x, y)) {
-            const winner = this.checkForWin(x, y, currentPLayer);
-            if (winner) {
-                alert(`${currentPLayer} wins!`);
-                this.gameOver = true;
-                this._winner = winner;
-            } else {
-                this._nextMoveBy = currentPLayer === 'X' ? 'O' : 'X';
-            }
-
-        } else {
-            this._nextMoveBy = currentPLayer === 'X' ? 'O' : 'X';
-        }
         return true;
     }
 
@@ -92,67 +111,117 @@ export class TicTacTwoBrain {
             return null;
         }
 
-        const directions = [
-            { dx: 1, dy: 0 },
-            { dx: 0, dy: 1 },
-            { dx: 1, dy: 1 },
-            { dx: 1, dy: -1 }
-        ];
-
-        for (const { dx, dy } of directions) {
-            const count =
-                1 +
-                this.countInDirection(x, y, dx, dy, piece) +
-                this.countInDirection(x, y, -dx, -dy, piece);
-            if (count >= this._gameConfig.winCondition) {
-                return piece;
-            }
+        if (
+            this.checkDirection(x, y, 1, 0, piece) ||
+            this.checkDirection(x, y, 0, 1, piece) ||
+            this.checkDirection(x, y, 1, 1, piece) ||
+            this.checkDirection(x, y, 1, -1, piece)
+        ) {
+            return piece;
         }
+
         return null;
     }
 
-    countInDirection(x, y, dx, dy, piece) {
-        let count = 0;
-        let nx = x + dx;
-        let ny = y + dy;
-        while (this.isWithinBoundsGrid(nx, ny) && this._gameBoard[nx][ny] === piece) {
-            count++;
-            nx += dx;
-            ny += dy;
-        }
-        return count;
+    checkDirection(x, y, deltaX, deltaY, piece) {
+        let count = 1;
+
+        count += this.countInDirection(x, y, deltaX, deltaY, piece);
+        count += this.countInDirection(x, y, -deltaX, -deltaY, piece);
+
+        return count >= this._gameConfig.winCondition;
     }
 
-    moveGrid(dx, dy) {
-        const boardWidth = this._gameConfig.boardSizeWidth;
-        const boardHeight = this._gameConfig.boardSizeHeight;
-        const gridWidth = this._gameConfig.gridWidth;
-        const gridHeight = this._gameConfig.gridHeight;
-        const targetX = this._gridPostion.x + dx;
-        const targetY = this._gridPostion.y + dy;
+    countInDirection(x, y, deltaX, deltaY, piece) {
+        let count = 0;
+
+        for (let i = 1; i < this._gameConfig.winCondition; i++) {
+            let checkX = x + i * deltaX;
+            let checkY = y + i * deltaY;
+
+            if (
+                checkX >= 0 && checkX < this._gameConfig.boardSizeWidth &&
+                checkY >= 0 && checkY < this._gameConfig.boardSizeHeight &&
+                this.isWithinBoundsGrid(checkX, checkY) &&
+                this._gameBoard[checkX][checkY] === piece
+            ) {
+                count++;
+            } else {
+                break;
+            }
+        }
+
+        return count;
+
+    }
+
+    canMoveGrid(directionX, directionY) {
+        let targetX = this._gridPostion.x + directionX;
+        let targetY = this._gridPostion.y + directionY;
 
         if (
-            targetX >= 0 &&
-            targetX <= boardWidth - gridWidth &&
-            targetY >= 0 &&
-            targetY <= boardHeight - gridHeight
-        )  {
+            targetX >= 0 && targetX <= this._gameConfig.boardSizeWidth - this._gameConfig.gridWidth &&
+            targetY >= 0 && targetY <= this._gameConfig.boardSizeHeight - this._gameConfig.gridHeight
+        ) {
             this._gridPostion.x = targetX;
             this._gridPostion.y = targetY;
-            this._gameState.gridPositionX = targetX;
-            this._gameState.gridPositionY = targetY;
-
-            const currentPlayer = this._nextMoveBy;
-            this._nextMoveBy = currentPlayer === 'X' ? 'O' : 'X';
-
-            const winner  = this.checkForWin(targetX, targetY, currentPlayer);
-            if (winner) {
-                alert(`${winner} wins!!`)
-                this.gameOver = true;
-                this._winner = winner;
-            }
+            this._nextMoveBy = this._nextMoveBy === 'X' ? 'O' : 'X';
             return true;
         }
+
+        alert("Cannot move the grid in this direction!");
         return false;
+    }
+
+    moveGrid(direction) {
+        switch (direction) {
+            case "Up":
+                return this.canMoveGrid(0, -1);
+            case "Down":
+                return this.canMoveGrid(0, 1);
+            case "Left":
+                return this.canMoveGrid(-1, 0);
+            case "Right":
+                return this.canMoveGrid(1, 0);
+            case "Up-Left":
+                return this.canMoveGrid(-1, -1);
+            case "Up-Right":
+                return this.canMoveGrid(1, -1);
+            case "Down-Left":
+                return this.canMoveGrid(-1, 1);
+            case "Down-Right":
+                return this.canMoveGrid(1, 1);
+            default:
+                return false;
+        }
+    }
+
+    moveAPiece(startX, startY, targetX, targetY) {
+        if (this.gameOver) {
+            alert("Game is over!");
+            return false;
+        }
+
+        const currentPlayer = this._nextMoveBy;
+
+        if (this._gameBoard[startX][startY] === currentPlayer) {
+            this._gameBoard[startX][startY] = "Empty";
+            this._gameBoard[targetX][targetY] = currentPlayer;
+
+            if (this.checkForWin(targetX, targetY, currentPlayer) != null) {
+                alert(`${currentPlayer} wins!!`)
+                this.gameOver = true;
+                this._winner = currentPlayer;
+                return true;
+            }
+
+            this._nextMoveBy = currentPlayer === "X" ? "O" : "X";
+
+            this.moveCount++;
+        } else {
+            alert("Invalid move!")
+        }
+
+        return true;
     }
 }

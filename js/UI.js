@@ -4,15 +4,15 @@ export function renderBoard(boardState) {
     const gridContainer = document.createElement("div");
     gridContainer.classList.add("grid-container");
 
-    const gridPosition = gameController.gameBrain.gridPosition;
+    const { left, top, right, bottom } = gameController.gameBrain.gridPosition;
 
     boardState.forEach((row, rowIndex) => {
         row.forEach((cellValue, colIndex) => {
             const cellEl = document.createElement("div");
             cellEl.classList.add("cell");
 
-            if (rowIndex >= gridPosition.top && rowIndex < gridPosition.bottom
-                && colIndex >= gridPosition.left && colIndex < gridPosition.right) {
+            if (rowIndex >= top && rowIndex < bottom &&
+                colIndex >= left && colIndex < right) {
                 cellEl.classList.add("inner");
             }
 

@@ -94,14 +94,14 @@ function updateActionContainer() {
 
     if (gameController.gameBrain.moveCount >= gameController.gameBrain.movePieceAfterNMoves &&
         !gameController.gameBrain.gameOver) {
-        gameController.actionACtive = true;
+        // gameController.actionACtive = true;
 
         const btnMakeAMove = document.createElement("button");
         btnMakeAMove.textContent = "Make a Move";
         btnMakeAMove.classList.add("btn", "btn-primary", "m-1");
         btnMakeAMove.onclick = () => {
             actionContainer.innerHTML = "";
-            gameController.actionACtive = false;
+            gameController.actionACtive = null;
         };
         actionContainer.appendChild(btnMakeAMove);
 
@@ -110,6 +110,7 @@ function updateActionContainer() {
         btnMoveTheGrid.classList.add("btn", "btn-primary", "m-1");
         btnMoveTheGrid.onclick = () => {
             showGridDirectionButtons(actionContainer);
+            gameController.actionACtive = "moveGrid";
         }
         actionContainer.appendChild(btnMoveTheGrid);
 
@@ -118,7 +119,7 @@ function updateActionContainer() {
         btnMovePiece.classList.add("btn", "btn-primary", "m-1");
         btnMovePiece.onclick = () => {
             actionContainer.innerHTML = ""
-            gameController.actionACtive = false;
+            gameController.actionACtive = "movePiece";
         };
         actionContainer.appendChild(btnMovePiece);
     }
@@ -142,7 +143,7 @@ function showGridDirectionButtons(container) {
         btn.textContent = dir.label;
         btn.classList.add("btn", "btn-secondary", "m-1");
         btn.onclick = () => {
-            const isValidMove = gameController.gameBrain.moveGrid(dir.dx, dir.dy);
+            const isValidMove = gameController.gameBrain.moveGrid(dir.label);
             if (isValidMove) {
                 container.innerHTML = "";
                 gameController.actionACtive = false;
