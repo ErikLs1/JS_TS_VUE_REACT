@@ -6,6 +6,8 @@ export class GameState {
         this.moveCount = 0;
         this.gridPositionX = 0;
         this.gridPositionY = 0;
+        this.piecesLeftForX = 6;
+        this.piecesLeftForO = 6;
     }
 
     toJSON() {
@@ -15,7 +17,9 @@ export class GameState {
             nextMoveBy: this.nextMoveBy,
             moveCount: this.moveCount,
             gridPositionX: this.gridPositionX,
-            gridPositionY: this.gridPositionY
+            gridPositionY: this.gridPositionY,
+            piecesLeftForX: this.piecesLeftForX,
+            piecesLeftForO: this.piecesLeftForO,
         });
     }
 }

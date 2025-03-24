@@ -6,7 +6,8 @@ export class GameConfig {
         gridWidth = 3,
         gridHeight = 3,
         winCondition = 3,
-        movePieceAfterNMoves = 4
+        movePieceAfterNMoves = 4,
+        numberOfPieces = 6
     ) {
         this.name = name;
         this.boardSizeWidth = boardSizeWidth;
@@ -15,5 +16,6 @@ export class GameConfig {
         this.gridHeight = gridHeight;
         this.winCondition = winCondition;
         this.movePieceAfterNMoves = movePieceAfterNMoves;
+        this.numberOfPieces = numberOfPieces;
     }
 }

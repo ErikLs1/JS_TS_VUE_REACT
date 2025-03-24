@@ -43,6 +43,26 @@ export class TicTacTwoBrain {
         return this._winner;
     }
 
+    get piecesLeftForX() {
+        return this._gameState.piecesLeftForX;
+    }
+
+    get piecesLeftForO() {
+        return this._gameState.piecesLeftForO;
+    }
+
+    get winCondition() {
+        return this._gameConfig.winCondition;
+    }
+
+    get boardSizeWidth() {
+        return this._gameConfig.winCondition;
+    }
+
+    get boardSizeHeight() {
+        return this._gameConfig.winCondition;
+    }
+
     get gridCenter() {
         const startX = Math.floor((this._gameConfig.boardSizeWidth - this._gameConfig.gridWidth) / 2);;
         const startY = Math.floor((this._gameConfig.boardSizeHeight - this._gameConfig.gridHeight) / 2);;
@@ -85,6 +105,16 @@ export class TicTacTwoBrain {
             return false;
         }
 
+        if (this.currentPlayer === 'X' && this._gameState.piecesLeftForX === 0) {
+            alert("No pieces left for X. Please choose a piece from the board and move the grid")
+            return false;
+        }
+
+        if (this.currentPlayer === 'O' && this._gameState.piecesLeftForO === 0) {
+            alert("No pieces left for O. Please choose a piece from the board and move the grid")
+            return false;
+        }
+
         if (this._gameBoard[x][y] !== 'Empty') {
             return false;
         }
@@ -99,6 +129,11 @@ export class TicTacTwoBrain {
             this.gameOver = true;
             this._winner = currentPlayer;
         } else {
+            if (this.currentPlayer === 'X') {
+                this._gameState.piecesLeftForX--;
+            } else {
+                this._gameState.piecesLeftForO--;
+            }
             this._nextMoveBy = currentPlayer === 'X' ? 'O' : 'X';
         }
 
@@ -106,6 +141,37 @@ export class TicTacTwoBrain {
 
         return true;
     }
+
+    countPiecesInGrid(player = this.currentPlayer) {
+        const grid = this.gridPosition;
+        let count = 0;
+        const board = this.gameBoard;
+        for (let x = grid.left; x < grid.right; x++) {
+            for (let y = grid.top; y < grid.bottom; y++) {
+                if (board[x][y] === player) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    emptyCellsCoordinatesInGrid() {
+        const grid = this.gridPosition;
+        const  board = this.gameBoard;
+        const validCells = [];
+
+        for (let x = grid.left; x < grid.right; x++) {
+            for (let y = grid.top; y < grid.bottom; y++) {
+                if (board[x][y] === 'Empty') {
+                    validCells.push({x, y})
+                }
+            }
+        }
+
+        return validCells;
+    }
+
 
     checkForWin(x, y, piece) {
         if (!this.isWithinBoundsGrid(x, y)) {
@@ -118,6 +184,10 @@ export class TicTacTwoBrain {
             this.checkDirection(x, y, 1, 1, piece) ||
             this.checkDirection(x, y, 1, -1, piece)
         ) {
+            const timerContainer = document.getElementById("timer-container");
+            if (timerContainer) {
+                timerContainer.remove();
+            }
             return piece;
         }
 

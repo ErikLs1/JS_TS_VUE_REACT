@@ -1,6 +1,7 @@
 // import { createBoard } from "./game.js";
 import { gameController} from "./GameController.js";
 import { renderBoard} from "./UI.js";
+import {resetMoveTimer, startMoveTimer} from "./Timer.js";
 
 // Called when we need landing page
 function showLandingPage() {
@@ -43,6 +44,11 @@ function showGameBoard(gameMode) {
     container.id = "game_container";
     container.classList.add("main-container");
 
+    const timerContainer = document.createElement("div");
+    timerContainer.id = "timer-container";
+    timerContainer.classList.add("mb-3");
+    container.appendChild(timerContainer);
+
     const newGameButton = document.createElement("button");
     newGameButton.innerHTML = "Start New Game";
     newGameButton.classList.add("fw-bold", "text-dark", "btn", "btn-light", "mt-4", "w-25", "align-center");
@@ -66,7 +72,12 @@ function showGameBoard(gameMode) {
 
     document.body.appendChild(container);
 
+    startMoveTimer();
+
     gameController.updateUI = () => {
+
+        resetMoveTimer();
+
         const board = document.getElementById("board-container");
         if (board) {
             board.innerHTML = "";
@@ -78,7 +89,10 @@ function showGameBoard(gameMode) {
             if (gameController.gameBrain.gameOver) {
                 status.textContent = `Winner: ${gameController.gameBrain.winner}`;
             } else {
-                status.textContent = `Move: ${gameController.gameBrain.currentPlayer}`;
+                const currentPlayer = gameController.gameBrain.currentPlayer;
+                const piecesX = gameController.gameBrain.piecesLeftForX;
+                const piecesO = gameController.gameBrain.piecesLeftForO;
+                status.textContent = `Move: ${currentPlayer} | Pieces left for ${currentPlayer === 'X' ? currentPlayer : 'O'}: ${currentPlayer === 'X' ? piecesX : piecesO}`;
             }
         }
         updateActionContainer();
@@ -94,15 +108,26 @@ function updateActionContainer() {
 
     if (gameController.gameBrain.moveCount >= gameController.gameBrain.movePieceAfterNMoves &&
         !gameController.gameBrain.gameOver) {
+
         gameController.actionACtive = "choose";
+        const currentPlayer = gameController.gameBrain.currentPlayer;
+        const piecesLeft = currentPlayer === 'X' ? gameController.gameBrain.piecesLeftForX : gameController.gameBrain.piecesLeftForO;
 
         const btnMakeAMove = document.createElement("button");
         btnMakeAMove.textContent = "Make a Move";
         btnMakeAMove.classList.add("btn", "btn-primary", "m-1");
-        btnMakeAMove.onclick = () => {
-            actionContainer.innerHTML = "";
-            gameController.actionACtive = null;
-        };
+
+        if (piecesLeft === 0) {
+            btnMakeAMove.onclick = () => {
+                alert("No pieces left. Please choose another action.")
+            };
+        } else {
+            btnMakeAMove.onclick = () => {
+                actionContainer.innerHTML = "";
+                gameController.actionACtive = null;
+            };
+        }
+
         actionContainer.appendChild(btnMakeAMove);
 
         const btnMoveTheGrid = document.createElement("button");
@@ -117,10 +142,19 @@ function updateActionContainer() {
         const btnMovePiece = document.createElement("button");
         btnMovePiece.textContent = "Move a Piece";
         btnMovePiece.classList.add("btn", "btn-primary", "m-1");
-        btnMovePiece.onclick = () => {
-            actionContainer.innerHTML = ""
-            gameController.actionACtive = "movePiece";
-        };
+
+        const piecesInGrid = gameController.gameBrain.countPiecesInGrid();
+
+        if (piecesInGrid === 0) {
+            btnMovePiece.onclick = () => {
+                alert("You have no pieces inside the grid. Please choose another action.")
+            };
+        } else {
+            btnMovePiece.onclick = () => {
+                actionContainer.innerHTML = ""
+                gameController.actionACtive = "movePiece";
+            };
+        }
         actionContainer.appendChild(btnMovePiece);
     }
 }

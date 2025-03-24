@@ -17,6 +17,12 @@ class GameController {
     }
 
     handleCellClick(x, y) {
+        // Check is winner exists for this game.
+        if (gameController.gameBrain.gameOver) {
+            alert("Please start new game. There is winner for this game.")
+            return;
+        }
+
         // Check if user chose the action
         if (this.actionACtive === "choose") {
             alert("Please choose action before making a move!!");
