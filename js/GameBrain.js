@@ -64,8 +64,8 @@ export class TicTacTwoBrain {
     }
 
     get gridCenter() {
-        const startX = Math.floor((this._gameConfig.boardSizeWidth - this._gameConfig.gridWidth) / 2);;
-        const startY = Math.floor((this._gameConfig.boardSizeHeight - this._gameConfig.gridHeight) / 2);;
+        const startX = Math.floor((this._gameConfig.boardSizeWidth - this._gameConfig.gridWidth) / 2);
+        const startY = Math.floor((this._gameConfig.boardSizeHeight - this._gameConfig.gridHeight) / 2);
         return {startX, startY};
     }
 

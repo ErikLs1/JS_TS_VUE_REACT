@@ -203,7 +203,7 @@ function simulatePlaceMove(x, y, player) {
  * @param x The row index of the move.
  * @param y The column index of the move.
  * @param player The player (X or O).
- * @param board True if the win condition is met, otherwise falase.
+ * @param board True if the win condition is met, otherwise false.
  */
 function simulateWinCondition(x, y, player, board) {
     const winCondition = gameController.gameBrain.winCondition;
@@ -236,7 +236,7 @@ function simulateWinCondition(x, y, player, board) {
     ];
 
     for (let { dx, dy } of directions) {
-        let count = 1 + countInDirection(dx, dy) + countInDirection(-dx, dy);
+        let count = 1 + countInDirection(dx, dy) + countInDirection(-dx, -dy);
         if (count >= winCondition) {
             return true;
         }
