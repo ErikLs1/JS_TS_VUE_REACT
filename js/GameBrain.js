@@ -56,11 +56,11 @@ export class TicTacTwoBrain {
     }
 
     get boardSizeWidth() {
-        return this._gameConfig.winCondition;
+        return this._gameConfig.boardSizeWidth;
     }
 
     get boardSizeHeight() {
-        return this._gameConfig.winCondition;
+        return this._gameConfig.boardSizeHeight;
     }
 
     get gridCenter() {

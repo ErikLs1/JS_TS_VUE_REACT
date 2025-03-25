@@ -1,5 +1,6 @@
 import {TicTacTwoBrain} from "./GameBrain.js";
 import {GameConfig} from "./GameConfig.js";
+import {isAITurn} from "./main.js";
 
 class GameController {
     constructor() {
@@ -17,6 +18,11 @@ class GameController {
     }
 
     handleCellClick(x, y) {
+
+        if (isAITurn()) {
+            return;
+        }
+
         // Check is winner exists for this game.
         if (gameController.gameBrain.gameOver) {
             alert("Please start new game. There is winner for this game.")

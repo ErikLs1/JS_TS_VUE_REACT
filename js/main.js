@@ -1,10 +1,14 @@
 // import { createBoard } from "./game.js";
 import { gameController} from "./GameController.js";
 import { renderBoard} from "./UI.js";
-import {resetMoveTimer, startMoveTimer} from "./Timer.js";
+import {resetMoveTimer, startMoveTimer, stopMoveTimer} from "./Timer.js";
+import {performAIMove} from "./AIActions.js";
 
 // Called when we need landing page
 function showLandingPage() {
+    // When navigating to main page stops the timer and stops making random moves
+    stopMoveTimer()
+
     document.body.innerHTML = "";
 
     let container = document.createElement("div");
@@ -15,28 +19,32 @@ function showLandingPage() {
     h1.classList.add("fw-bold", "text-dark", "text-center", "mb-4");
     container.appendChild(h1);
 
-    function createButton(text, onClick) {
+    function createButton(text, mode) {
         let button = document.createElement("button");
         button.innerHTML = text;
         button.classList.add("fw-bold", "text-dark", "btn", "btn-light", "mb-2", "w-25");
-        button.onclick = onClick;
+        button.onclick = () => showGameBoard(mode)
         return button;
     }
 
-    let button1 = createButton("Human VS Human", () => showGameBoard());
-    let button2 = createButton("Human VS AI", () => showGameBoard());
-    let button3 = createButton("AI VS AI", () => showGameBoard());
+    let button1 = createButton("Human VS Human", "HUMAN_VS_HUMAN");
+    let button2 = createButton("Human VS AI", "HUMAN_VS_AI");
+    let button3 = createButton("AI VS Human", "AI_VS_HUMAN");
+    let button4 = createButton("AI VS AI", "AI_VS_AI");
 
     container.appendChild(button1);
     container.appendChild(button2);
     container.appendChild(button3);
+    container.appendChild(button4);
 
     document.body.appendChild(container);
 }
 
+let currentGameMode = "HUMAN_VS_HUMAN";
 
 // Called when we need to show the grid
 function showGameBoard(gameMode) {
+    currentGameMode = gameMode;
     gameController.resetGame();
     document.body.innerHTML = "";
 
@@ -105,7 +113,22 @@ function updateActionContainer() {
     if (!actionContainer) return;
 
     actionContainer.innerHTML = "";
+    // if game mode is vs AI do not display buttons when it is ai's move
+    if ((currentGameMode === "HUMAN_VS_AI" && gameController.gameBrain.currentPlayer === 'O') ||
+        (currentGameMode === "AI_VS_HUMAN" && gameController.gameBrain.currentPlayer === 'X') ||
+        (currentGameMode === "AI_VS_AI")) {
 
+        setTimeout(() => {
+           if ((!gameController.gameBrain.gameOver && gameController.gameBrain.currentPlayer === 'O' && currentGameMode === "HUMAN_VS_AI") ||
+               (!gameController.gameBrain.gameOver && gameController.gameBrain.currentPlayer === 'X' && currentGameMode === "AI_VS_HUMAN") ||
+               (!gameController.gameBrain.gameOver && currentGameMode === "AI_VS_AI")) {
+               performAIMove();
+           }
+        }, 3000);
+        return;
+    }
+
+    // buttons to display for human turn
     if (gameController.gameBrain.moveCount >= gameController.gameBrain.movePieceAfterNMoves &&
         !gameController.gameBrain.gameOver) {
 
@@ -190,4 +213,11 @@ function showGridDirectionButtons(container) {
     })
 }
 
+export function isAITurn() {
+    return (currentGameMode === 'HUMAN_VS_AI' && gameController.gameBrain.currentPlayer === 'O') ||
+           (currentGameMode === 'AI_VS_HUMAN' && gameController.gameBrain.currentPlayer === 'X') ||
+           (currentGameMode === 'AI_VS_AI');
+}
+
 showLandingPage();
+

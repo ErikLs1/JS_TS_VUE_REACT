@@ -1,7 +1,9 @@
 import {makeRandomMove} from "./AutomatedMoves.js";
+import {isAITurn} from "./main.js";
+import {performAIMove} from "./AIActions.js";
 
 let moveTimerInterval;
-const MOVE_TIME_SECONDS = 1;
+const MOVE_TIME_SECONDS = 15;
 let remainingTime = MOVE_TIME_SECONDS;
 
 export function startMoveTimer() {
@@ -16,7 +18,11 @@ export function startMoveTimer() {
         updateTimerDisplay();
         if (remainingTime <= 0) {
             clearInterval(moveTimerInterval);
-            makeRandomMove();
+            if (isAITurn()) {
+                performAIMove()
+            } else {
+                makeRandomMove();
+            }
         }
     }, 1000);
 
@@ -30,5 +36,11 @@ export function updateTimerDisplay() {
     const timerContainer = document.getElementById("timer-container");
     if (timerContainer) {
         timerContainer.textContent = `Time remaining: ${remainingTime} seconds`;
+    }
+}
+
+export function stopMoveTimer() {
+    if (moveTimerInterval) {
+        clearInterval(moveTimerInterval);
     }
 }
