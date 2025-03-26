@@ -1,5 +1,5 @@
-import {TicTacTwoBrain} from "./GameBrain.js";
-import {GameConfig} from "./GameConfig.js";
+import {TicTacTwoBrain} from "../gameBrain/GameBrain.js";
+import {GameConfig} from "../gameBrain/GameConfig.js";
 import {isAITurn} from "./main.js";
 
 class GameController {

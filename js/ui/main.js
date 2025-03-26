@@ -1,8 +1,8 @@
-// import { createBoard } from "./game.js";
 import { gameController} from "./GameController.js";
-import { renderBoard} from "./UI.js";
-import {resetMoveTimer, startMoveTimer, stopMoveTimer} from "./Timer.js";
-import {performAIMove} from "./AIActions.js";
+import { renderBoard} from "./GameBoard.js";
+import {resetMoveTimer, startMoveTimer, stopMoveTimer} from "../gameBrain/Timer.js";
+import {performAIMove} from "../ai/AiGameBrain.js";
+// import {performAIMove} from "./AIActions.js";
 
 // Called when we need landing page
 function showLandingPage() {

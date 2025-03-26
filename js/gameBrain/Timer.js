@@ -1,6 +1,7 @@
-import {makeRandomMove} from "./AutomatedMoves.js";
-import {isAITurn} from "./main.js";
-import {performAIMove} from "./AIActions.js";
+import {isAITurn} from "../ui/main.js";
+import {performAIMove} from "../ai/AiGameBrain.js";
+import {gameController} from "../ui/GameController.js";
+// import {performAIMove} from "./AIActions.js";
 
 let moveTimerInterval;
 const MOVE_TIME_SECONDS = 15;
@@ -43,4 +44,20 @@ export function stopMoveTimer() {
     if (moveTimerInterval) {
         clearInterval(moveTimerInterval);
     }
+}
+
+export function makeRandomMove() {
+    if (gameController.gameBrain.gameOver) return;
+
+    const validCells = gameController.gameBrain.emptyCellsCoordinatesInGrid();
+    if (validCells.length > 0) {
+        const randomIndex = Math.floor(Math.random() * validCells.length);
+        const {x, y} = validCells[randomIndex];
+
+        gameController.gameBrain.makeAMove(x, y);
+    } else {
+        alert("No valid moves available")
+    }
+
+    gameController.updateUI();
 }
