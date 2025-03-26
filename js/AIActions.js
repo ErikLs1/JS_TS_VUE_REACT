@@ -9,10 +9,20 @@ import { gameController } from "./GameController.js";
 export function performAIMove() {
     if (gameController.gameBrain.gameOver) return;
 
-    // Make random move if less than 3 moves were made.
-    if (gameController.gameBrain.moveCount < 3) {
-        performRandomMove();
-        return;
+    if ((gameController.gameBrain.currentPlayer === 'X' && gameController.gameBrain.piecesLeftForX === 0) ||
+        (gameController.gameBrain.currentPlayer === 'O' && gameController.gameBrain.piecesLeftForO === 0) ||
+        (gameController.gameBrain.emptyCellsCoordinatesInGrid().length === 0)){
+
+        const bestGridMove = findBestGridMoveForAI();
+        const bestMovePiece = findBestMovePieceForAI();
+
+        if (bestGridMove && (!bestMovePiece || bestGridMove.score > bestMovePiece.score)) {
+            executeMove(bestGridMove);
+            return;
+        } else if (bestMovePiece) {
+            executeMove(bestMovePiece);
+            return;
+        }
     }
 
     // Check if AI can win immediately.
@@ -30,9 +40,17 @@ export function performAIMove() {
     }
 
     // Choose the best move for AI
-    const bestMove = chooseBestMoveForAI();
-    if (bestMove) {
-        executeMove(bestMove);
+    const bestPlaceMove = chooseBestMoveForAI();
+    // Choose the best grid move for the AI
+    const bestGridMove = findBestGridMoveForAI();
+
+    if (bestGridMove && bestGridMove.score > 0 && bestGridMove.score > bestPlaceMove.score) {
+        executeMove(bestGridMove);
+        return;
+    }
+
+    if (bestPlaceMove) {
+        executeMove(bestPlaceMove);
         return;
     }
 
@@ -49,9 +67,11 @@ export function performAIMove() {
 function executeMove(move) {
     if (move.type === "place") {
         gameController.gameBrain.makeAMove(move.x, move.y);
+    } else if (move.type === "grid") {
+        gameController.gameBrain.moveGrid(move.direction);
+    } else if (move.type === "movePiece") {
+        gameController.gameBrain.moveAPiece(move.from.x, move.from.y, move.to.x, move.to.y);
     }
-    // else if (move type === "grid") {...}
-    // else if (move type === "movePiece") {...}
 
     gameController.updateUI();
 }
@@ -328,9 +348,150 @@ function performRandomMove() {
     if (validCells.length > 0) {
         const randomIndex = Math.floor(Math.random() * validCells.length);
         const {x, y} = validCells[randomIndex];
-
         gameController.gameBrain.makeAMove(x, y);
     }
 
     gameController.updateUI();
+}
+
+/**
+ * Gets the direction values for a grid move.
+ *
+ * @param direction The grid move direction.
+ * @returns {{dx: number, dy: number}} THe delta value for the move.
+ */
+function getGridDirectionData(direction) {
+    switch (direction) {
+        case "Up": return {dx: -1, dy: 0};
+        case "Down": return {dx: 1, dy: 0};
+        case "Left": return {dx: 0, dy: -1};
+        case "Right": return {dx: 0, dy: 1};
+        case "Up-Left": return {dx: -1, dy: -1};
+        case "Up-Right": return {dx: -1, dy: 1};
+        case "Down-Left": return {dx: 1, dy: -1};
+        case "Down-Right": return {dx: 1, dy: 1};
+        default: return {dx: 0, dy: 0}
+    }
+}
+
+/**
+ * Evaluates grid moves by shifting the grid in the given direction.
+ * The higher the positive difference the better the move.
+ *
+ * @param direction The direction to move the grid
+ * @returns {number} The score for the grid move.
+ */
+function evaluateGridMove(direction) {
+    let currentGridPosition = gameController.gameBrain.gridPosition;
+    const delta = getGridDirectionData(direction);
+    const newX = currentGridPosition.left + delta.dx;
+    const newY = currentGridPosition.top + delta.dy;
+    const gridWidth = gameController.gameBrain.gridWidth;
+    const gridHeight = gameController.gameBrain.gridHeight;
+    const boardWidth = gameController.gameBrain.boardSizeWidth;
+    const boardHeight = gameController.gameBrain.boardSizeHeight;
+
+    if (newX < 0 || newX > boardWidth - gridWidth ||
+        newY < 0 || newY > boardHeight - gridHeight) {
+        return -Infinity;
+    }
+
+    const newGridPosition = {
+        left: newX,
+        top: newY,
+        right: newX + gridWidth,
+        bottom: newY + gridHeight
+    };
+
+    let aiPieceCount = 0, opponentPieceCount = 0;
+    const board = gameController.gameBrain.gameBoard;
+    const currentPlayer = gameController.gameBrain.currentPlayer;
+    const opponent = currentPlayer === 'X' ? 'O' : 'X';
+    for (let x = newGridPosition.left; x < newGridPosition.right; x++) {
+        for (let y = newGridPosition.top; y < newGridPosition.bottom; y++) {
+            if (board[x][y] === currentPlayer) {
+                aiPieceCount++;
+            } else if (board[x][y] === opponent) {
+                opponentPieceCount++;
+            }
+        }
+    }
+
+    return aiPieceCount - opponentPieceCount;
+}
+
+/**
+ * Goes through all possible grid move directions and returns the best grid move.
+ *
+ * @returns A grid move object containing type of the move, direction, and score
+ */
+function findBestGridMoveForAI() {
+    const directions = ["Up", "Down", "Left", "Right", "Up-Left", "Up-Right", "Down-Left", "Down-Right"];
+    let bestMove = null;
+    let highestScore = -Infinity;
+    for (let dir of directions) {
+        const score = evaluateGridMove(dir);
+        if (score > highestScore) {
+            highestScore = score;
+            bestMove = {type: "grid", direction: dir, score: score}
+        }
+    }
+    return bestMove;
+}
+
+
+function findBestMovePieceForAI() {
+    const currentPlayer = gameController.gameBrain.currentPlayer;
+    const gridPosition = gameController.gameBrain.gridPosition;
+    const board = gameController.gameBrain.gameBoard;
+    const aiPieceCells = [];
+    for (let x = gridPosition.left; x < gridPosition.right; x++) {
+        for (let y = gridPosition.top; y < gridPosition.bottom; y++) {
+            if (board[x][y] === currentPlayer) {
+                aiPieceCells.push({ x, y });
+            }
+        }
+    }
+
+    const emptyCells = gameController.gameBrain.emptyCellsCoordinatesInGrid();
+
+    let bestMove = null;
+    let highestScore = -Infinity;
+
+    for (let piece of aiPieceCells) {
+        for (let target of emptyCells) {
+            const score = simulateMovePiece(piece.x, piece.y, target.x, target.y, currentPlayer);
+            if (score > highestScore) {
+                highestScore = score;
+                bestMove = { type: "movePiece", from: { x: piece.x, y: piece.y }, to: { x: target.x, y: target.y}, score: score};
+            }
+        }
+    }
+
+    return bestMove;
+}
+
+/**
+ * Simulates moving a piece form chosen position to target position.
+ *
+ * @param fromX - Row index of chosen position.
+ * @param fromY - Column index of chosen position.
+ * @param toX - Target row index.
+ * @param toY - Target column index.
+ * @param player - Tha player symbol.
+ * @returns {number} - The evaluated core of the move.
+ */
+function simulateMovePiece(fromX, fromY, toX, toY, player) {
+    const boardCopy = cloneBoard();
+    if (boardCopy[toX][toY] !== 'Empty') {
+        return -Infinity;
+    }
+
+    boardCopy[fromX][fromY] = 'Empty';
+    boardCopy[toX][toY] = player;
+    if (simulateWinCondition(toX, toY, player, boardCopy)) {
+        return 1000;
+    }
+
+    return evaluateMove(toX, toY, player, boardCopy);
 }
