@@ -68,13 +68,7 @@ export class TicTacTwoBrain {
     }
 
     get gridHeight() {
-        return this._gameConfig.height;
-    }
-
-    get gridCenter() {
-        const startX = Math.floor((this._gameConfig.boardSizeWidth - this._gameConfig.gridWidth) / 2);
-        const startY = Math.floor((this._gameConfig.boardSizeHeight - this._gameConfig.gridHeight) / 2);
-        return {startX, startY};
+        return this._gameConfig.gridHeight; //
     }
 
     get gridPosition() {
@@ -89,18 +83,9 @@ export class TicTacTwoBrain {
         return this._gameBoard[x][y];
     }
 
-    isWithinBounds(x, y) {
-        let boardWidth = this._gameConfig.boardSizeWidth;
-        let boardHeight = this._gameConfig.boardSizeHeight;
-
-        return x >= 0 && x < boardWidth && y >= 0 && y < boardHeight;
-    }
-
     isWithinBoundsGrid(x, y) {
-        const gridPosition = this._gridPostion;
-
-        const gridLeft = gridPosition.x;
-        const gridTop = gridPosition.y
+        const gridLeft = this._gridPostion.x;
+        const gridTop = this._gridPostion.y
         const gridRight = gridLeft + this._gameConfig.gridWidth;
         const gridBottom = gridTop + this._gameConfig.gridHeight;
         return x >= gridLeft && x < gridRight &&

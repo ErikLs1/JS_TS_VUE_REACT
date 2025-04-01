@@ -20,7 +20,7 @@ export function startMoveTimer() {
         if (remainingTime <= 0) {
             clearInterval(moveTimerInterval);
             if (isAITurn()) {
-                performAIMove()
+                performAIMove();
             } else {
                 makeRandomMove();
             }

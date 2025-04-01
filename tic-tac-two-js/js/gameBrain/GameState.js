@@ -9,17 +9,4 @@ export class GameState {
         this.piecesLeftForX = 6;
         this.piecesLeftForO = 6;
     }
-
-    toJSON() {
-        return JSON.stringify({
-            gameBoard: this.gameBoard,
-            gameConfig: this.gameConfig,
-            nextMoveBy: this.nextMoveBy,
-            moveCount: this.moveCount,
-            gridPositionX: this.gridPositionX,
-            gridPositionY: this.gridPositionY,
-            piecesLeftForX: this.piecesLeftForX,
-            piecesLeftForO: this.piecesLeftForO,
-        });
-    }
 }
