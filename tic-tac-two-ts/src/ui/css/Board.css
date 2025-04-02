@@ -52,3 +52,47 @@ body {
     align-items: center;
     height: 100vh;
 }
+
+/* Button styling */
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    width: 250px;    /* All buttons will have the same width */
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 8px;
+    transition: background-color 0.2s ease;
+}
+
+/* Primary button style */
+.btn-primary {
+    background-color: orange;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: coral;
+}
+
+/* Light button style */
+.btn-light {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.btn-light:hover {
+    background-color: #e2e6ea;
+}
+
+/* Secondary button style */
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}

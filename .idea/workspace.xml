@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="creat ts code">
+      <change beforePath="$PROJECT_DIR$/tic-tac-two-js/.idea/icd0006-24-25-s.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tic-tac-two-js/.idea/icd0006-24-25-s.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tic-tac-two-ts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tic-tac-two-ts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tic-tac-two-ts/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tic-tac-two-ts/src/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tic-tac-two-ts/src/ui/css/Board.css" beforeDir="false" afterPath="$PROJECT_DIR$/tic-tac-two-ts/src/ui/css/Board.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2tcZ5KXuqipUJ6lf1BuU3k12quc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Node.js.GameBrain.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-ts/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tic-tac-two-ts" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/tic-tac-two-js" />
+      <recent name="$PROJECT_DIR$/js/ui" />
+      <recent name="$PROJECT_DIR$/js/gameBrain" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="" />
+      <created>1740653138559</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740653138559</updated>
+      <workItem from="1740653139740" duration="2571000" />
+      <workItem from="1740667079156" duration="9683000" />
+      <workItem from="1740725309492" duration="23573000" />
+      <workItem from="1740811290027" duration="14981000" />
+      <workItem from="1742213681394" duration="646000" />
+      <workItem from="1742812869492" duration="70000" />
+      <workItem from="1742817572600" duration="11708000" />
+      <workItem from="1742883262577" duration="12530000" />
+      <workItem from="1742973498187" duration="13769000" />
+      <workItem from="1743058714919" duration="1278000" />
+      <workItem from="1743488421127" duration="11558000" />
+      <workItem from="1743500659865" duration="10000" />
+      <workItem from="1743593355789" duration="4487000" />
+    </task>
+    <task id="LOCAL-00001" summary="create gitignore">
+      <option name="closed" value="true" />
+      <created>1740653390719</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1740653390719</updated>
+    </task>
+    <task id="LOCAL-00002" summary="create main page with 3 buttons">
+      <option name="closed" value="true" />
+      <created>1740673035025</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1740673035025</updated>
+    </task>
+    <task id="LOCAL-00003" summary="create grid with redirection to main page">
+      <option name="closed" value="true" />
+      <created>1740676956273</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740676956273</updated>
+    </task>
+    <task id="LOCAL-00004" summary="create basic moves and implement win">
+      <option name="closed" value="true" />
+      <created>1740737204768</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740737204768</updated>
+    </task>
+    <task id="LOCAL-00005" summary="create grid movement">
+      <option name="closed" value="true" />
+      <created>1740748830523</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740748830523</updated>
+    </task>
+    <task id="LOCAL-00006" summary="create move piece functionality">
+      <option name="closed" value="true" />
+      <created>1740820703175</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1740820703175</updated>
+    </task>
+    <task id="LOCAL-00007" summary="create restrictions when action window appears">
+      <option name="closed" value="true" />
+      <created>1740823525235</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740823525235</updated>
+    </task>
+    <task id="LOCAL-00008" summary="create fix of win condition">
+      <option name="closed" value="true" />
+      <created>1740825894588</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740825894588</updated>
+    </task>
+    <task id="LOCAL-00009" summary="creat time with random move, AI functionality (not tested).">
+      <option name="closed" value="true" />
+      <created>1742835495019</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1742835495019</updated>
+    </task>
+    <task id="LOCAL-00010" summary="creat documentation for AI moves and some working version of the AI.">
+      <option name="closed" value="true" />
+      <created>1742895050047</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742895050047</updated>
+    </task>
+    <task id="LOCAL-00011" summary="creat fixed ai.">
+      <option name="closed" value="true" />
+      <created>1742897413216</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1742897413216</updated>
+    </task>
+    <task id="LOCAL-00012" summary="creat advanced ai">
+      <option name="closed" value="true" />
+      <created>1742983313543</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1742983313543</updated>
+    </task>
+    <task id="LOCAL-00013" summary="creat code refactoring">
+      <option name="closed" value="true" />
+      <created>1742988056642</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1742988056642</updated>
+    </task>
+    <task id="LOCAL-00014" summary="creat tic tac two typescript project initialization">
+      <option name="closed" value="true" />
+      <created>1743059889254</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1743059889254</updated>
+    </task>
+    <task id="LOCAL-00015" summary="creat ts code">
+      <option name="closed" value="true" />
+      <created>1743500636800</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1743500636800</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="create gitignore" />
+    <MESSAGE value="create main page with 3 buttons" />
+    <MESSAGE value="create grid with redirection to main page" />
+    <MESSAGE value="create basic moves and implement win" />
+    <MESSAGE value="create grid movement" />
+    <MESSAGE value="create move piece functionality" />
+    <MESSAGE value="create restrictions when action window appears" />
+    <MESSAGE value="create fix of win condition" />
+    <MESSAGE value="creat time with random move, AI functionality (not tested)." />
+    <MESSAGE value="creat documentation for AI moves and some working version of the AI." />
+    <MESSAGE value="creat fixed ai." />
+    <MESSAGE value="creat advanced ai" />
+    <MESSAGE value="creat code refactoring" />
+    <MESSAGE value="creat tic tac two typescript project initialization" />
+    <MESSAGE value="creat ts code" />
+    <option name="LAST_COMMIT_MESSAGE" value="creat ts code" />
+  </component>
+</project>
