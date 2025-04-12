@@ -4,39 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="creat ui fix + vue project initialization">
-      <change afterPath="$PROJECT_DIR$/ttt-vue/src/components/LandingPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ttt-vue/src/components/NavBar.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ttt-vue/src/components/PlayerInfo.vue" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="vue">
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/views/GameBoarView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/views/GameWinnerView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/views/LandingPageView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/views/PlayerInfoView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/assets/base.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/assets/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/assets/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/components/TheWelcome.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/components/WelcomeItem.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/components/icons/IconCommunity.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/components/icons/IconDocumentation.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/components/icons/IconEcosystem.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/components/icons/IconSupport.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/components/icons/IconTooling.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/router/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/views/AboutView.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/src/views/HomeView.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/tsconfig.node.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tic-tac-two-vue/vite.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/components/LandingPage.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/components/NavBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/components/PlayerInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/components/GameModeButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/stores/counter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/stores/counter.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,29 +43,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Node.js.GameBrain.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-vue/src",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-ts/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Node.js.GameBrain.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-vue/src&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-ts/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tic-tac-two-vue/src" />
@@ -133,7 +111,9 @@
       <workItem from="1744282254894" duration="2869000" />
       <workItem from="1744285824849" duration="22000" />
       <workItem from="1744285851768" duration="3103000" />
-      <workItem from="1744295655047" duration="6942000" />
+      <workItem from="1744295655047" duration="8072000" />
+      <workItem from="1744372657263" duration="1938000" />
+      <workItem from="1744448400729" duration="8677000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -263,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743621061238</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="vue">
+      <option name="closed" value="true" />
+      <created>1744306669841</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1744306669841</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +285,7 @@
     <MESSAGE value="creat tic tac two typescript project initialization" />
     <MESSAGE value="creat ts code" />
     <MESSAGE value="creat ui fix + vue project initialization" />
-    <option name="LAST_COMMIT_MESSAGE" value="creat ui fix + vue project initialization" />
+    <MESSAGE value="vue" />
+    <option name="LAST_COMMIT_MESSAGE" value="vue" />
   </component>
 </project>

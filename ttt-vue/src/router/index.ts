@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LandingPage from "@/components/LandingPage.vue";
-import PlayerInfo from "@/components/PlayerInfo.vue";
+import LandingPageView from "@/views/LandingPageView.vue";
+import PlayerInfoView from "@/views/PlayerInfoView.vue";
+import GameBoarView from "@/views/GameBoarView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,13 +9,19 @@ const router = createRouter({
       {
         path: '/',
         name: 'Landing',
-        component: LandingPage,
+        component: LandingPageView,
       },
 
       {
-          path: '/player-info/:mode',
-          name: 'PlayerInfo',
-          component: PlayerInfo,
+          path: '/player-info/',
+          name: 'PlayerInfoView',
+          component: PlayerInfoView,
+      },
+
+      {
+          path: '/gameboard',
+          name: 'GameBoardView',
+          component: GameBoarView,
       },
   ],
 })
