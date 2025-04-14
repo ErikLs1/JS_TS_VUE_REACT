@@ -2,12 +2,15 @@
 import { useGameStore } from "@/stores/counter.ts";
 import {computed, onMounted} from "vue";
 import {GameController} from "@/gameBrain/GameController.ts";
+import {isAiTurn, performAIMove} from "@/gameBrain/ai/AiGameBrain.ts";
+import {resetMoveTimer, startMoveTimer} from "@/gameBrain/Timer.ts";
 
 const store = useGameStore()
 onMounted(() => {
   if (!store.brain) {
     store.startNewGame()
   }
+  startMoveTimer()
 })
 
 const gameBoard = computed(() => store.gameBoard)
@@ -16,6 +19,26 @@ const gameOver = computed(() => store.gameOver)
 const winner = computed(() => store.winner)
 const showActionButtons = computed(() => store.moveCount >= 4)
 const controller = new GameController(store)
+
+function handleClick(x: number, y: number) {
+  if (gameOver.value) return;
+  if (isAiTurn()) return;
+
+  controller.handleCellClick(x, y)
+
+  if (!store.gameOver) {
+    resetMoveTimer()
+  }
+
+  if (!store.gameOver && isAiTurn()) {
+    setTimeout(() => {
+      performAIMove()
+      if (!store.gameOver) {
+        resetMoveTimer()
+      }
+    }, 3000)
+  }
+}
 </script>
 
 <template>
@@ -26,6 +49,9 @@ const controller = new GameController(store)
     <div>
       <p>Current Player: {{ currentPlayer }}</p>
     </div>
+    <div id="timer-container" class="mb-3">
+
+    </div>
     <div class="board">
       <div v-for="(row, x) in gameBoard" :key="x" class="board-row">
         <div
@@ -33,13 +59,13 @@ const controller = new GameController(store)
             :key="y"
             class="board-cell"
             :class="{ inner: store.isWithinBoundsGrid(x, y) }"
-            @click="controller.handleCellClick(x, y)">
+            @click="handleClick(x, y)">
           {{ value === 'Empty' ? '' : value }}
         </div>
       </div>
     </div>
 
-    <div v-if="!store.gameOver && showActionButtons && store.actionActive === null">
+    <div v-if="!store.gameOver && showActionButtons && store.actionActive === null && !isAiTurn()">
       <button @click="store.actionActive = false">Make a Move</button>
       <button @click="store.actionActive = 'grid'">Move the Grid</button>
       <button @click="store.actionActive = 'movePiece'">Move a Piece</button>

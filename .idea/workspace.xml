@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create gameBoard and direction/action buttons">
-      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameBrain.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameConfig.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameState.ts" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create move, grid move, piece move">
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/Timer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/ai/AiGameBrain.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/ai/AiMoveGrid.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/ai/AiMovePiece.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/ai/AiMoveTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/ai/AiPutPiece.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ttt-vue/src/components/GameModeButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/components/GameModeButton.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ttt-vue/src/stores/counter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/stores/counter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ttt-vue/src/views/GameBoarView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/views/GameBoarView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +114,7 @@
       <workItem from="1744372657263" duration="1938000" />
       <workItem from="1744448400729" duration="10413000" />
       <workItem from="1744465730707" duration="4225000" />
-      <workItem from="1744610001663" duration="11604000" />
+      <workItem from="1744610001663" duration="18033000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -267,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744469943711</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="create move, grid move, piece move">
+      <option name="closed" value="true" />
+      <created>1744621874977</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1744621874977</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +313,7 @@
     <MESSAGE value="vue" />
     <MESSAGE value="create landing page + user input" />
     <MESSAGE value="create gameBoard and direction/action buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="create gameBoard and direction/action buttons" />
+    <MESSAGE value="create move, grid move, piece move" />
+    <option name="LAST_COMMIT_MESSAGE" value="create move, grid move, piece move" />
   </component>
 </project>

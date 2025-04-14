@@ -1,4 +1,5 @@
 import type {useGameStore} from "@/stores/counter.ts";
+import {isAiTurn} from "@/gameBrain/ai/AiGameBrain.ts";
 
 export class GameController {
     public movePieceStartCell: { x: number; y: number } | null = null;
@@ -14,9 +15,9 @@ export class GameController {
         this.movePieceStartCell = null;
     }
     public handleCellClick(x: number, y: number): void {
-        // if (isAITurn()) {
-        //     return;
-        // }
+        if (isAiTurn()) {
+            return;
+        }
 
         // Check is winner exists for this game.
         if (this.store.gameOver) {
