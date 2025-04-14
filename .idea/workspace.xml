@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create landing page + user input">
-      <change afterPath="$PROJECT_DIR$/ttt-vue/src/components/ActionButton.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ttt-vue/src/components/Cell.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ttt-vue/src/components/DirectionButton.vue" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create gameBoard and direction/action buttons">
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameBrain.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameConfig.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameState.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ttt-vue/src/components/GameBoard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/components/GameBoard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/components/GameModeButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/components/GameModeButton.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ttt-vue/src/stores/counter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/stores/counter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ttt-vue/src/views/GameBoarView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/views/GameBoarView.vue" afterDir="false" />
     </list>
@@ -24,8 +25,8 @@
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="TypeScript File" />
         <option value="Vue Composition API Component" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -111,7 +112,8 @@
       <workItem from="1744295655047" duration="8072000" />
       <workItem from="1744372657263" duration="1938000" />
       <workItem from="1744448400729" duration="10413000" />
-      <workItem from="1744465730707" duration="4126000" />
+      <workItem from="1744465730707" duration="4225000" />
+      <workItem from="1744610001663" duration="11604000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -257,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744460955800</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="create gameBoard and direction/action buttons">
+      <option name="closed" value="true" />
+      <created>1744469943711</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1744469943711</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +303,7 @@
     <MESSAGE value="creat ui fix + vue project initialization" />
     <MESSAGE value="vue" />
     <MESSAGE value="create landing page + user input" />
-    <option name="LAST_COMMIT_MESSAGE" value="create landing page + user input" />
+    <MESSAGE value="create gameBoard and direction/action buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="create gameBoard and direction/action buttons" />
   </component>
 </project>

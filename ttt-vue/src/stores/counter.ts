@@ -1,39 +1,27 @@
 import { defineStore } from 'pinia'
+import { TicTacTwoBrain } from "@/gameBrain/GameBrain.ts";
+import { GameConfig } from "@/gameBrain/GameConfig.ts";
 
-const BOARD_WIDTH = 5
-const BOARD_HEIGHT = 5
 export const useGameStore = defineStore('gameStore', {
   state: () => ({
     mode: '' as string,
     player1: '' as string,
     player2: '' as string,
-
-    board: [] as string[][],
-    currentPlayer: 'X' as 'X' | 'O',
-    gameOver: false,
-    winner: '' as string,
-    moveCount: 0,
-
-    gridLeft: 1,
-    gridTop: 1,
-    gridWidth: 3,
-    gridHeight: 3,
+    actionActive: null as "choose" | "grid" | "movePiece" | false | null,
+    brain: null as TicTacTwoBrain | null
   }),
 
   getters: {
     gameMode: (state) => state.mode,
-
-    getBoard(state) {
-      return state.board
-    },
-
+    gameBoard: (state) => state.brain ? state.brain.gameBoard : [],
+    currentPlayer: (state) => state.brain ? state.brain.currentPlayer : '',
+    winner: (state) => state.brain ? state.brain.winner : null,
+    gameOver: (state) => state.brain ? state.brain.gameOver : false,
+    moveCount: (state) => state.brain ? state.brain.moveCount : 0,
+    gridPosition: (state) => state.brain ? state.brain.gridPosition : null,
     isWithinBoundsGrid: (state) => (x: number, y: number) => {
-      const left = state.gridLeft;
-      const right = left + state.gridWidth;
-      const top = state.gridTop;
-      const bottom =  top + state.gridHeight;
-      return x >= left && x < right &&
-             y >= top && y < bottom;
+      if (!state.brain) return false
+      return state.brain.isWithinBoundsGrid(x, y)
     }
   },
 
@@ -48,51 +36,24 @@ export const useGameStore = defineStore('gameStore', {
     },
 
     startNewGame() {
-      this.currentPlayer = 'X'
-      this.gameOver = false
-      this.winner = ''
-      this.moveCount = 0
-      this.gridLeft = 1
-      this.gridTop = 1
-      this.gridWidth = 3
-      this.gridHeight = 3
-      this.board = Array.from( { length: BOARD_WIDTH }, ()=>
-        Array.from({ length: BOARD_HEIGHT }, () => 'Empty'))
+      const config = new GameConfig("TIC TAC TWO");
+      this.brain = null
+      this.brain = TicTacTwoBrain.TicTacTwoBrainConfig(config, 'X')
     },
 
     makeMove(x: number, y: number) {
-      if (this.gameOver) return
-      if (this.board[x][y] !== 'Empty') return
-      this.board[x][y] = this.currentPlayer
-      this.checkForWin(x, y)
-      this.moveCount++
-      if (!this.gameOver) {
-        this.currentPlayer = (this.currentPlayer === 'X') ? 'O' : 'X'
-      }
+      if (!this.brain) return
+      this.brain.makeAMove(x, y)
     },
 
-    checkForWin(x: number, y: number) {
-      return null
-    },
-
-    movePiece(startX: number, startY: number, targetX: number, targetY: number) {
-      if (this.gameOver ||
-          this.board[startX][startY] !== this.currentPlayer ||
-          this.board[targetX][targetY] !== 'Empty') return;
-
-      this.board[targetX][targetY] = this.currentPlayer;
-      this.board[startX][startY] = 'Empty';
-      this.checkForWin(targetX, targetY);
-      this.moveCount++;
-
-      if (!this.gameOver) {
-        this.currentPlayer = (this.currentPlayer === 'X') ? 'O' : 'X';
-      }
+    moveAPiece(startX: number, startY: number, targetX: number, targetY: number) {
+      if (!this.brain) return
+      this.brain.moveAPiece(startX, startY, targetX, targetY)
     },
 
     moveGrid(direction: string) {
-      if (this.gameOver) return
-      return ''
-    }
+      if (!this.brain) return
+      this.brain.moveGrid(direction)
+    },
   }
 })
