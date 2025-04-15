@@ -11,6 +11,14 @@ onMounted(() => {
     store.startNewGame()
   }
   startMoveTimer()
+  if (!store.gameOver && isAiTurn()) {
+    setTimeout(() => {
+      performAIMove()
+      if (!store.gameOver) {
+        resetMoveTimer()
+      }
+    }, 3000)
+  }
 })
 
 const gameBoard = computed(() => store.gameBoard)
