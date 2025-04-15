@@ -1,8 +1,10 @@
 <script setup lang="ts">
   import { RouterLink, useRoute } from "vue-router";
+  import {stopMoveTimer} from "@/gameBrain/Timer.ts";
   const route = useRoute();
 
   function isActiveLink(path: string) {
+    stopMoveTimer()
     return route.path === path;
   }
 </script>

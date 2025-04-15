@@ -1,5 +1,4 @@
 import type {AIMove} from "@/gameBrain/ai/AiMoveTypes.ts";
-import {GameController} from "@/gameBrain/GameController.ts";
 import {findBestGridMoveForAI} from "./AiMoveGrid.ts";
 import {findBestMovePieceForAI} from "./AiMovePiece.ts";
 import {chooseBestMoveForAI, findBlockingMoveForAI, findWinningMoveForAI} from "./AiPutPiece.ts";

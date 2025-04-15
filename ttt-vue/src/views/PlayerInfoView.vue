@@ -19,7 +19,6 @@ function startGame() {
 <template>
   <div>
     <h2>Player Info</h2>
-    <p>Selected Mode: {{ mode }}</p>
 
     <div v-if="mode === 'HUMAN_VS_HUMAN'">
       <div class="mb-3">

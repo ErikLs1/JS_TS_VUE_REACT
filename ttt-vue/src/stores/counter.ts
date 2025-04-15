@@ -7,7 +7,7 @@ export const useGameStore = defineStore('gameStore', {
     mode: '' as string,
     player1: '' as string,
     player2: '' as string,
-    actionActive: null as "choose" | "grid" | "movePiece" | false | null,
+    actionActive: null as "choose" | "grid" | "movePiece" | "makeMove" |false | null,
     brain: null as TicTacTwoBrain | null
   }),
 

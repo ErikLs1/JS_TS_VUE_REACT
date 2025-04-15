@@ -1,5 +1,6 @@
 import type {useGameStore} from "@/stores/counter.ts";
 import {isAiTurn} from "@/gameBrain/ai/AiGameBrain.ts";
+import {stopMoveTimer} from "@/gameBrain/Timer.ts";
 
 export class GameController {
     public movePieceStartCell: { x: number; y: number } | null = null;
@@ -13,6 +14,7 @@ export class GameController {
         this.store.startNewGame();
         this.store.actionActive = false;
         this.movePieceStartCell = null;
+        stopMoveTimer()
     }
     public handleCellClick(x: number, y: number): void {
         if (isAiTurn()) {
@@ -35,6 +37,18 @@ export class GameController {
         if (this.store.actionActive === "grid") {
             alert("You can only move the grid!!");
             return;
+        }
+
+        if (this.store.actionActive === "makeMove") {
+            if (this.store.brain?.piecesLeftForO != 0 && this.store.currentPlayer == 'O') {
+                this.store.makeMove(x, y);
+                this.store.actionActive = null;
+                return
+            } else if (this.store.brain?.piecesLeftForX != 0 && this.store.currentPlayer == 'X') {
+                this.store.makeMove(x, y);
+                this.store.actionActive = null;
+                return;
+            }
         }
 
         if (this.store.actionActive === "movePiece") {
@@ -74,9 +88,10 @@ export class GameController {
             }
             return;
         }
-        this.store.makeMove(x, y);
-        this.store.actionActive = null;
-
+        if (this.store.moveCount < 4) {
+            this.store.makeMove(x, y);
+            this.store.actionActive = null;
+        }
     }
 
     public handleGridMove(direction: string) {

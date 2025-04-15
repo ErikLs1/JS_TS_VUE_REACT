@@ -19,6 +19,9 @@ const gameOver = computed(() => store.gameOver)
 const winner = computed(() => store.winner)
 const showActionButtons = computed(() => store.moveCount >= 4)
 const controller = new GameController(store)
+const currentPlayerPieces = computed(() => {
+  return store.currentPlayer === 'X' ? store.brain?.piecesLeftForX : store.brain?.piecesLeftForO
+})
 
 function handleClick(x: number, y: number) {
   if (gameOver.value) return;
@@ -46,8 +49,10 @@ function handleClick(x: number, y: number) {
     <h2>Game Board</h2>
     <p>Player 1: {{ store.player1 }}</p>
     <p>Player 2: {{ store.player2 }}</p>
+    <p></p>
     <div>
       <p>Current Player: {{ currentPlayer }}</p>
+      <p>Pieces left for current player: {{ currentPlayerPieces }}</p>
     </div>
     <div id="timer-container" class="mb-3">
 
@@ -66,7 +71,7 @@ function handleClick(x: number, y: number) {
     </div>
 
     <div v-if="!store.gameOver && showActionButtons && store.actionActive === null && !isAiTurn()">
-      <button @click="store.actionActive = false">Make a Move</button>
+      <button v-if="currentPlayerPieces > 0" @click="store.actionActive = 'makeMove'">Make a Move</button>
       <button @click="store.actionActive = 'grid'">Move the Grid</button>
       <button @click="store.actionActive = 'movePiece'">Move a Piece</button>
     </div>
