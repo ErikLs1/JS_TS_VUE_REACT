@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create small logic fix">
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create working AI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ttt-vue/src/views/GameBoarView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/views/GameBoarView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/components/ActionButton.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/components/Cell.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/components/DirectionButton.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/components/OprionsContainer.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ttt-vue/src/gameBrain/GameController.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744702440575</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="create working AI">
+      <option name="closed" value="true" />
+      <created>1744702661994</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1744702661994</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +329,7 @@
     <MESSAGE value="create gameBoard and direction/action buttons" />
     <MESSAGE value="create move, grid move, piece move" />
     <MESSAGE value="create small logic fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="create small logic fix" />
+    <MESSAGE value="create working AI" />
+    <option name="LAST_COMMIT_MESSAGE" value="create working AI" />
   </component>
 </project>

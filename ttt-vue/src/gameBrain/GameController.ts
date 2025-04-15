@@ -1,6 +1,6 @@
 import type {useGameStore} from "@/stores/counter.ts";
 import {isAiTurn} from "@/gameBrain/ai/AiGameBrain.ts";
-import {stopMoveTimer} from "@/gameBrain/Timer.ts";
+import {resetMoveTimer, stopMoveTimer} from "@/gameBrain/Timer.ts";
 
 export class GameController {
     public movePieceStartCell: { x: number; y: number } | null = null;
@@ -97,5 +97,6 @@ export class GameController {
     public handleGridMove(direction: string) {
         this.store.moveGrid(direction)
         this.store.actionActive = null
+        resetMoveTimer()
     }
 }
