@@ -1,5 +1,5 @@
 export default function Home() {
   return (
-    <>OK</>
+    <>Some info about the shop</>
   );
 }
