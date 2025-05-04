@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./globals.css";
 import BootstrapActivation from "@/Helpers/BootstrapActivation";
+import Header from "@/Components/Header";
 
 
 export const metadata: Metadata = {
@@ -17,7 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+	  <Header/>
+	  <div className="container">
+		  <main role="main" className="pb-3">
+			  {children}
+		  </main>
+	  </div>
 	  <BootstrapActivation />
       </body>
     </html>

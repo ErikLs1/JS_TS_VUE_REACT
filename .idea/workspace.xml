@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create small error fix">
-      <change afterPath="$PROJECT_DIR$/iism_front/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Helpers/BootstrapActivation.tsx" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create iism frontend project initialization">
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/app/login/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/app/register/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +70,11 @@
       <recent name="$PROJECT_DIR$/tic-tac-two-vue/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/iism_front/src/app/login" />
+      <recent name="$PROJECT_DIR$/iism_front/src/app" />
       <recent name="$PROJECT_DIR$/tic-tac-two-ts" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/tic-tac-two-js" />
-      <recent name="$PROJECT_DIR$/js/ui" />
-      <recent name="$PROJECT_DIR$/js/gameBrain" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -112,7 +116,7 @@
       <workItem from="1744465730707" duration="4225000" />
       <workItem from="1744610001663" duration="18033000" />
       <workItem from="1746180304000" duration="2795000" />
-      <workItem from="1746351691853" duration="779000" />
+      <workItem from="1746351691853" duration="9550000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -298,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744703493705</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="create iism frontend project initialization">
+      <option name="closed" value="true" />
+      <created>1746352531603</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1746352531603</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,6 +351,7 @@
     <MESSAGE value="create small logic fix" />
     <MESSAGE value="create working AI" />
     <MESSAGE value="create small error fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="create small error fix" />
+    <MESSAGE value="create iism frontend project initialization" />
+    <option name="LAST_COMMIT_MESSAGE" value="create iism frontend project initialization" />
   </component>
 </project>
