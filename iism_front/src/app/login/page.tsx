@@ -1,38 +1,96 @@
-"use client"
+"use client";
 
-import {FormEvent} from "react";
+import { useForm, SubmitHandler } from "react-hook-form"
+import {useContext, useState} from "react";
+import {useRouter} from "next/navigation";
+import Alert from "@mui/material/Alert"
+import {TextField} from "@mui/material";
+import {AccountService} from "@/Services/AccountService";
+import {AccountContext} from "@/Context/AccountContext";
 
 export default function Login() {
-	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault()
-		// TODO: handle login
+	const accountService = new AccountService();
+	const { setAccountInfo } = useContext(AccountContext)
+	const router = useRouter();
+	const [errorMessage, setErrorMessage] = useState("");
+
+	type LoginInputs = {
+		email: string;
+		password: string;
 	}
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors, isSubmitted }
+	} = useForm<LoginInputs>({
+		defaultValues: {
+			email: '',
+			password: ''
+		}
+	});
+
+	const onSubmit : SubmitHandler<LoginInputs> = async (data: LoginInputs) => {
+		console.log(data);
+		setErrorMessage("Loading...");
+
+		try {
+			var result = await accountService.loginAsync(data.email, data.password);
+			if (result.errors) {
+				setErrorMessage(result.statusCode + " - " + result.errors[0]);
+				return;
+			}
+
+			setErrorMessage("");
+
+			setAccountInfo!({
+				jwt: result.data?.jwt,
+				refreshToken: result.data?.refreshToken
+			});
+			router.push("/");
+
+
+		} catch (error) {
+			setErrorMessage("Login failed - " + (error as Error).message);
+		}
+	};
 
 	return(
 		<>
-			<form onSubmit={handleSubmit} className="container py-5" style={{ maxWidth: 400}}>
-					<h1 className="h3 mb-4 fw-normal text-center">Please sign in</h1>
+			<form onSubmit={handleSubmit(onSubmit)} className="container py-5" style={{ maxWidth: 400}}>
+				{errors.password?.type === 'required' && (
+					<Alert severity="warning" sx={{ mb: 2 }}>
+						Please fill all the fields
+					</Alert>
+				)}
+
+				{errorMessage}
+				<h1 className="h3 mb-4 fw-normal text-center">Please sign in</h1>
 
 				<div className="row g-2 mb-3">
 					<div className="form-floating">
-						<input
+						<TextField
+							fullWidth
+							label="Email address"
 							type="email"
-							className="form-control"
-							id="floatingInput"
-							placeholder="name@example.com"
-							required
+							margin="normal"
+							error={isSubmitted && !!errors.email}
+							helperText={isSubmitted ? errors.email?.message : ''}
+							{...register('email', { required: 'Email is required' })}
 						/>
-						<label htmlFor="floatingInput">Email address</label>
 					</div>
 					<div className="form-floating">
-						<input
+						<TextField
+							fullWidth
+							label="Password"
 							type="password"
-							className="form-control"
-							id="floatingPassword"
-							placeholder="Password"
-							required
+							margin="normal"
+							error={isSubmitted && !!errors.password}
+							helperText={isSubmitted ? errors.password?.message : ''}
+							{...register('password', {
+								required: 'Password is required'
+							})}
 						/>
-						<label htmlFor="floatingPassword">Password</label>
 					</div>
 				</div>
 
