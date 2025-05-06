@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "./globals.css";
 import BootstrapActivation from "@/Helpers/BootstrapActivation";
 import Header from "@/Components/Header";
+import {CartProvider} from "@/Context/CartContext";
 
 
 export const metadata: Metadata = {
@@ -18,12 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-	  <Header/>
-	  <div className="container">
-		  <main role="main" className="pb-3">
-			  {children}
-		  </main>
-	  </div>
+	  <CartProvider>
+		  <Header/>
+		  <main className="flex-fill">{children}</main>
+	  </CartProvider>
 	  <BootstrapActivation />
       </body>
     </html>

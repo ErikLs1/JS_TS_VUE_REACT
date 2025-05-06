@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create login and register pages (not connected to backend)">
-      <change afterPath="$PROJECT_DIR$/iism_front/public/luxuryTable.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/app/shopProductDetails/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create products page (not connected to backend)">
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Context/CartContext.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/app/shopProductDetails/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopProductDetails/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,40 +42,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Node.js.GameBrain.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-vue/src",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/next-js/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Node.js.GameBrain.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-vue/src&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/next-js/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tic-tac-two-vue/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/iism_front/src/app/shopProductDetails/[id]" />
       <recent name="$PROJECT_DIR$/iism_front/public" />
       <recent name="$PROJECT_DIR$/iism_front/src/resources" />
       <recent name="$PROJECT_DIR$/iism_front/src/app/login" />
       <recent name="$PROJECT_DIR$/iism_front/src/app" />
-      <recent name="$PROJECT_DIR$/tic-tac-two-ts" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -115,7 +117,9 @@
       <workItem from="1744465730707" duration="4225000" />
       <workItem from="1744610001663" duration="18033000" />
       <workItem from="1746180304000" duration="2795000" />
-      <workItem from="1746351691853" duration="14385000" />
+      <workItem from="1746351691853" duration="14605000" />
+      <workItem from="1746387325460" duration="643000" />
+      <workItem from="1746518205804" duration="3957000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -317,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746368042524</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="create products page (not connected to backend)">
+      <option name="closed" value="true" />
+      <created>1746380779955</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1746380779955</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +347,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create gitignore" />
     <MESSAGE value="create main page with 3 buttons" />
     <MESSAGE value="create grid with redirection to main page" />
     <MESSAGE value="create basic moves and implement win" />
@@ -360,6 +371,7 @@
     <MESSAGE value="create small error fix" />
     <MESSAGE value="create iism frontend project initialization" />
     <MESSAGE value="create login and register pages (not connected to backend)" />
-    <option name="LAST_COMMIT_MESSAGE" value="create login and register pages (not connected to backend)" />
+    <MESSAGE value="create products page (not connected to backend)" />
+    <option name="LAST_COMMIT_MESSAGE" value="create products page (not connected to backend)" />
   </component>
 </project>
