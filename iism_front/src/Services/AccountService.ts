@@ -13,7 +13,7 @@ export class AccountService extends BaseService {
 				password,
 			};
 
-			const response = await this.axiosInstance.post<ILoginDto>(url + "?jwtExpiresInSeconds=600", loginData)
+			const response = await this.axiosInstance.post<ILoginDto>(url + "?jwtExpiresInSeconds=5", loginData)
 
 			console.log('login response', response)
 
