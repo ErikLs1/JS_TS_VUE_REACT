@@ -3,6 +3,7 @@
 import Image from "next/image";
 import luxuryTable from '@/../public/luxuryTable.jpg'
 import Link from "next/link";
+import {Pagination} from "@mui/material";
 
 type Product = {
 	id: number
@@ -70,6 +71,7 @@ export default function ShopProducts() {
 					</div>
 				))}
 			</div>
+			<Pagination count={10} variant="outlined" />
 		</div>
 	)
 }

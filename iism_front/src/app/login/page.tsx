@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import {useContext, useState} from "react";
 import {useRouter} from "next/navigation";
 import Alert from "@mui/material/Alert"
-import {TextField} from "@mui/material";
+import {FormLabel, TextField} from "@mui/material";
 import {AccountService} from "@/Services/AccountService";
 import {AccountContext} from "@/Context/AccountContext";
 
@@ -68,23 +68,23 @@ export default function Login() {
 				<h1 className="h3 mb-4 fw-normal text-center">Please sign in</h1>
 
 				<div className="row g-2 mb-3">
-					<div className="form-floating">
+					<div>
+						<FormLabel id="demo-radio-buttons-group-label">Email address</FormLabel>
 						<TextField
 							fullWidth
-							label="Email address"
 							type="email"
-							margin="normal"
+							margin="none"
 							error={isSubmitted && !!errors.email}
 							helperText={isSubmitted ? errors.email?.message : ''}
 							{...register('email', { required: 'Email is required' })}
 						/>
 					</div>
-					<div className="form-floating">
+					<div>
+						<FormLabel id="demo-radio-buttons-group-label">Password</FormLabel>
 						<TextField
 							fullWidth
-							label="Password"
 							type="password"
-							margin="normal"
+							margin="none"
 							error={isSubmitted && !!errors.password}
 							helperText={isSubmitted ? errors.password?.message : ''}
 							{...register('password', {

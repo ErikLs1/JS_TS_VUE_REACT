@@ -1,8 +1,18 @@
 "use client"
 
 import Link from "next/link";
+import React, {useContext, useState} from "react";
+import { AccountContext } from "@/Context/AccountContext";
+import { ThemeSwitch } from "@/Components/ThemeSwitch";
 
 export default function Header(){
+	const { accountInfo, setAccountInfo } = useContext(AccountContext);
+	const [darkMode, setDarkMode] = useState(false);
+	const handleThemeSwitch = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setDarkMode(e.target.checked);
+		// TODO: Later
+	};
+
 	return (
 		<>
 			<header className="p-3 text-bg-dark">
@@ -20,7 +30,18 @@ export default function Header(){
 						</ul>
 
 						<div className="text-end">
-							<Link href="/login" type="button" className="btn btn-outline-light me-2">Login</Link>
+							<ThemeSwitch
+								checked={darkMode}
+								onChange={handleThemeSwitch}
+								className="me-3"
+							/>
+							{accountInfo?.jwt &&
+								<Link href="/" type="button" className="btn btn-outline-light me-2">Logout</Link>
+							}
+
+							{!accountInfo?.jwt &&
+								<Link href="/login" type="button" className="btn btn-outline-light me-2">Login</Link>
+							}
 							<Link href="/register" type="button" className="btn btn-warning">Sign-up</Link>
 						</div>
 					</div>
