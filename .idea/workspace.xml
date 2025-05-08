@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create pages for managing warehouses (not connected to back)">
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create warehouse page connected to back">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/WarehouseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/WarehouseService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/axiosInstance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/axiosInstance.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Domain/IWarehouse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IWarehouse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/axiosInstance.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +117,9 @@
       <workItem from="1746387325460" duration="643000" />
       <workItem from="1746518205804" duration="4039000" />
       <workItem from="1746535226757" duration="23006000" />
-      <workItem from="1746617193154" duration="13833000" />
+      <workItem from="1746617193154" duration="14516000" />
+      <workItem from="1746634314905" duration="7000" />
+      <workItem from="1746693402984" duration="5139000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -361,7 +361,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746623154727</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="create warehouse page connected to back">
+      <option name="closed" value="true" />
+      <created>1746634264049</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1746634264049</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +387,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create move piece functionality" />
     <MESSAGE value="create restrictions when action window appears" />
     <MESSAGE value="create fix of win condition" />
     <MESSAGE value="creat time with random move, AI functionality (not tested)." />
@@ -404,6 +411,7 @@
     <MESSAGE value="create working login" />
     <MESSAGE value="create ui fix + register page." />
     <MESSAGE value="create pages for managing warehouses (not connected to back)" />
-    <option name="LAST_COMMIT_MESSAGE" value="create pages for managing warehouses (not connected to back)" />
+    <MESSAGE value="create warehouse page connected to back" />
+    <option name="LAST_COMMIT_MESSAGE" value="create warehouse page connected to back" />
   </component>
 </project>

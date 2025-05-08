@@ -4,10 +4,12 @@ import Link from "next/link";
 import React, {useContext, useState} from "react";
 import { AccountContext } from "@/Context/AccountContext";
 import { ThemeSwitch } from "@/Components/ThemeSwitch";
+import { useRouter } from "next/navigation";
 
 export default function Header(){
 	const { accountInfo, setAccountInfo } = useContext(AccountContext);
 	const [darkMode, setDarkMode] = useState(false);
+	const router = useRouter()
 	const handleThemeSwitch = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setDarkMode(e.target.checked);
 		// TODO: Later
@@ -25,8 +27,12 @@ export default function Header(){
 							<li><Link href="#" className="nav-link px-2 text-white">FAQs</Link></li>
 							<li><Link href="#" className="nav-link px-2 text-white">About</Link></li>
 							<li><Link href="/shopBasket" className="nav-link px-2 text-white">Basket</Link></li>
-							<li><Link href="/category" className="nav-link px-2 text-white">Category</Link></li>
-							<li><Link href="/warehouse" className="nav-link px-2 text-white">Warehouse</Link></li>
+							{accountInfo?.jwt &&
+								<>
+									<li><Link href="/category" className="nav-link px-2 text-white">Category</Link></li>
+									<li><Link href="/warehouse" className="nav-link px-2 text-white">Warehouse</Link></li>
+								</>
+							}
 						</ul>
 
 						<div className="text-end">
@@ -36,7 +42,10 @@ export default function Header(){
 								className="me-3"
 							/>
 							{accountInfo?.jwt &&
-								<Link href="/" type="button" className="btn btn-outline-light me-2">Logout</Link>
+								<a href="#" type="button" className="btn btn-outline-light me-2" onClick={() => {
+									setAccountInfo!({});
+									router.push("/login");
+								}}>Logout</a>
 							}
 
 							{!accountInfo?.jwt &&
