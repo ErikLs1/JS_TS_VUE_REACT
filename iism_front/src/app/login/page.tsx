@@ -45,7 +45,8 @@ export default function Login() {
 
 			setAccountInfo!({
 				jwt: result.data?.jwt,
-				refreshToken: result.data?.refreshToken
+				refreshToken: result.data?.refreshToken,
+				role: result.data?.role
 			});
 			router.push("/");
 

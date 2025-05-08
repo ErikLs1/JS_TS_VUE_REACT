@@ -63,6 +63,7 @@ export abstract class BaseService {
 						this.setAccountInfo!({
 							jwt: data.jwt,
 							refreshToken: data.refreshToken,
+							role: data.role
 						})
 						return this.axiosInstance(originalRequest);
 					} catch (e) {

@@ -27,7 +27,7 @@ export default function Header(){
 							<li><Link href="#" className="nav-link px-2 text-white">FAQs</Link></li>
 							<li><Link href="#" className="nav-link px-2 text-white">About</Link></li>
 							<li><Link href="/shopBasket" className="nav-link px-2 text-white">Basket</Link></li>
-							{accountInfo?.jwt &&
+							{accountInfo?.role === "manager" && accountInfo?.jwt &&
 								<>
 									<li><Link href="/category" className="nav-link px-2 text-white">Category</Link></li>
 									<li><Link href="/warehouse" className="nav-link px-2 text-white">Warehouse</Link></li>

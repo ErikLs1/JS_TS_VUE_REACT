@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create warehouse page connected to back">
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create axious instance fix, working login, logout.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Context/AccountContext.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Context/AccountContext.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/axiosInstance.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/ILoginDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/ILoginDto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/login/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +121,7 @@
       <workItem from="1746535226757" duration="23006000" />
       <workItem from="1746617193154" duration="14516000" />
       <workItem from="1746634314905" duration="7000" />
-      <workItem from="1746693402984" duration="5139000" />
+      <workItem from="1746693402984" duration="7181000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -369,7 +371,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746634264049</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="create axious instance fix, working login, logout.">
+      <option name="closed" value="true" />
+      <created>1746699736599</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1746699736599</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,7 +397,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create restrictions when action window appears" />
     <MESSAGE value="create fix of win condition" />
     <MESSAGE value="creat time with random move, AI functionality (not tested)." />
     <MESSAGE value="creat documentation for AI moves and some working version of the AI." />
@@ -412,6 +421,7 @@
     <MESSAGE value="create ui fix + register page." />
     <MESSAGE value="create pages for managing warehouses (not connected to back)" />
     <MESSAGE value="create warehouse page connected to back" />
-    <option name="LAST_COMMIT_MESSAGE" value="create warehouse page connected to back" />
+    <MESSAGE value="create axious instance fix, working login, logout." />
+    <option name="LAST_COMMIT_MESSAGE" value="create axious instance fix, working login, logout." />
   </component>
 </project>
