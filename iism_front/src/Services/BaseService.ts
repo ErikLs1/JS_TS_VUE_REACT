@@ -1,9 +1,9 @@
 import axios, {AxiosInstance, AxiosResponse} from "axios";
-import {ILoginDto} from "@/Types/ILoginDto";
+import {LoginResponse} from "@/Types/Responses/LoginResponse";
 import {useContext} from "react";
 import {AccountContext} from "@/Context/AccountContext";
 
-let refreshPromise: Promise<AxiosResponse<ILoginDto>> |  null = null;
+let refreshPromise: Promise<AxiosResponse<LoginResponse>> |  null = null;
 
 export abstract class BaseService {
 	protected axiosInstance: AxiosInstance;
@@ -44,7 +44,7 @@ export abstract class BaseService {
 					originalRequest._retry = true;
 
 					if (!refreshPromise) {
-						refreshPromise = this.axiosInstance.post<ILoginDto>(
+						refreshPromise = this.axiosInstance.post<LoginResponse>(
 							'/Account/RenewRefreshToken?jwtExpiresInSeconds=5',
 							{
 								jwt:          localStorage.getItem('_jwt'),
@@ -59,6 +59,7 @@ export abstract class BaseService {
 						const { data } = await refreshPromise;
 						localStorage.setItem('_jwt'         , data.jwt);
 						localStorage.setItem('_refreshToken', data.refreshToken);
+						localStorage.setItem('_role', data.role);
 						originalRequest.headers!.Authorization = `Bearer ${data.jwt}`;
 						this.setAccountInfo!({
 							jwt: data.jwt,

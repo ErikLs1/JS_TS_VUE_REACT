@@ -5,11 +5,37 @@ import React, {useContext, useState} from "react";
 import { AccountContext } from "@/Context/AccountContext";
 import { ThemeSwitch } from "@/Components/ThemeSwitch";
 import { useRouter } from "next/navigation";
+import {AccountService} from "@/Services/AccountService";
+import {LogoutRequest} from "@/Types/Requests/LogoutRequest";
 
 export default function Header(){
 	const { accountInfo, setAccountInfo } = useContext(AccountContext);
 	const [darkMode, setDarkMode] = useState(false);
-	const router = useRouter()
+	const router = useRouter();
+	const accountService = new AccountService();
+
+	const handleLogout = async () => {
+		if (!accountInfo) return
+
+		const req: LogoutRequest = {
+			refreshToken: accountInfo.refreshToken!
+		};
+
+		const result = await accountService.logoutAsync(req);
+
+		if (!result.errors) {
+			setAccountInfo!({})
+			setAccountInfo!({});
+			localStorage.removeItem("_jwt");
+			localStorage.removeItem("_refreshToken");
+			localStorage.removeItem("_role");
+			router.push("/login");
+		} else {
+			// you might want to show result.errors[0]
+			console.error("Logout failed:", result.errors);
+		}
+	}
+
 	const handleThemeSwitch = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setDarkMode(e.target.checked);
 		// TODO: Later
@@ -41,15 +67,10 @@ export default function Header(){
 								onChange={handleThemeSwitch}
 								className="me-3"
 							/>
-							{accountInfo?.jwt &&
-								<a href="#" type="button" className="btn btn-outline-light me-2" onClick={() => {
-									setAccountInfo!({});
-									router.push("/login");
-								}}>Logout</a>
-							}
-
-							{!accountInfo?.jwt &&
+							{accountInfo?.jwt ?
+								<button className="btn btn-outline-light me-2" onClick={handleLogout}>Logout</button> :
 								<Link href="/login" type="button" className="btn btn-outline-light me-2">Login</Link>
+
 							}
 							<Link href="/register" type="button" className="btn btn-warning">Sign-up</Link>
 						</div>

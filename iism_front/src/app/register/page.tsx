@@ -4,10 +4,15 @@ import {useRouter} from "next/navigation";
 import {AccountService} from "@/Services/AccountService";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField} from "@mui/material";
+import {RegisterRequest} from "@/Types/Requests/RegisterRequest";
+import {useContext, useState} from "react";
+import {AccountContext} from "@/Context/AccountContext";
 
 export default function Register() {
 	const router = useRouter();
 	const accountService = new AccountService();
+	const { setAccountInfo } = useContext(AccountContext)
+	const [errorMessage, setErrorMessage] = useState("");
 
 	const {
 		register,
@@ -41,7 +46,38 @@ export default function Register() {
 	}
 
 	const onSubmit : SubmitHandler<RegisterInputs> = async (data: RegisterInputs) => {
-		console.log(data);
+		setErrorMessage("");
+
+		if (data.password !== data.confirmPassword) {
+			setErrorMessage("Password do not match")
+			return
+		}
+
+		const req: RegisterRequest = {
+			firstName:    data.firstName,
+			lastName:     data.lastName,
+			email: data.emailAddress,
+			password:     data.password,
+			address:      data.address,
+			phoneNumber:  data.phoneNumber,
+			gender:       data.gender,
+			dateOfBirth:  data.dateOfBirth,
+		}
+		console.log(req);
+		setErrorMessage("Loading...");
+		var result = await accountService.registerAsync(req);
+
+		if (result.errors) {
+			setErrorMessage(result.statusCode + " - " + result.errors[0]);
+			return;
+		}
+
+		setAccountInfo!({
+			jwt: result.data?.jwt,
+			refreshToken: result.data?.refreshToken,
+			role: result.data?.role
+		});
+		router.push("/");
 	};
 
 	return(
@@ -107,7 +143,7 @@ export default function Register() {
 					<FormLabel id="demo-radio-buttons-group-label">Confirm password</FormLabel>
 					<TextField
 						fullWidth
-						type="confirmPassword"
+						type="password"
 						margin="none"
 						error={isSubmitted && !!errors.confirmPassword}
 						helperText={isSubmitted ? errors.confirmPassword?.message : ''}

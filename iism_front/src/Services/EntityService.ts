@@ -1,5 +1,5 @@
 import {BaseService} from "@/Services/BaseService";
-import {IResultObject} from "@/Types/IResultObject";
+import {ErrorResponse} from "@/Types/Responses/ErrorResponse";
 import {AxiosError} from "axios";
 
 export abstract class EntityService<TEntity> extends  BaseService {
@@ -7,7 +7,7 @@ export abstract class EntityService<TEntity> extends  BaseService {
 		super();
 	}
 
-	async getAllAsync(): Promise<IResultObject<TEntity[]>> {
+	async getAllAsync(): Promise<ErrorResponse<TEntity[]>> {
 		try {
 			const response = await this.axiosInstance.get<TEntity[]>(this.basePath)
 

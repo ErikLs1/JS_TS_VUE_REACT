@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create axious instance fix, working login, logout.">
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create manager view">
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IUser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/LoginRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/LogoutRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/RefreshRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/RegisterRequest.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Context/AccountContext.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Context/AccountContext.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/ILoginDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/ILoginDto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/ILoginDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/LoginResponse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/IResultObject.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/ErrorResponse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/register/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,40 +49,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Node.js.GameBrain.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-vue/src&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/next-js/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Node.js.BaseService.ts.executor": "Run",
+    "Node.js.GameBrain.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-vue/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/next-js/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tic-tac-two-vue/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/iism_front/src/Types/Responses" />
       <recent name="$PROJECT_DIR$/iism_front/src/app/shopProductDetails/[id]" />
       <recent name="$PROJECT_DIR$/iism_front/public" />
       <recent name="$PROJECT_DIR$/iism_front/src/resources" />
       <recent name="$PROJECT_DIR$/iism_front/src/app/login" />
-      <recent name="$PROJECT_DIR$/iism_front/src/app" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -121,7 +131,8 @@
       <workItem from="1746535226757" duration="23006000" />
       <workItem from="1746617193154" duration="14516000" />
       <workItem from="1746634314905" duration="7000" />
-      <workItem from="1746693402984" duration="7181000" />
+      <workItem from="1746693402984" duration="10065000" />
+      <workItem from="1746857585079" duration="7891000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -379,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746699736599</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="create manager view">
+      <option name="closed" value="true" />
+      <created>1746703818616</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1746703818616</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +416,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create fix of win condition" />
     <MESSAGE value="creat time with random move, AI functionality (not tested)." />
     <MESSAGE value="creat documentation for AI moves and some working version of the AI." />
     <MESSAGE value="creat fixed ai." />
@@ -422,6 +440,7 @@
     <MESSAGE value="create pages for managing warehouses (not connected to back)" />
     <MESSAGE value="create warehouse page connected to back" />
     <MESSAGE value="create axious instance fix, working login, logout." />
-    <option name="LAST_COMMIT_MESSAGE" value="create axious instance fix, working login, logout." />
+    <MESSAGE value="create manager view" />
+    <option name="LAST_COMMIT_MESSAGE" value="create manager view" />
   </component>
 </project>

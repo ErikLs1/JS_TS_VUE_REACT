@@ -7,6 +7,7 @@ import Alert from "@mui/material/Alert"
 import {FormLabel, TextField} from "@mui/material";
 import {AccountService} from "@/Services/AccountService";
 import {AccountContext} from "@/Context/AccountContext";
+import {LoginRequest} from "@/Types/Requests/LoginRequest";
 
 export default function Login() {
 	const accountService = new AccountService();
@@ -14,28 +15,22 @@ export default function Login() {
 	const router = useRouter();
 	const [errorMessage, setErrorMessage] = useState("");
 
-	type LoginInputs = {
-		email: string;
-		password: string;
-	}
-
 	const {
 		register,
 		handleSubmit,
 		formState: { errors, isSubmitted }
-	} = useForm<LoginInputs>({
+	} = useForm<LoginRequest>({
 		defaultValues: {
 			email: '',
 			password: ''
 		}
 	});
 
-	const onSubmit : SubmitHandler<LoginInputs> = async (data: LoginInputs) => {
-		console.log(data);
+	const onSubmit : SubmitHandler<LoginRequest> = async (data: LoginRequest) => {
 		setErrorMessage("Loading...");
 
 		try {
-			var result = await accountService.loginAsync(data.email, data.password);
+			var result = await accountService.loginAsync(data);
 			if (result.errors) {
 				setErrorMessage(result.statusCode + " - " + result.errors[0]);
 				return;
