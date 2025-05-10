@@ -7,6 +7,9 @@ import { ThemeSwitch } from "@/Components/ThemeSwitch";
 import { useRouter } from "next/navigation";
 import {AccountService} from "@/Services/AccountService";
 import {LogoutRequest} from "@/Types/Requests/LogoutRequest";
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import {IconButton} from "@mui/material";
+import {pink} from "@mui/material/colors";
 
 export default function Header(){
 	const { accountInfo, setAccountInfo } = useContext(AccountContext);
@@ -68,11 +71,22 @@ export default function Header(){
 								className="me-3"
 							/>
 							{accountInfo?.jwt ?
-								<button className="btn btn-outline-light me-2" onClick={handleLogout}>Logout</button> :
-								<Link href="/login" type="button" className="btn btn-outline-light me-2">Login</Link>
+								<>
+									<button className="btn btn-outline-light me-2" onClick={handleLogout}>Logout
+									</button>
+									<Link href="/profile">
+										<IconButton>
+											<AccountBoxIcon sx={{color: pink[500]}}/>
+										</IconButton>
+									</Link>
+								</>
+								:
+								<>
+									<Link href="/login" type="button" className="btn btn-outline-light me-2">Login</Link>
+									<Link href="/register" type="button" className="btn btn-warning">Sign-up</Link>
+								</>
 
 							}
-							<Link href="/register" type="button" className="btn btn-warning">Sign-up</Link>
 						</div>
 					</div>
 				</div>

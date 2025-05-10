@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create manager view">
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IUser.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/LoginRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/LogoutRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/RefreshRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/RegisterRequest.ts" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create register and logout">
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Services/PersonsService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/app/profile/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Context/CartContext.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/ILoginDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/LoginResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/IResultObject.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/ErrorResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/register/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Domain/IUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IUser.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +25,7 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Vue Composition API Component" />
+        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -132,7 +125,7 @@
       <workItem from="1746617193154" duration="14516000" />
       <workItem from="1746634314905" duration="7000" />
       <workItem from="1746693402984" duration="10065000" />
-      <workItem from="1746857585079" duration="7891000" />
+      <workItem from="1746857585079" duration="14326000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -398,7 +391,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746703818616</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="create register and logout">
+      <option name="closed" value="true" />
+      <created>1746874915927</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1746874915927</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +417,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="creat time with random move, AI functionality (not tested)." />
     <MESSAGE value="creat documentation for AI moves and some working version of the AI." />
     <MESSAGE value="creat fixed ai." />
     <MESSAGE value="creat advanced ai" />
@@ -441,6 +441,7 @@
     <MESSAGE value="create warehouse page connected to back" />
     <MESSAGE value="create axious instance fix, working login, logout." />
     <MESSAGE value="create manager view" />
-    <option name="LAST_COMMIT_MESSAGE" value="create manager view" />
+    <MESSAGE value="create register and logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="create register and logout" />
   </component>
 </project>

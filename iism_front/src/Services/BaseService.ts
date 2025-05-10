@@ -45,7 +45,7 @@ export abstract class BaseService {
 
 					if (!refreshPromise) {
 						refreshPromise = this.axiosInstance.post<LoginResponse>(
-							'/Account/RenewRefreshToken?jwtExpiresInSeconds=5',
+							'/Account/RenewRefreshToken',
 							{
 								jwt:          localStorage.getItem('_jwt'),
 								refreshToken: localStorage.getItem('_refreshToken')
