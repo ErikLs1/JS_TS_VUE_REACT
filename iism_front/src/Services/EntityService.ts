@@ -20,7 +20,7 @@ export abstract class EntityService<TEntity> extends  BaseService {
 
 	async getById(id: string): Promise<ErrorResponse<TEntity>> {
 		try {
-			const response = await this.axiosInstance.get<TEntity>(this.basePath)
+			const response = await this.axiosInstance.get<TEntity>(`${this.basePath}/${id}`)
 			console.log('get by id', response)
 			return this.handleResponse(response)
 		} catch (error) {

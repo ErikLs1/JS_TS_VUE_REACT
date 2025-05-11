@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create personal profile page">
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/WarehouseDeleteDialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/WarehouseEditDialog.tsx" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create warehouse crud">
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/CategoryDeleteDialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/CategoryEditDialog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Domain/IWarehouse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IWarehouse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/profile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/profile/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/register/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/warehouse/create/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/warehouse/create/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Domain/ICategory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/ICategory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/category/create/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/category/create/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/category/delete/[id]/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/category/edit/[id]/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/category/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/category/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +129,7 @@
       <workItem from="1746634314905" duration="7000" />
       <workItem from="1746693402984" duration="10065000" />
       <workItem from="1746857585079" duration="14516000" />
-      <workItem from="1746951103928" duration="12020000" />
+      <workItem from="1746951103928" duration="15143000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -410,7 +411,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746888071711</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="create warehouse crud">
+      <option name="closed" value="true" />
+      <created>1746967731493</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1746967731493</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="creat fixed ai." />
     <MESSAGE value="creat advanced ai" />
     <MESSAGE value="creat code refactoring" />
     <MESSAGE value="creat tic tac two typescript project initialization" />
@@ -453,6 +461,7 @@
     <MESSAGE value="create manager view" />
     <MESSAGE value="create register and logout" />
     <MESSAGE value="create personal profile page" />
-    <option name="LAST_COMMIT_MESSAGE" value="create personal profile page" />
+    <MESSAGE value="create warehouse crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="create warehouse crud" />
   </component>
 </project>

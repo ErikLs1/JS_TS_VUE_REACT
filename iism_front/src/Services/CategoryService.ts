@@ -3,6 +3,6 @@ import {EntityService} from "@/Services/EntityService";
 
 export class CategoryService extends EntityService<ICategory> {
 	constructor() {
-		super('category');
+		super('categories');
 	}
 }
