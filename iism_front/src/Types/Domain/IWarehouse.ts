@@ -1,5 +1,5 @@
 export interface IWarehouse {
-	id: number,
+	id: string,
 	warehouseAddress: string;
 	warehouseEmail: string;
 	warehouseCapacity: number;

@@ -2,11 +2,13 @@
 
 import {useRouter} from "next/navigation";
 import {AccountService} from "@/Services/AccountService";
-import {SubmitHandler, useForm} from "react-hook-form";
+import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField} from "@mui/material";
 import {RegisterRequest} from "@/Types/Requests/RegisterRequest";
 import {useContext, useState} from "react";
 import {AccountContext} from "@/Context/AccountContext";
+import Alert from "@mui/material/Alert";
+import {watch} from "node:fs/promises";
 
 export default function Register() {
 	const router = useRouter();
@@ -63,8 +65,9 @@ export default function Register() {
 			gender:       data.gender,
 			dateOfBirth:  data.dateOfBirth,
 		}
-		console.log(req);
+
 		setErrorMessage("Loading...");
+
 		var result = await accountService.registerAsync(req);
 
 		if (result.errors) {
@@ -83,8 +86,13 @@ export default function Register() {
 	return(
 		<>
 			<form onSubmit={handleSubmit(onSubmit)} className="container py-5" style={{ maxWidth: 400 }}>
-				<h1 className="h3 mb-4 fw-normal text-center">Create an Account</h1>
+				{errorMessage && (
+					<Alert severity="error" className="mb-3">
+						{errorMessage}
+					</Alert>
+				)}
 
+				<h1 className="h3 mb-4 fw-normal text-center">Create an Account</h1>
 				{/* First and Last name */}
 				<div className="row g-2 mb-3">
 					<div className="col-md-6">
@@ -121,7 +129,12 @@ export default function Register() {
 						margin="none"
 						error={isSubmitted && !!errors.emailAddress}
 						helperText={isSubmitted ? errors.emailAddress?.message : ''}
-						{...register('emailAddress', { required: 'Email is required' })}
+						{...register('emailAddress', {
+							required: 'Email is required',
+							pattern: {
+								value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+								message: 'Enter a valid email.'
+							}})}
 					/>
 				</div>
 
@@ -134,7 +147,12 @@ export default function Register() {
 						margin="none"
 						error={isSubmitted && !!errors.password}
 						helperText={isSubmitted ? errors.password?.message : ''}
-						{...register('password', { required: 'Password is required' })}
+						{...register('password', {
+							required: 'Password is required',
+							pattern: {
+								value: /(?=.{7,})(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)/,
+								message: 'Password must be at least 7 characters long and include those letters: A-Z, a-z, 1-9, -, etc.'
+							}})}
 					/>
 				</div>
 
@@ -173,22 +191,38 @@ export default function Register() {
 						margin="none"
 						error={isSubmitted && !!errors.phoneNumber}
 						helperText={isSubmitted ? errors.phoneNumber?.message : ''}
-						{...register('phoneNumber', { required: 'Phone number is required' })}
+						{...register('phoneNumber', {
+							required: 'Phone number is required',
+							pattern: {
+								value: /^[0-9]+$/,
+								message: 'Phone number must contain only digits'
+							}})}
 					/>
 				</div>
 
 				{/* Gender */}
 				<div className="form-floating mb-3">
 					<FormControl>
-						<FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-						<RadioGroup
-							aria-labelledby="demo-radio-buttons-group-label"
+						<FormLabel>Gender</FormLabel>
+						<Controller
+							name="gender"
+							control={control}
 							defaultValue="female"
-							name="radio-buttons-group"
-						>
-							<FormControlLabel value="female" control={<Radio />} label="Female" />
-							<FormControlLabel value="male" control={<Radio />} label="Male" />
-						</RadioGroup>
+							render={({ field }) => (
+								<RadioGroup {...field} row>
+									<FormControlLabel
+										value="female"
+										control={<Radio />}
+										label="Female"
+									/>
+									<FormControlLabel
+										value="male"
+										control={<Radio />}
+										label="Male"
+									/>
+								</RadioGroup>
+							)}
+						/>
 					</FormControl>
 				</div>
 

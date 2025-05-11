@@ -6,31 +6,38 @@ import SendIcon from '@mui/icons-material/Send';
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useRouter} from "next/navigation";
 import {useState} from "react";
+import {IWarehouse} from "@/Types/Domain/IWarehouse";
+import {WarehouseService} from "@/Services/WarehouseService";
 
 export default function WarehouseCreate() {
-	type WarehouseInputs = {
-		warehouseAddress: string;
-		warehouseEmail: string;
-		warehouseCapacity: number;
-	}
-
 	const router = useRouter();
 	const [errorMessage, setErrorMessage] = useState("");
+	const warehouseService = new WarehouseService();
 
 	const {
 		register,
 		handleSubmit,
 		formState: { errors, isSubmitted }
-	} = useForm<WarehouseInputs>({
+	} = useForm<IWarehouse>({
 		defaultValues: {
 			warehouseAddress: '',
-			warehouseEmail: ''
+			warehouseEmail: '',
+			warehouseCapacity: 0
 		}
 	});
 
-	const onSubmit : SubmitHandler<WarehouseInputs> = async (data: WarehouseInputs) => {
-		console.log(data);
-		router.push("/");
+	const onSubmit : SubmitHandler<IWarehouse> = async (data: IWarehouse) => {
+		setErrorMessage("");
+		try {
+			const result = await warehouseService.create(data);
+			if (result.errors) {
+				setErrorMessage(result.errors.join(', '));
+				return;
+			}
+			router.push('/warehouse')
+		} catch (error) {
+			setErrorMessage('Unexpected error occurred!!!')
+		}
 	};
 
 	return(
@@ -67,7 +74,11 @@ export default function WarehouseCreate() {
 							error={isSubmitted && !!errors.warehouseEmail}
 							helperText={isSubmitted ? errors.warehouseEmail?.message : ''}
 							{...register('warehouseEmail', {
-								required: 'Email is required'
+								required: 'Email is required',
+								pattern: {
+									value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+									message: 'Enter a valid email address'
+								}
 							})}
 						/>
 					</div>
@@ -80,7 +91,8 @@ export default function WarehouseCreate() {
 							error={isSubmitted && !!errors.warehouseCapacity}
 							helperText={isSubmitted ? errors.warehouseCapacity?.message : ''}
 							{...register('warehouseCapacity', {
-								required: 'Capacity is required'
+								required: 'Capacity is required',
+								min: { value: 1, message: 'Capacity must be at least 1' }
 							})}
 						/>
 					</div>

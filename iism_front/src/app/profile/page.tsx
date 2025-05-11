@@ -42,17 +42,7 @@ export default function Profile() {
 	return (
 		<Container maxWidth="sm" sx={{ mt: 4 }}>
 			<Card>
-				<CardHeader
-					title="My Profile"
-					action={
-						<IconButton
-							aria-label="edit profile"
-							onClick={() => router.push("/profile/edit")}
-						>
-							<EditIcon />
-						</IconButton>
-					}
-				/>
+				<CardHeader title="My Profile" />
 				<CardContent>
 					<Stack spacing={2}>
 						<Typography>

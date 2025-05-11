@@ -22,6 +22,8 @@ import { WarehouseService } from "@/Services/WarehouseService";
 import {useContext, useEffect, useState} from "react";
 import { useRouter } from "next/navigation";
 import {IWarehouse} from "@/Types/Domain/IWarehouse";
+import WarehouseEditDialog from "@/Components/WarehouseEditDialog";
+import WarehouseDeleteDialog from "@/Components/WarehouseDeleteDialog";
 
 export default function Warehous() {
 	const warehouseService = new WarehouseService();
@@ -29,25 +31,51 @@ export default function Warehous() {
 	const router = useRouter();
 	const [data, setData] = useState<IWarehouse[]>([]);
 
+	const [editOpen, setEditOpen] = useState(false);
+	const [deleteOpen, setDeleteOpen] = useState(false);
+	const [selected, setSelected] = useState<IWarehouse | null>(null);
+
 	useEffect(() => {
-		if (!accountInfo?.jwt) {
+		const storedJwt = localStorage.getItem("_jwt");
+		if (!accountInfo?.jwt && !storedJwt) {
 			router.push("/login")
+			return;
 		}
-		const fetchData = async () => {
-			try {
-				const result = await warehouseService.getAllAsync();
-				if (result.errors) {
-					console.log(result.errors);
-					return;
-				}
-				setData(result.data!);
-			} catch (error) {
-				console.error("Error fetching data: ", error);
-			}
-		};
 		fetchData();
 	}, []);
 
+	const fetchData = async () => {
+		try {
+			const result = await warehouseService.getAllAsync();
+			if (result.errors) {
+				console.error(result.errors);
+				return;
+			}
+			setData(result.data!);
+		} catch (error) {
+			console.error("Error fetching data: ", error);
+		}
+	};
+
+	const handleEdit = (w: IWarehouse) => {
+		setSelected(w);
+		setEditOpen(true);
+	};
+
+	const handleDelete = (w: IWarehouse) => {
+		setSelected(w);
+		setDeleteOpen(true);
+	}
+
+	const onUpdate = async (updated: IWarehouse) => {
+		await warehouseService.update(updated.id, updated);
+		await fetchData();
+	}
+
+	const onConfirmDelete = async (id: string) => {
+		await warehouseService.delete(id);
+		await fetchData();
+	}
 
 	return (
 		<>
@@ -69,52 +97,58 @@ export default function Warehous() {
 				</Stack>
 
 				{/* Table */}
-				<TableContainer component={Paper}>
-					<Table size="small" aria-label="warehouses table">
-						<TableHead>
-							<TableRow>
-								<TableCell sx={{ fontWeight: 'bold',  fontSize: '1.1rem',  bgcolor: 'grey.100'}}>
-									Address
-								</TableCell>
-								<TableCell sx={{ fontWeight: 'bold',  fontSize: '1.1rem',  bgcolor: 'grey.100'}}>
-									Email
-								</TableCell>
-								<TableCell sx={{ fontWeight: 'bold',  fontSize: '1.1rem',  bgcolor: 'grey.100'}} align="right">
-									Capacity
-								</TableCell>
-								<TableCell sx={{ fontWeight: 'bold',  fontSize: '1.1rem',  bgcolor: 'grey.100'}} align="center">
-									Edit
-								</TableCell>
-								<TableCell sx={{ fontWeight: 'bold',  fontSize: '1.1rem',  bgcolor: 'grey.100'}} align="center">
-									Delete
-								</TableCell>
-							</TableRow>
-						</TableHead>
-						<TableBody>
-							{data.map((warehouse) => (
-								<TableRow key={warehouse.id} hover>
-									<TableCell>{warehouse.warehouseAddress}</TableCell>
-									<TableCell>{warehouse.warehouseEmail}</TableCell>
-									<TableCell align="right">{warehouse.warehouseCapacity}</TableCell>
-									<TableCell align="center">
-										<Link href={`/warehouse/edit/${warehouse.id}`} passHref >
-											<IconButton color="primary">
+				<Paper>
+					<TableContainer>
+						<Table size="small">
+							<TableHead>
+								<TableRow>
+									<TableCell>Address</TableCell>
+									<TableCell>Email</TableCell>
+									<TableCell align="right">Capacity</TableCell>
+									<TableCell align="center">Edit</TableCell>
+									<TableCell align="center">Delete</TableCell>
+								</TableRow>
+							</TableHead>
+							<TableBody>
+								{data.map((warehouse) => (
+									<TableRow key={warehouse.id} hover>
+										<TableCell>{warehouse.warehouseAddress}</TableCell>
+										<TableCell>{warehouse.warehouseEmail}</TableCell>
+										<TableCell align="right">{warehouse.warehouseCapacity}</TableCell>
+										<TableCell align="center">
+											<IconButton onClick={() => handleEdit(warehouse)}>
 												<EditIcon fontSize="small" />
 											</IconButton>
-										</Link>
-									</TableCell>
-									<TableCell align="center">
-										<Link href={`/warehouse/delete/${warehouse.id}`} passHref >
-											<IconButton aria-label="delete" size="small">
-												<DeleteIcon fontSize="inherit" />
+										</TableCell>
+										<TableCell align="center">
+											<IconButton onClick={() => handleDelete(warehouse)}>
+												<DeleteIcon fontSize="small" />
 											</IconButton>
-										</Link>
-									</TableCell>
-								</TableRow>
-							))}
-						</TableBody>
-					</Table>
-				</TableContainer>
+										</TableCell>
+									</TableRow>
+								))}
+							</TableBody>
+						</Table>
+					</TableContainer>
+				</Paper>
+
+				{selected && (
+					<WarehouseEditDialog
+						open={editOpen}
+						onClose={() => setEditOpen(false)}
+						warehouse={selected}
+						onUpdate={onUpdate}
+					/>
+				)}
+
+				{selected && (
+					<WarehouseDeleteDialog
+						open={deleteOpen}
+						onClose={() => setDeleteOpen(false)}
+						warehouse={selected}
+						onDelete={onConfirmDelete}
+					/>
+				)}
 			</Box>
 		</>
 	);
