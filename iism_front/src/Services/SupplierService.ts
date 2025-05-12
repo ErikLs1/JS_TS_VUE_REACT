@@ -1,7 +1,8 @@
 import {EntityService} from "@/Services/EntityService";
-import {IWarehouse} from "@/Types/Domain/IWarehouse";
+import {ISupplier} from "@/Types/Domain/ISupplier";
 
 export class SupplierService extends EntityService<ISupplier> {
 	constructor() {
 		super('suppliers');
 	}
+}
