@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create warehouse crud">
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/CategoryDeleteDialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/CategoryEditDialog.tsx" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create category crud">
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/WarehouseFiltersResponse.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Domain/ICategory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/ICategory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/category/create/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/category/create/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/category/delete/[id]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/category/edit/[id]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/category/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/category/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/WarehouseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/WarehouseService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +23,8 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Vue Composition API Component" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -129,7 +124,8 @@
       <workItem from="1746634314905" duration="7000" />
       <workItem from="1746693402984" duration="10065000" />
       <workItem from="1746857585079" duration="14516000" />
-      <workItem from="1746951103928" duration="15143000" />
+      <workItem from="1746951103928" duration="17406000" />
+      <workItem from="1747030028484" duration="7069000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -419,7 +415,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746967731493</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="create category crud">
+      <option name="closed" value="true" />
+      <created>1746970944057</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1746970944057</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +441,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="creat advanced ai" />
     <MESSAGE value="creat code refactoring" />
     <MESSAGE value="creat tic tac two typescript project initialization" />
     <MESSAGE value="creat ts code" />
@@ -462,6 +465,7 @@
     <MESSAGE value="create register and logout" />
     <MESSAGE value="create personal profile page" />
     <MESSAGE value="create warehouse crud" />
-    <option name="LAST_COMMIT_MESSAGE" value="create warehouse crud" />
+    <MESSAGE value="create category crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="create category crud" />
   </component>
 </project>

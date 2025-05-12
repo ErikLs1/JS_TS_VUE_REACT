@@ -1,6 +1,7 @@
 "use client"
 
 import {
+	Autocomplete,
 	Box,
 	Button,
 	IconButton,
@@ -10,7 +11,7 @@ import {
 	TableCell,
 	TableContainer,
 	TableHead,
-	TableRow, Typography
+	TableRow, TextField, Typography
 } from "@mui/material";
 import Link from "next/link";
 import EditIcon from '@mui/icons-material/Edit';
@@ -19,7 +20,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { Stack } from "@mui/system";
 import { AccountContext } from "@/Context/AccountContext";
 import { WarehouseService } from "@/Services/WarehouseService";
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useMemo, useState} from "react";
 import { useRouter } from "next/navigation";
 import {IWarehouse} from "@/Types/Domain/IWarehouse";
 import WarehouseEditDialog from "@/Components/WarehouseEditDialog";
@@ -35,46 +36,79 @@ export default function Warehous() {
 	const [deleteOpen, setDeleteOpen] = useState(false);
 	const [selected, setSelected] = useState<IWarehouse | null>(null);
 
+	// filter values
+	const [streetFilter, setStreetFilter] = useState<string>("");
+	const [cityFilter, setCityFilter] = useState<string>("");
+	const [stateFilter, setStateFilter] = useState<string>("");
+	const [countryFilter, setCountryFilter] = useState<string>("");
+
+	// options fo each filter
+	const [streets, setStreets] = useState<string[]>([]);
+	const [cities, setCities] = useState<string[]>([]);
+	const [states, setStates] = useState<string[]>([]);
+	const [countries, setCountries] = useState<string[]>([]);
+
+
 	useEffect(() => {
 		const storedJwt = localStorage.getItem("_jwt");
 		if (!accountInfo?.jwt && !storedJwt) {
 			router.push("/login")
 			return;
 		}
-		fetchData();
+		const initData = async () => {
+			const filters = await warehouseService.getFilters();
+			if (!filters.errors && filters.data) {
+				setStreets(filters.data.streets);
+				setCities(filters.data.cities);
+				setStates(filters.data.states);
+				setCountries(filters.data.countries);
+			}
+
+			const allWarehouses = await warehouseService.getFilteredWarehouses({});
+			if (!allWarehouses.errors && allWarehouses.data) {
+				setData(allWarehouses.data);
+			}
+		}
+
+		initData();
 	}, []);
 
-	const fetchData = async () => {
-		try {
-			const result = await warehouseService.getAllAsync();
-			if (result.errors) {
-				console.error(result.errors);
-				return;
+	useEffect(() => {
+		const applyFilters = async () => {
+			const res = await warehouseService.getFilteredWarehouses({
+				street: streetFilter || undefined,
+				city: cityFilter || undefined,
+				state: stateFilter || undefined,
+				country: countryFilter || undefined,
+			});
+
+			if (!res.errors && res.data) {
+				setData(res.data);
 			}
-			setData(result.data!);
-		} catch (error) {
-			console.error("Error fetching data: ", error);
 		}
-	};
 
-	const handleEdit = (w: IWarehouse) => {
-		setSelected(w);
-		setEditOpen(true);
-	};
+		applyFilters();
+	}, [streetFilter, cityFilter, stateFilter, countryFilter]);
 
-	const handleDelete = (w: IWarehouse) => {
-		setSelected(w);
-		setDeleteOpen(true);
-	}
+	const handleEdit = (w: IWarehouse) => { setSelected(w); setEditOpen(true); };
+	const handleDelete = (w: IWarehouse) => { setSelected(w); setDeleteOpen(true); }
 
 	const onUpdate = async (updated: IWarehouse) => {
 		await warehouseService.update(updated.id, updated);
-		await fetchData();
+		const refetch = await warehouseService.getFilteredWarehouses({
+			street: streetFilter, city: cityFilter, state: stateFilter, country: countryFilter
+		});
+
+		if (!refetch.errors && refetch.data) setData(refetch.data);
 	}
 
 	const onConfirmDelete = async (id: string) => {
 		await warehouseService.delete(id);
-		await fetchData();
+		const refetch = await warehouseService.getFilteredWarehouses({
+			street: streetFilter, city: cityFilter, state: stateFilter, country: countryFilter
+		});
+
+		if (!refetch.errors && refetch.data) setData(refetch.data);
 	}
 
 	return (
@@ -94,6 +128,50 @@ export default function Warehous() {
 							New Warehouse
 						</Button>
 					</Link>
+				</Stack>
+
+				{/* Filters */}
+				<Stack direction="row" spacing={2} mb={2}>
+					<Autocomplete
+						options={streets}
+						value={streetFilter}
+						onChange={(_, v) => setStreetFilter(v ?? '')}
+						getOptionLabel={(opt) => opt ?? ""}
+						renderInput={params => <TextField {...params} label="Street" variant="outlined" />}
+						sx={{ width: 200 }}
+					/>
+					<Autocomplete
+						options={cities}
+						value={cityFilter}
+						onChange={(_, v) => setCityFilter(v ?? '')}
+						getOptionLabel={(opt) => opt ?? ""}
+						renderInput={params => <TextField {...params} label="City" variant="outlined" />}
+						sx={{ width: 150 }}
+					/>
+					<Autocomplete
+						options={states}
+						value={stateFilter}
+						onChange={(_, v) => setStateFilter(v ?? '')}
+						getOptionLabel={(opt) => opt ?? ""}
+						renderInput={params => <TextField {...params} label="State" variant="outlined" />}
+						sx={{ width: 150 }}
+					/>
+					<Autocomplete
+						options={countries}
+						value={countryFilter}
+						onChange={(_, v) => setCountryFilter(v ?? '')}
+						getOptionLabel={(opt) => opt ?? ""}
+						renderInput={params => <TextField {...params} label="Country" variant="outlined" />}
+						sx={{ width: 150 }}
+					/>
+					<Button onClick={() => {
+						setStreetFilter('');
+						setCityFilter('');
+						setStateFilter('');
+						setCountryFilter('');
+					}}>
+						Clear
+					</Button>
 				</Stack>
 
 				{/* Table */}
