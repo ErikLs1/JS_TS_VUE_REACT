@@ -60,6 +60,7 @@ export default function Header(){
 								<>
 									<li><Link href="/category" className="nav-link px-2 text-white">Category</Link></li>
 									<li><Link href="/warehouse" className="nav-link px-2 text-white">Warehouse</Link></li>
+									<li><Link href="/supplyMarket" className="nav-link px-2 text-white">Market</Link></li>
 								</>
 							}
 						</ul>

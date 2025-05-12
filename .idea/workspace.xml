@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create category crud">
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/WarehouseFiltersResponse.ts" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create warehouse filtering">
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Services/SupplierService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IProduct.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/ISupplier.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/app/supplyMarket/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Services/WarehouseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/WarehouseService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +127,8 @@
       <workItem from="1746693402984" duration="10065000" />
       <workItem from="1746857585079" duration="14516000" />
       <workItem from="1746951103928" duration="17406000" />
-      <workItem from="1747030028484" duration="7069000" />
+      <workItem from="1747030028484" duration="8639000" />
+      <workItem from="1747052039111" duration="5626000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -423,7 +426,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746970944057</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="create warehouse filtering">
+      <option name="closed" value="true" />
+      <created>1747050712148</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1747050712148</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +452,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="creat code refactoring" />
     <MESSAGE value="creat tic tac two typescript project initialization" />
     <MESSAGE value="creat ts code" />
     <MESSAGE value="creat ui fix + vue project initialization" />
@@ -466,6 +476,7 @@
     <MESSAGE value="create personal profile page" />
     <MESSAGE value="create warehouse crud" />
     <MESSAGE value="create category crud" />
-    <option name="LAST_COMMIT_MESSAGE" value="create category crud" />
+    <MESSAGE value="create warehouse filtering" />
+    <option name="LAST_COMMIT_MESSAGE" value="create warehouse filtering" />
   </component>
 </project>
