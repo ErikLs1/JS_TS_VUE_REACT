@@ -59,10 +59,10 @@ export default function SupplyMarket() {
 	const [quantity, setQuantity] = useState(1);
 
 	// State for warehouse filter options
-	const [wStreets, setWStreets]    = useState<string[]>([]);
-	const [wCities, setWCities]       = useState<string[]>([]);
-	const [wStates, setWStates]       = useState<string[]>([]);
-	const [wCuntries, setWCountries]    = useState<string[]>([]);
+	const [wStreets, setWStreets] = useState<string[]>([]);
+	const [wCities, setWCities] = useState<string[]>([]);
+	const [wStates, setWStates] = useState<string[]>([]);
+	const [wCuntries, setWCountries] = useState<string[]>([]);
 
 
 	// Warehouses + filters

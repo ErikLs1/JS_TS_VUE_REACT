@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create supply market filtering and product listing">
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Services/StockOrderService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IStockOrder.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/CreateStockOrderRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/StockOrderItemRequest.ts" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create complete stock order">
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/WarehouseProduct.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Services/InventoryService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IInventory.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/WarehouseInventoryItemDto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/SupplyCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/SupplyCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/SupplyOrderInfoDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/SupplyOrderInfoDialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/SupplyOrderWarehousesDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/SupplyOrderWarehousesDialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Responses/ProductSupplierDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/ProductSupplierDto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/app/supplyMarket/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/supplyMarket/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +25,8 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Vue Composition API Component" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -136,7 +133,7 @@
       <workItem from="1747113762548" duration="203000" />
       <workItem from="1747113981653" duration="4922000" />
       <workItem from="1747214337935" duration="2598000" />
-      <workItem from="1747222443274" duration="11640000" />
+      <workItem from="1747222443274" duration="14241000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -474,7 +471,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747227409282</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="create complete stock order">
+      <option name="closed" value="true" />
+      <created>1747235834118</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1747235834118</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,7 +497,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="vue" />
     <MESSAGE value="create landing page + user input" />
     <MESSAGE value="create gameBoard and direction/action buttons" />
     <MESSAGE value="create move, grid move, piece move" />
@@ -517,6 +521,7 @@
     <MESSAGE value="create demo for suppliers listing and ordering" />
     <MESSAGE value="create initial demo divided to components" />
     <MESSAGE value="create supply market filtering and product listing" />
-    <option name="LAST_COMMIT_MESSAGE" value="create supply market filtering and product listing" />
+    <MESSAGE value="create complete stock order" />
+    <option name="LAST_COMMIT_MESSAGE" value="create complete stock order" />
   </component>
 </project>
