@@ -4,7 +4,7 @@ import {
 	Autocomplete,
 	Box,
 	Button, Card, CardActionArea, CardContent, Grid,
-	IconButton,
+	IconButton, Pagination,
 	Paper, Slide, SlideProps, Snackbar,
 	Table,
 	TableBody,
@@ -25,100 +25,136 @@ import SupplyOrderWarehousesDialog from "@/Components/SupplyOrderWarehousesDialo
 import SupplyOrderInfoDialog from "@/Components/SupplyOrderInfoDialog";
 import SupplyCard from "@/Components/SupplyCard";
 import SupplyMarketFilters from "@/Components/SupplyMarketFilters";
-
-// Define the shape of your supply item
-export type SupplyItem = {
-	productName: string;
-	category:    string;
-	description: string;
-	supplierName:    string;
-	supplierAddress: string;
-	supplierEmail:   string;
-	supplierPhone:   string;
-	unitCost:        number;
-};
-
-// Dummy data array
-const dummyItems: SupplyItem[] = Array.from({ length: 8 }).map((_, i) => ({
-	productName:    `Product ${i + 1}`,
-	category:       ['Electronics','Furniture','Clothing','Food'][i % 4],
-	description:    `Description for product ${i + 1}`,
-	supplierName:   `Supplier ${((i % 4) + 1)}`,
-	supplierAddress:`123 Main St, City ${i + 1}`,
-	supplierEmail:  `supplier${i+1}@example.com`,
-	supplierPhone:  `+1-800-000-${1000 + i}`,
-	unitCost:       10 + i * 2
-}));
+import {AccountContext} from "@/Context/AccountContext";
+import {useRouter} from "next/navigation";
+import {ProductSuppliersService} from "@/Services/ProductSuppliersService";
+import {ProductSupplierDto} from "@/Types/Responses/ProductSupplierDto";
 
 export default function SupplyMarket() {
-	const warehouseService = new WarehouseService();
+	const productSuppliersService = new ProductSuppliersService();
+	const { accountInfo } = useContext(AccountContext);
+	const router = useRouter();
 
-	const [cities]       = useState(["Chicago","Atlanta","Long Beach","Dallas"]);
-	const [states]       = useState(["IL","GA","CA","TX"]);
-	const [countries]    = useState(["USA","Canada","Mexico"]);
-	const [categories]   = useState(["Electronics","Furniture","Clothing","Food & Beverage"]);
-	const [suppliers]    = useState(["GlobalTech Ltd","HomeComfort Inc","FashionHub","FreshHarvest Foods"]);
+	// State for filter options
+	const [cities, setCities]       = useState<string[]>([]);
+	const [states, setStates]       = useState<string[]>([]);
+	const [countries, setCountries]    = useState<string[]>([]);
+	const [categories, setCategories]   = useState<string[]>([]);
+	const [suppliers, setSuppliers]    = useState<string[]>([]);
 
+	// State for selected filter values
 	const [cityFilter,   setCityFilter]   = useState("");
 	const [stateFilter,  setStateFilter]  = useState("");
 	const [countryFilter,setCountryFilter]= useState("");
 	const [categoryFilter, setCategoryFilter] = useState("");
 	const [supplierFilter, setSupplierFilter] = useState("");
 
-	// dialog / order flow
-	const [selectedItem, setSelectedItem] = useState<SupplyItem | null>(null);
-	const [step,         setStep]         = useState<0|1>(0);
-	const [quantity,     setQuantity]     = useState(1);
+	// Paged data settings
+	const [items, setItems] = useState<ProductSupplierDto[]>([]);
+	const [pageIndex, setPageIndex] = useState(1);
+	const [pageSize] = useState(18);
+	const [totalCount, setTotalCount] = useState(0);
 
-	// warehouses & their own filters
-	const [warehouses,   setWarehouses]   = useState<IWarehouse[]>([]);
-	const [wCity,        setWCity]        = useState("");
-	const [wState,       setWState]       = useState("");
-	const [wCountry,     setWCountry]     = useState("");
-
-	// snackbar
-	const [snackbarOpen, setSnackbarOpen] = useState(false);
-
-	// load all warehouses once
+	// fetch distinct filters on render
 	useEffect(() => {
-		warehouseService.getAllAsync().then(res => {
-			if (!res.errors && res.data) setWarehouses(res.data);
-		});
+		const storedJwt = localStorage.getItem("_jwt");
+		if (!accountInfo?.jwt && !storedJwt) {
+			router.push("/login")
+			return;
+		}
+
+		const initFilters = async () => {
+			const filters = await productSuppliersService.getFilters();
+			if (!filters.errors && filters.data) {
+				setCities(filters.data.cities);
+				setStates(filters.data.states);
+				setCountries(filters.data.countries);
+				setCategories(filters.data.categories);
+				setSuppliers(filters.data.suppliers);
+			}
+		}
+
+		initFilters();
 	}, []);
 
-	// re‐filter warehouses when user hits step 1 or changes wCity/wState/wCountry
+
+	// Reload page when  filters change or page number
 	useEffect(() => {
-		if (step === 1) {
-			warehouseService
-				.getFilteredWarehouses({
-					city:    wCity   || undefined,
-					state:   wState  || undefined,
-					country: wCountry|| undefined,
-				})
-				.then(res => {
-					if (!res.errors && res.data) setWarehouses(res.data);
-				});
+		const initProducSuppliers = async () => {
+			const productSuppliers = await productSuppliersService
+				.getFilteredProductSuppliers(
+					pageIndex,
+					pageSize,
+					cityFilter || undefined,
+					stateFilter || undefined,
+					countryFilter || undefined,
+					categoryFilter || undefined,
+					supplierFilter || undefined
+				);
+
+			if (!productSuppliers.errors && productSuppliers.data) {
+				setItems(productSuppliers.data.items);
+				setTotalCount(productSuppliers.data.totalCount);
+			}
 		}
-	}, [step, wCity, wState, wCountry]);
+		initProducSuppliers()
+	}, [pageIndex,
+		cityFilter,
+		stateFilter,
+		countryFilter,
+		categoryFilter,
+		supplierFilter
+	]);
 
 
-	const openDialog = (item: SupplyItem) => {
-		setSelectedItem(item);
-		setQuantity(1);
-		setStep(0);
-		// reset warehouse filters too:
-		setWCity("");
-		setWState("");
-		setWCountry("");
+	// // dialog / order flow
+	// const [selectedItem, setSelectedItem] = useState<SupplyItem | null>(null);
+	// const [step,         setStep]         = useState<0|1>(0);
+	// const [quantity,     setQuantity]     = useState(1);
+	//
+	// // warehouses & their own filters
+	// const [warehouses,   setWarehouses]   = useState<IWarehouse[]>([]);
+	// const [wCity,        setWCity]        = useState("");
+	// const [wState,       setWState]       = useState("");
+	// const [wCountry,     setWCountry]     = useState("");
+	//
+	// // snackbar
+	// const [snackbarOpen, setSnackbarOpen] = useState(false);
+	//
+	// // load all warehouses once
+	// useEffect(() => {
+	// 	warehouseService.getAllAsync().then(res => {
+	// 		if (!res.errors && res.data) setWarehouses(res.data);
+	// 	});
+	// }, []);
+	//
+	// // re‐filter warehouses when user hits step 1 or changes wCity/wState/wCountry
+	// useEffect(() => {
+	// 	if (step === 1) {
+	// 		warehouseService
+	// 			.getFilteredWarehouses({
+	// 				city:    wCity   || undefined,
+	// 				state:   wState  || undefined,
+	// 				country: wCountry|| undefined,
+	// 			})
+	// 			.then(res => {
+	// 				if (!res.errors && res.data) setWarehouses(res.data);
+	// 			});
+	// 	}
+	// }, [step, wCity, wState, wCountry]);
+	//
+	//
+	const openDialog = () => {
+
 	};
-	const closeDialog = () => setSelectedItem(null);
-	const handleNext  = () => setStep(1);
-	const handleOrder = (warehouse: IWarehouse) => {
-		console.log(`Order ${quantity}×${selectedItem?.productName} to warehouse ${warehouse.id}`);
-		// TODO: API call here...
-		setSelectedItem(null);
-		setSnackbarOpen(true);
-	};
+	// const closeDialog = () => setSelectedItem(null);
+	// const handleNext  = () => setStep(1);
+	// const handleOrder = (warehouse: IWarehouse) => {
+	// 	console.log(`Order ${quantity}×${selectedItem?.productName} to warehouse ${warehouse.id}`);
+	// 	// TODO: API call here...
+	// 	setSelectedItem(null);
+	// 	setSnackbarOpen(true);
+	// };
 
 	return (
 		<>
@@ -140,55 +176,66 @@ export default function SupplyMarket() {
 
 				{/* Card products */}
 				<Grid container spacing={2}>
-					{dummyItems.map((item, idx) => (
+					{items.map(item => (
 						<SupplyCard
-							key={item.productName}
-							item={item}
+							key={item.id}
+							item={{
+								productName: item.product.productName,
+								supplierName: item.supplier.supplierName,
+								unitCost: item.unitCost,
+							}}
 							onClick={openDialog}
 						/>
 					))}
 				</Grid>
-				{selectedItem && (
-					<Dialog open onClose={closeDialog} fullWidth maxWidth="md">
-						<DialogTitle>{selectedItem.productName}</DialogTitle>
-						<DialogContent dividers>
-							{step === 0 ? (
-								<>
-									<SupplyOrderInfoDialog
-										item={selectedItem}
-										quantity={quantity}
-										setQuantity={setQuantity}
-									/>
-								</>
-							) : (
-								<>  {/* step 1: choose warehouse */}
-									<SupplyOrderWarehousesDialog
-										warehouses={warehouses}
-										cityFilter={wCity}
-										setCityFilter={setWCity}
-										stateFilter={wState}
-										setStateFilter={setWState}
-										countryFilter={wCountry}
-										setCountryFilter={setWCountry}
-										handleOrder={handleOrder}/>
-								</>
-							)}
-						</DialogContent>
-						<DialogActions>
-							<Button onClick={closeDialog}>Cancel</Button>
-							{step === 0 ? (
-								<Button onClick={handleNext} variant="contained">Next</Button>
-							) : null}
-						</DialogActions>
-					</Dialog>
-				)}
+				{/*{selectedItem && (*/}
+				{/*	<Dialog open onClose={closeDialog} fullWidth maxWidth="md">*/}
+				{/*		<DialogTitle>{selectedItem.productName}</DialogTitle>*/}
+				{/*		<DialogContent dividers>*/}
+				{/*			{step === 0 ? (*/}
+				{/*				<>*/}
+				{/*					<SupplyOrderInfoDialog*/}
+				{/*						item={selectedItem}*/}
+				{/*						quantity={quantity}*/}
+				{/*						setQuantity={setQuantity}*/}
+				{/*					/>*/}
+				{/*				</>*/}
+				{/*			) : (*/}
+				{/*				<>  /!* step 1: choose warehouse *!/*/}
+				{/*					<SupplyOrderWarehousesDialog*/}
+				{/*						warehouses={warehouses}*/}
+				{/*						cityFilter={wCity}*/}
+				{/*						setCityFilter={setWCity}*/}
+				{/*						stateFilter={wState}*/}
+				{/*						setStateFilter={setWState}*/}
+				{/*						countryFilter={wCountry}*/}
+				{/*						setCountryFilter={setWCountry}*/}
+				{/*						handleOrder={handleOrder}/>*/}
+				{/*				</>*/}
+				{/*			)}*/}
+				{/*		</DialogContent>*/}
+				{/*		<DialogActions>*/}
+				{/*			<Button onClick={closeDialog}>Cancel</Button>*/}
+				{/*			{step === 0 ? (*/}
+				{/*				<Button onClick={handleNext} variant="contained">Next</Button>*/}
+				{/*			) : null}*/}
+				{/*		</DialogActions>*/}
+				{/*	</Dialog>*/}
+				{/*)}*/}
 
-				<Snackbar
-					open={snackbarOpen}
-					onClose={() => setSnackbarOpen(false)}
-					message="Order placed"
-					autoHideDuration={2000}
-				/>
+				{/*<Snackbar*/}
+				{/*	open={snackbarOpen}*/}
+				{/*	onClose={() => setSnackbarOpen(false)}*/}
+				{/*	message="Order placed"*/}
+				{/*	autoHideDuration={2000}*/}
+				{/*/>*/}
+				<Box mt={2} display="flex" justifyContent="center">
+					<Pagination
+						count={Math.ceil(totalCount / pageSize)}
+						page={pageIndex}
+						onChange={(_, p) => setPageIndex(p)}
+					/>
+				</Box>
 			</Box>
 		</>
 	);

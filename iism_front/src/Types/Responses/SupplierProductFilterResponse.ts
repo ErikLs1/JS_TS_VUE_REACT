@@ -1,7 +1,7 @@
-export interface WarehouseFiltersResponse {
+export interface SupplierProductFilterResponse {
 	cities: string[];
 	states: string[];
 	countries: string[];
-	productCategories: string[];
-	supplierNames: string[];
+	categories: string[];
+	suppliers: string[];
 }

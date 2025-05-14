@@ -83,7 +83,7 @@ export default function Category() {
 				{/* Header */}
 				<Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
 					<Typography variant="h4" component="h1">
-						Warehouses
+						Categories
 					</Typography>
 					<Link href="/category/create" passHref>
 						<Button
