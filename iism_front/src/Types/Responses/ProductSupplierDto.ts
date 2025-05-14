@@ -5,7 +5,7 @@ export interface ProductSupplierDto {
 	id: string;
 	supplierId: string;
 	productId: string;
-	unitCost: string;
+	unitCost: number;
 	supplier: SupplierDto;
 	product: ProductDto;
 }

@@ -1,12 +1,19 @@
 import {Card, CardActionArea, CardContent, Grid, Typography} from "@mui/material";
-import {SupplyItem} from "@/app/supplyMarket/page";
 
-export default function SupplyCard({ item, onClick } : { item: SupplyItem; onClick: (item: SupplyItem) => void }) {
+interface SupplyCardProps {
+	item: {
+		productName: string;
+		supplierName: string;
+		unitCost: number;
+	};
+	onClick: () => void;
+}
+export default function SupplyCard({ item, onClick } : SupplyCardProps) {
 	return (
 		<>
 			<Grid size={{ xs: 12, sm: 6, md: 4}}>
 				<Card>
-					<CardActionArea onClick={ () => onClick(item)}>
+					<CardActionArea onClick={onClick}>
 						<CardContent>
 							<Typography variant="h6">
 								{item.productName}

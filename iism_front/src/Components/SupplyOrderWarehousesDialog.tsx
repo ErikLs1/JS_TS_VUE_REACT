@@ -14,6 +14,10 @@ import {IWarehouse} from "@/Types/Domain/IWarehouse";
 
 interface SupplyOrderWarehouseDialogProps {
 	warehouses: IWarehouse[];
+	streets: string[],
+	cities: string[],
+	states: string[],
+	countries: string[],
 	cityFilter: string;
 	setCityFilter: (v: string) => void;
 	stateFilter: string;
@@ -25,6 +29,10 @@ interface SupplyOrderWarehouseDialogProps {
 
 export default function SupplyOrderWarehousesDialog({
 														warehouses,
+														streets,
+														cities,
+														states,
+														countries,
 														cityFilter,
 														setCityFilter,
 														stateFilter,
@@ -37,21 +45,21 @@ export default function SupplyOrderWarehousesDialog({
 		<>
 			<Stack direction="row" spacing={2} mb={2}>
 				<Autocomplete
-					options={[...new Set(warehouses.map(w=>w.warehouseAddress))]}
+					options={cities}
 					value={cityFilter}
 					onChange={(_, v) => setCityFilter(v||'')}
 					renderInput={p=><TextField {...p} label="City" size="small"/>}
 					sx={{ width:120 }}
 				/>
 				<Autocomplete
-					options={[...new Set(warehouses.map(w=>w.warehouseAddress))]}
+					options={states}
 					value={stateFilter}
 					onChange={(_, v) => setStateFilter(v||'')}
 					renderInput={p=><TextField {...p} label="State" size="small"/>}
 					sx={{ width:120 }}
 				/>
 				<Autocomplete
-					options={[...new Set(warehouses.map(w=>w.warehouseAddress))]}
+					options={countries}
 					value={countryFilter}
 					onChange={(_, v) => setCountryFilter(v||'')}
 					renderInput={p=><TextField {...p} label="Country" size="small"/>}
