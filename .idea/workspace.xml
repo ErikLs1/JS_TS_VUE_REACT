@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create product listing for the shop">
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Context/CartContext.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Services/OrderService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IOrder.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/CreateOrderDto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/CreateOrderProductDto.ts" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create cart context and cart summary (shit code)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +129,7 @@
       <workItem from="1747113981653" duration="4922000" />
       <workItem from="1747214337935" duration="2598000" />
       <workItem from="1747222443274" duration="14368000" />
-      <workItem from="1747315815816" duration="11473000" />
+      <workItem from="1747315815816" duration="12567000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -507,7 +499,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747323445503</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="create cart context and cart summary (shit code)">
+      <option name="closed" value="true" />
+      <created>1747328344782</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1747328344782</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +525,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create small logic fix" />
     <MESSAGE value="create working AI" />
     <MESSAGE value="create small error fix" />
     <MESSAGE value="create iism frontend project initialization" />
@@ -550,6 +549,7 @@
     <MESSAGE value="create base for inventory listing" />
     <MESSAGE value="create product listing for the warehouse" />
     <MESSAGE value="create product listing for the shop" />
-    <option name="LAST_COMMIT_MESSAGE" value="create product listing for the shop" />
+    <MESSAGE value="create cart context and cart summary (shit code)" />
+    <option name="LAST_COMMIT_MESSAGE" value="create cart context and cart summary (shit code)" />
   </component>
 </project>

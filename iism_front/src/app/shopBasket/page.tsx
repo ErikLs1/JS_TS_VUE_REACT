@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { useCart } from '@/Context/CartContext'
 import {
 	Box,
@@ -11,19 +10,48 @@ import {
 	CardMedia,
 	Divider,
 	Grid,
-	IconButton,
+	IconButton, Snackbar,
 	TextField,
 	Typography
 } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import {useState} from "react";
+import { OrderService } from '@/Services/OrderService';
+import {useRouter} from "next/navigation";
+import {CreateOrderProductDto} from "@/Types/Requests/CreateOrderProductDto";
+import {CreateOrderDto} from "@/Types/Requests/CreateOrderDto";
 
 export default function BasketPage() {
 	const { items, updateQty, clear } = useCart()
 	const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0)
-	const shipping = items.length ? 3.99 : 0
-	const tax = items.length ? 2.0 : 0
-	const total = subtotal + shipping + tax
+	const shipping = items.length ? 3.99 : 0;
+	const tax = items.length ? 2.0 : 0;
+	const total = subtotal + shipping + tax;
+	const orderService = new OrderService();
+	const [snackOpen, setSnackOpen] = useState(false);
+	const router = useRouter();
+
+	const handleOrder = async () => {
+		if (items.length === 0) return;
+		const products: CreateOrderProductDto[] = items.map(i => ({
+			productId: i.productId,
+			quantity: i.quantity
+		}));
+		const dto: CreateOrderDto = {
+			shippingAddress: '',
+			paymentMethod: '',
+			products
+		};
+		const res = await orderService.PlaceTheOrder(dto);
+		if (!res.errors) {
+			setSnackOpen(true);
+			clear();
+			setTimeout(() => router.push('/profile'), 1500);
+		} else {
+			console.error(res.errors);
+		}
+	};
 
 	return (
 		<Box px={2} py={5} sx={{ maxWidth: 1200, mx: 'auto' }}>
@@ -99,7 +127,13 @@ export default function BasketPage() {
 							<Typography variant="subtitle1" fontWeight="bold">Total</Typography>
 							<Typography variant="subtitle1" fontWeight="bold">${total.toFixed(2)}</Typography>
 						</Box>
-						<Button variant="contained" color="primary" fullWidth sx={{ mb: 1 }}>
+						<Button
+							variant="contained"
+							color="primary"
+							fullWidth
+							sx={{ mb: 1 }}
+							onClick={handleOrder}
+						>
 							Continue to payment →
 						</Button>
 						<Button variant="text" fullWidth onClick={clear}>
@@ -107,6 +141,12 @@ export default function BasketPage() {
 						</Button>
 					</Card>
 				</Grid>
+				<Snackbar
+					open={snackOpen}
+					onClose={() => setSnackOpen(false)}
+					message="Order placed"
+					autoHideDuration={2000}
+				/>
 			</Grid>
 		</Box>
 	)
