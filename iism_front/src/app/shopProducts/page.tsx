@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link";
 import {
 	Autocomplete,
 	Box,
@@ -9,14 +8,21 @@ import {
 	CardActionArea,
 	CardContent,
 	CardMedia,
-	Grid,
+	DialogContent,
+	Grid, IconButton,
 	Pagination,
 	TextField,
 	Typography
 } from "@mui/material";
 import {InventoryService} from "@/Services/InventoryService";
+import RemoveIcon from '@mui/icons-material/Remove';
 import {useEffect, useState} from "react";
 import {InventoryProductsDto} from "@/Types/Responses/InventoryProductsDto";
+import Dialog from "@mui/material/Dialog";
+import { useCart } from "@/Context/CartContext";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogActions from "@mui/material/DialogActions";
+import AddIcon from "@mui/icons-material/Add";
 
 export default function ShopProducts() {
 	const inventoryService = new InventoryService();
@@ -29,6 +35,12 @@ export default function ShopProducts() {
 	const pageSize = 12;
 	const [totalCount, setTotalCount] = useState(0);
 	const [allCategories, setAllCategories] = useState<string[]>([]);
+	const { addItem } = useCart();
+
+	// Dialog state
+	const [dialogOpen, setDialogOpen] = useState(false);
+	const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+	const [quantity, setQuantity] = useState(1);
 
 	useEffect(() => {
 		const load = async () =>  {
@@ -54,6 +66,26 @@ export default function ShopProducts() {
 	useEffect(() => {
 		applyFilters();
 	}, [minPrice, maxPrice, category, productName, page]);
+
+	// find currently selected product
+	const selectedProduct = items.find(p => p.productId === selectedProductId) || null;
+
+	// handle add to cart
+	const handleAddToCart = () => {
+		if (selectedProduct) {
+			addItem(
+				{
+					productId: selectedProduct.productId,
+					name: selectedProduct.productName,
+					price: selectedProduct.productPrice,
+					img: ''
+				},
+				quantity
+			);
+		}
+		setDialogOpen(false);
+		setQuantity(1);
+	};
 
 	return (
 		<Box mt={8} mb={4} sx={{ mx: 'auto', px: 2, maxWidth: 1200 }}>
@@ -101,7 +133,12 @@ export default function ShopProducts() {
 				{items.map(item => (
 					<Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={`${item.productId}-${item.warehouseId}`}>
 						<Card>
-							<CardActionArea component={Link} href={`/shopProductDetails/${item.productId}`}>
+							<CardActionArea
+								onClick={() => {
+									setSelectedProductId(item.productId);
+									setDialogOpen(true);
+								}}
+							>
 								<CardMedia
 									component="img"
 									height={160}
@@ -131,6 +168,57 @@ export default function ShopProducts() {
 					onChange={(_, p) => setPage(p)}
 				/>
 			</Box>
+
+			<Dialog
+				open={dialogOpen}
+				onClose={() => setDialogOpen(false)}
+				fullWidth
+				maxWidth="sm"
+			>
+				<DialogTitle>Order "{selectedProduct?.productName}"</DialogTitle>
+				<DialogContent dividers>
+					<Box display="flex" gap={2} flexDirection={{ xs: 'column', sm: 'row' }}>
+						<img
+							src={'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.5ApqY5soOddRufcQKVrH1wHaGF%26cb%3Diwc2%26pid%3DApi&f=1&ipt=200ac27eb1d8e7342e20243cecc7b6368d8208bb372c0490c2cacee5a8afce4c&ipo=images'}
+							alt={selectedProduct?.productName}
+							style={{ width: 120, height: 120, objectFit: 'cover', borderRadius: 4 }}
+						/>
+						<Box>
+							<Typography variant="body1" gutterBottom>
+								{selectedProduct?.productDescription}
+							</Typography>
+							<Typography variant="h6" color="primary" gutterBottom>
+								Price: ${selectedProduct?.productPrice.toFixed(2)}
+							</Typography>
+							<Box display="flex" alignItems="center" gap={1} mt={1}>
+								<IconButton onClick={() => setQuantity(q => Math.max(1, q - 1))}>
+									<RemoveIcon />
+								</IconButton>
+								<TextField
+									value={quantity}
+									onChange={e => setQuantity(Math.max(1, Number(e.target.value) || 1))}
+									inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+									sx={{ width: 64 }}
+								/>
+								<IconButton onClick={() => setQuantity(q => q + 1)}>
+									<AddIcon />
+								</IconButton>
+							</Box>
+						</Box>
+					</Box>
+				</DialogContent>
+				<DialogActions>
+					<Button onClick={() => setDialogOpen(false)}>Cancel</Button>
+					<Button
+						variant="contained"
+						color="success"
+						onClick={handleAddToCart}
+					>
+						Add to Cart
+					</Button>
+				</DialogActions>
+			</Dialog>
 		</Box>
 	)
 }
+

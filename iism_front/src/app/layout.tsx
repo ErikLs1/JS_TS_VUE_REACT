@@ -6,6 +6,7 @@ import BootstrapActivation from "@/Helpers/BootstrapActivation";
 import Header from "@/Components/Header";
 import {AccountContext, IAccountInfo} from "@/Context/AccountContext";
 import {useEffect, useState} from "react";
+import {CartProvider} from "@/Context/CartContext";
 
 export default function RootLayout({
   children,
@@ -38,10 +39,12 @@ export default function RootLayout({
 			  accountInfo: accountInfo,
 			  setAccountInfo: updateAccountInfo,
 		  }}>
-			  <Header/>
-			  <main className="flex-fill">
-				  {children}
-			  </main>
+			  <CartProvider>
+				  <Header />
+				  <main className="flex-fill">
+					  {children}
+				  </main>
+			  </CartProvider>
 			  <BootstrapActivation />
 		  </AccountContext.Provider>
 		  </body>

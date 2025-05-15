@@ -1,66 +1,113 @@
-// 'use client'
-//
-// import Image from 'next/image'
-// import Link from 'next/link'
-// import { useCart } from '@/Context/CartContext'
-//
-// export default function BasketPage() {
-// 	const { items, updateQty, clear } = useCart()
-// 	const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0)
-// 	const shipping = items.length ? 3.99 : 0
-// 	const tax = items.length ? 2.0 : 0
-// 	const total = subtotal + shipping + tax
-//
-// 	return (
-// 		<div className="container py-5">
-// 			<h1 className="mb-4">Basket <small className="text-muted">{items.length} items</small></h1>
-//
-// 			<div className="row">
-// 				<div className="col-md-8">
-// 					{items.map((i) => (
-// 						<div key={i.id} className="d-flex align-items-center bg-light rounded p-3 mb-3">
-// 							<Image
-// 								src={i.img}
-// 								alt={i.name}
-// 								width={100}
-// 								height={75}
-// 								style={{ objectFit: 'cover' }}
-// 								className="rounded"
-// 							/>
-// 							<div className="ms-3 flex-fill">
-// 								<h5>{i.name}</h5>
-// 								<p className="mb-1 text-success">${i.price.toFixed(2)}</p>
-// 								<div className="d-flex align-items-center">
-// 									<button
-// 										className="btn btn-outline-secondary btn-sm"
-// 										onClick={() => updateQty(i.id, i.quantity - 1)}
-// 									>–</button>
-// 									<span className="px-3">{i.quantity}</span>
-// 									<button
-// 										className="btn btn-outline-secondary btn-sm"
-// 										onClick={() => updateQty(i.id, i.quantity + 1)}
-// 									>+</button>
-// 								</div>
-// 							</div>
-// 							<div className="fw-bold">${(i.price * i.quantity).toFixed(2)}</div>
-// 						</div>
-// 					))}
-// 				</div>
-//
-// 				<div className="col-md-4">
-// 					<div className="bg-white rounded p-4 shadow-sm">
-// 						<h5>Order summary</h5>
-// 						<dl className="row">
-// 							<dt className="col">Subtotal</dt><dd className="col text-end">${subtotal.toFixed(2)}</dd>
-// 							<dt className="col">Shipping</dt><dd className="col text-end">${shipping.toFixed(2)}</dd>
-// 							<dt className="col">Tax</dt><dd className="col text-end">${tax.toFixed(2)}</dd>
-// 							<dt className="col">Total</dt><dd className="col text-end fw-bold">${total.toFixed(2)}</dd>
-// 						</dl>
-// 						<button className="btn btn-success w-100">Continue to payment →</button>
-// 						<button className="btn btn-link mt-2" onClick={clear}>Empty basket</button>
-// 					</div>
-// 				</div>
-// 			</div>
-// 		</div>
-// 	)
-// }
+'use client'
+
+import Image from 'next/image'
+import Link from 'next/link'
+import { useCart } from '@/Context/CartContext'
+import {
+	Box,
+	Button,
+	Card,
+	CardContent,
+	CardMedia,
+	Divider,
+	Grid,
+	IconButton,
+	TextField,
+	Typography
+} from "@mui/material";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+
+export default function BasketPage() {
+	const { items, updateQty, clear } = useCart()
+	const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0)
+	const shipping = items.length ? 3.99 : 0
+	const tax = items.length ? 2.0 : 0
+	const total = subtotal + shipping + tax
+
+	return (
+		<Box px={2} py={5} sx={{ maxWidth: 1200, mx: 'auto' }}>
+			<Typography variant="h4" gutterBottom>
+				Basket <Typography component="span" color="textSecondary">({items.length} {items.length === 1 ? 'item' : 'items'})</Typography>
+			</Typography>
+
+			<Grid container spacing={4}>
+				{/* Items list */}
+				<Grid size={{ xs: 12, md: 8 }}>
+					<Box display="flex" flexDirection="column" gap={2}>
+						{items.length === 0 && (
+							<Typography>No items in your basket.</Typography>
+						)}
+						{items.map(item => (
+							<Card key={item.productId} sx={{ display: 'flex', alignItems: 'center' }}>
+								<CardMedia>
+									{item.img ? (
+										<Image src={item.img} alt={item.name} width={100} height={75} style={{ objectFit: 'cover' }} />
+									) : (
+										<Box bgcolor="grey.200" width={100} height={75} />
+									)}
+								</CardMedia>
+								<CardContent sx={{ flex: 1, display: 'flex', alignItems: 'center', gap: 2 }}>
+									<Box flexGrow={1}>
+										<Typography variant="h6">{item.name}</Typography>
+										<Typography color="primary" fontWeight="bold">
+											${item.price.toFixed(2)} each
+										</Typography>
+									</Box>
+									<Box display="flex" alignItems="center">
+										<IconButton onClick={() => updateQty(item.productId, item.quantity - 1)}>
+											<RemoveIcon />
+										</IconButton>
+										<TextField
+											value={item.quantity}
+											size="small"
+											sx={{ width: 60, mx: 1 }}
+											inputProps={{ style: { textAlign: 'center' } }}
+										/>
+										<IconButton onClick={() => updateQty(item.productId, item.quantity + 1)}>
+											<AddIcon />
+										</IconButton>
+									</Box>
+									<Typography variant="subtitle1" sx={{ minWidth: 80, textAlign: 'right' }}>
+										${(item.price * item.quantity).toFixed(2)}
+									</Typography>
+								</CardContent>
+							</Card>
+						))}
+					</Box>
+				</Grid>
+
+				{/* Order summary */}
+				<Grid size={{ xs: 12, md: 4 }}>
+					<Card sx={{ p: 2 }}>
+						<Typography variant="h6" gutterBottom>Order summary</Typography>
+						<Divider />
+						<Box display="flex" justifyContent="space-between" my={1}>
+							<Typography>Subtotal</Typography>
+							<Typography>${subtotal.toFixed(2)}</Typography>
+						</Box>
+						<Box display="flex" justifyContent="space-between" mb={1}>
+							<Typography>Shipping</Typography>
+							<Typography>${shipping.toFixed(2)}</Typography>
+						</Box>
+						<Box display="flex" justifyContent="space-between" mb={1}>
+							<Typography>Tax</Typography>
+							<Typography>${tax.toFixed(2)}</Typography>
+						</Box>
+						<Divider />
+						<Box display="flex" justifyContent="space-between" my={2}>
+							<Typography variant="subtitle1" fontWeight="bold">Total</Typography>
+							<Typography variant="subtitle1" fontWeight="bold">${total.toFixed(2)}</Typography>
+						</Box>
+						<Button variant="contained" color="primary" fullWidth sx={{ mb: 1 }}>
+							Continue to payment →
+						</Button>
+						<Button variant="text" fullWidth onClick={clear}>
+							Empty basket
+						</Button>
+					</Card>
+				</Grid>
+			</Grid>
+		</Box>
+	)
+}
