@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create complete stock order">
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/WarehouseProduct.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Services/InventoryService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IInventory.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/WarehouseInventoryItemDto.ts" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create base for inventory listing">
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/WarehouseRow.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/supplyMarket/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/supplyMarket/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/InventoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/InventoryService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/warehouse/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +130,8 @@
       <workItem from="1747113762548" duration="203000" />
       <workItem from="1747113981653" duration="4922000" />
       <workItem from="1747214337935" duration="2598000" />
-      <workItem from="1747222443274" duration="14241000" />
+      <workItem from="1747222443274" duration="14368000" />
+      <workItem from="1747315815816" duration="3907000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -479,7 +477,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747235834118</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="create base for inventory listing">
+      <option name="closed" value="true" />
+      <created>1747238210759</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1747238210759</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create landing page + user input" />
     <MESSAGE value="create gameBoard and direction/action buttons" />
     <MESSAGE value="create move, grid move, piece move" />
     <MESSAGE value="create small logic fix" />
@@ -522,6 +527,7 @@
     <MESSAGE value="create initial demo divided to components" />
     <MESSAGE value="create supply market filtering and product listing" />
     <MESSAGE value="create complete stock order" />
-    <option name="LAST_COMMIT_MESSAGE" value="create complete stock order" />
+    <MESSAGE value="create base for inventory listing" />
+    <option name="LAST_COMMIT_MESSAGE" value="create base for inventory listing" />
   </component>
 </project>

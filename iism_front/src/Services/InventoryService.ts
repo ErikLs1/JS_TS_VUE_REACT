@@ -1,5 +1,4 @@
 import {EntityService} from "@/Services/EntityService";
-import {IUser} from "@/Types/Domain/IUser";
 import {ErrorResponse} from "@/Types/Responses/ErrorResponse";
 import {AxiosError} from "axios";
 import {IInventory} from "@/Types/Domain/IInventory";
@@ -14,7 +13,7 @@ export class InventoryService extends EntityService<IInventory> {
 		try {
 			const response = await this.axiosInstance.get<WarehouseInventoryItemDto[]>(
 				`${this.basePath}/GetProductsForWarehouse`,
-				{ params: warehouseId})
+				{params : { warehouseId }})
 
 			if (response.status <= 300) {
 				return {
