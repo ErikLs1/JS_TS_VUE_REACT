@@ -1,77 +1,136 @@
 "use client"
 
-import Image from "next/image";
-import luxuryTable from '@/../public/luxuryTable.jpg'
 import Link from "next/link";
-import {Pagination} from "@mui/material";
-
-type Product = {
-	id: number
-	name: string
-	price: number
-	location: string
-	img: object,
-	description: string[]
-}
-
-const products: Product[] = [
-	{ id: 1, name: 'Product 1', price: 5.99,  location: 'San Juan Capistrano, CA', img: luxuryTable, description: ['Point 1: asfasf', 'Point 2: saasgag', 'Point 3: fasfas', 'Point 4: ffsegawj',] },
-	{ id: 2, name: 'Product 2', price: 12.99, location: 'Huntington Beach, CA',  img: luxuryTable, description: ['Point 1: asfasf', 'Point 2: saasgag', 'Point 3: fasfas', 'Point 4: ffsegawj',] },
-	{ id: 3, name: 'Product 3', price: 2.99,  location: 'Huntington Beach, CA',  img: luxuryTable, description: ['Point 1: asfasf', 'Point 2: saasgag', 'Point 3: fasfas', 'Point 4: ffsegawj',] },
-	{ id: 4, name: 'Product 4', price: 8.50,  location: 'San Diego, CA',         img: luxuryTable, description: ['Point 1: asfasf', 'Point 2: saasgag', 'Point 3: fasfas', 'Point 4: ffsegawj',] },
-	{ id: 5, name: 'Product 5', price: 4.75,  location: 'Irvine, CA',           img: luxuryTable, description: ['Point 1: asfasf', 'Point 2: saasgag', 'Point 3: fasfas', 'Point 4: ffsegawj',] },
-	{ id: 6, name: 'Product 6', price: 9.25,  location: 'Laguna Beach, CA',     img: luxuryTable, description: ['Point 1: asfasf', 'Point 2: saasgag', 'Point 3: fasfas', 'Point 4: ffsegawj',] },
-]
+import {
+	Autocomplete,
+	Box,
+	Button,
+	Card,
+	CardActionArea,
+	CardContent,
+	CardMedia,
+	Grid,
+	Pagination,
+	TextField,
+	Typography
+} from "@mui/material";
+import {InventoryService} from "@/Services/InventoryService";
+import {useEffect, useState} from "react";
+import {InventoryProductsDto} from "@/Types/Responses/InventoryProductsDto";
 
 export default function ShopProducts() {
+	const inventoryService = new InventoryService();
+	const [items, setItems] = useState<InventoryProductsDto[]>([]);
+	const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
+	const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined);
+	const [category, setCategory] = useState<string | null>(null);
+	const [productName, setProductName] = useState<string>("")
+	const [page, setPage] = useState(1);
+	const pageSize = 12;
+	const [totalCount, setTotalCount] = useState(0);
+	const [allCategories, setAllCategories] = useState<string[]>([]);
+
+	useEffect(() => {
+		const load = async () =>  {
+			const res = await inventoryService.GetInventoryProducts();
+			if (!res.errors && res.data) {
+				setTotalCount(res.data.length);
+				setItems(res.data.slice((page - 1) * pageSize, page * pageSize));
+			}
+		}
+		load();
+	}, []);
+
+	const applyFilters = async () => {
+		const res = await inventoryService.GetFilteredInventoryProducts(minPrice, maxPrice, category || undefined, productName || undefined);
+		if (!res.errors && res.data) {
+			setTotalCount(res.data.length);
+			const start = (page - 1) * pageSize;
+			setItems(res.data.slice(start, start + pageSize));
+		}
+	};
+
+	// Re-run when filters or page change
+	useEffect(() => {
+		applyFilters();
+	}, [minPrice, maxPrice, category, productName, page]);
+
 	return (
-		<div className="container py-5">
-			<h1 className="mb-4">Products</h1>
-			{/* filters… */}
-			<div className="row g-3 mb-4 align-items-center">
-				<div className="col">
-					<input
-						type="text"
-						className="form-control"
-						placeholder="Search…"
-					/>
-				</div>
-				<div className="col-auto">
-					<select className="form-select">
-						<option value="all">All locations</option>
-						{Array.from(new Set(products.map(p => p.location))).map(loc => (
-							<option key={loc} value={loc}>{loc}</option>
-						))}
-					</select>
-				</div>
-			</div>
-			<div className="row row-cols-1 row-cols-md-2 g-4">
-				{products.map((p) => (
-					<div key={p.id} className="col d-flex">
-						{/* Wrap the entire card in a Link */}
-						<Link href={`/shopProductDetails/${p.id}`} className="card flex-fill h-100 text-decoration-none">
-							<Image
-								src={p.img}
-								alt={p.name}
-								width={400}
-								height={300}
-								className="card-img-top"
-								style={{ objectFit: 'cover' }}
-							/>
-							<div className="card-body">
-								<h5 className="card-title text-dark">{p.name}</h5>
-								<p className="card-text text-success fw-bold">
-									${p.price.toFixed(2)}
-								</p>
-								<p className="card-text text-muted">
-									Grown in {p.location}
-								</p>
-							</div>
-						</Link>
-					</div>
+		<Box mt={8} mb={4} sx={{ mx: 'auto', px: 2, maxWidth: 1200 }}>
+			{/* Title */}
+			<Typography variant="h4" component="h1" gutterBottom>
+				Inventory Products
+			</Typography>
+
+			{/* Filters */}
+			<Box display="flex" gap={2} flexWrap="wrap" mb={4}>
+				<TextField
+					label="Product name"
+					value={productName}
+					onChange={e => setProductName(e.target.value)}
+				/>
+				<Autocomplete
+					options={allCategories}
+					value={category}
+					onChange={(_, v) => setCategory(v)}
+					renderInput={params => <TextField {...params} label="Category" />}
+					sx={{ width: 200 }}
+				/>
+				<TextField
+					label="Min price"
+					type="number"
+					value={minPrice ?? ''}
+					onChange={e => setMinPrice(e.target.value ? Number(e.target.value) : undefined)}
+				/>
+				<TextField
+					label="Max price"
+					type="number"
+					value={maxPrice ?? ''}
+					onChange={e => setMaxPrice(e.target.value ? Number(e.target.value) : undefined)}
+				/>
+				<Button variant="outlined" onClick={() => { setPage(1); applyFilters(); }}>Apply</Button>
+				<Button onClick={() => {
+					setProductName(''); setCategory(null); setMinPrice(undefined); setMaxPrice(undefined); setPage(1);
+				}}>
+					Clear
+				</Button>
+			</Box>
+
+			{/* Product Grid */}
+			<Grid container spacing={2}>
+				{items.map(item => (
+					<Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={`${item.productId}-${item.warehouseId}`}>
+						<Card>
+							<CardActionArea component={Link} href={`/shopProductDetails/${item.productId}`}>
+								<CardMedia
+									component="img"
+									height={160}
+									image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.5ApqY5soOddRufcQKVrH1wHaGF%26cb%3Diwc2%26pid%3DApi&f=1&ipt=200ac27eb1d8e7342e20243cecc7b6368d8208bb372c0490c2cacee5a8afce4c&ipo=images"
+									alt={item.productName}
+								/>
+								<CardContent>
+									<Typography variant="h6">{item.productName}</Typography>
+									<Typography variant="body2" color="textSecondary">
+										{item.categoryName}
+									</Typography>
+									<Typography variant="subtitle1" color="primary">
+										${item.productPrice.toFixed(2)}
+									</Typography>
+								</CardContent>
+							</CardActionArea>
+						</Card>
+					</Grid>
 				))}
-			</div>
-			<Pagination count={10} variant="outlined" />
-		</div>
+			</Grid>
+
+			{/* Pagination */}
+			<Box mt={4} display="flex" justifyContent="center">
+				<Pagination
+					count={Math.ceil(totalCount / pageSize)}
+					page={page}
+					onChange={(_, p) => setPage(p)}
+				/>
+			</Box>
+		</Box>
 	)
 }
