@@ -8,6 +8,7 @@ import {LogoutRequest} from "@/Types/Requests/LogoutRequest";
 import {useContext} from "react";
 import {AccountContext} from "@/Context/AccountContext";
 
+// TODO REFACTORING
 export class AccountService extends BaseService {
 	private clearAccountInfo = useContext(AccountContext)!.setAccountInfo!;
 

@@ -6,6 +6,7 @@ import {SupplierProductFilterResponse} from "@/Types/Responses/SupplierProductFi
 import {PagedData} from "@/Types/Responses/PagedData";
 import {ProductSupplierDto} from "@/Types/Responses/ProductSupplierDto";
 
+// TODO REFACTORING
 export class ProductSuppliersService extends EntityService<IProductSupplier> {
 	constructor() {
 		super('ProductSuppliers');

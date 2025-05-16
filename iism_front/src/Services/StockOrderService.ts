@@ -5,6 +5,7 @@ import {SupplierProductFilterResponse} from "@/Types/Responses/SupplierProductFi
 import {AxiosError} from "axios";
 import {CreateStockOrderRequest} from "@/Types/Requests/CreateStockOrderRequest";
 
+// TODO REFACTORING
 export class StockOrderService extends EntityService<IStockOrder> {
 	constructor() {
 		super('StockOrders');

@@ -3,7 +3,6 @@ import {ErrorResponse} from "@/Types/Responses/ErrorResponse";
 import {AxiosError, AxiosResponse} from "axios";
 
 
-// TODO SERVICE REFACTORING LATER
 export abstract class EntityService<TEntity> extends  BaseService {
 	constructor(protected basePath: string) {
 		super();

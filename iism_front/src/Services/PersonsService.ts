@@ -3,6 +3,7 @@ import {ErrorResponse} from "@/Types/Responses/ErrorResponse";
 import {AxiosError} from "axios";
 import {IUser} from "@/Types/Domain/IUser";
 
+// TODO REFACTORING
 export class PersonsService extends EntityService<IUser> {
 	constructor() {
 		super('persons');

@@ -5,6 +5,7 @@ import {IInventory} from "@/Types/Domain/IInventory";
 import {WarehouseInventoryItemDto} from "@/Types/Responses/WarehouseInventoryItemDto";
 import {InventoryProductsDto} from "@/Types/Responses/InventoryProductsDto";
 
+// TODO REFACTORING
 export class InventoryService extends EntityService<IInventory> {
 	constructor() {
 		super('Inventories');

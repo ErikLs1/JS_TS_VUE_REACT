@@ -4,6 +4,7 @@ import {ErrorResponse} from "@/Types/Responses/ErrorResponse";
 import {AxiosError} from "axios";
 import {WarehouseFiltersResponse} from "@/Types/Responses/WarehouseFiltersResponse";
 
+// TODO REFACTORING
 export class WarehouseService extends EntityService<IWarehouse> {
 	constructor() {
 		super('warehouses');
