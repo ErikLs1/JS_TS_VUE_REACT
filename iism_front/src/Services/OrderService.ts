@@ -1,14 +1,13 @@
 import {EntityService} from "@/Services/EntityService";
 import {ErrorResponse} from "@/Types/Responses/ErrorResponse";
 import {WarehouseInventoryItemDto} from "@/Types/Responses/WarehouseInventoryItemDto";
-import {AxiosError} from "axios";
 import {IOrder} from "@/Types/Domain/IOrder";
 import {CreateOrderDto} from "@/Types/Requests/CreateOrderDto";
 import {UserOrdersDto} from "@/Types/Responses/UserOrdersDto";
 import {PlacedOrderDto} from "@/Types/Responses/PlacedOrderDto";
 import {ChangeOrderStatusDto} from "@/Types/Requests/ChangeOrderStatusDto";
 
-// TODO REFACTORING
+
 export class OrderService extends EntityService<IOrder> {
 	constructor() {
 		super('Orders');
@@ -18,24 +17,9 @@ export class OrderService extends EntityService<IOrder> {
 		try {
 			const response = await this.axiosInstance.post<WarehouseInventoryItemDto[]>(
 				`${this.basePath}/PlaceTheOrder`, entity)
-
-			if (response.status <= 300) {
-				return {
-					statusCode: response.status,
-					data: response.data
-				}
-			}
-
-			return {
-				statusCode: response.status,
-				errors: [(response.status.toString() + ' ' + response.statusText).trim()]
-			}
+			return this.handleResponse(response);
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
-			return {
-				statusCode: (error as AxiosError)?.status,
-				errors: [(error as AxiosError).code ?? ""],
-			}
+			return this.handleError(error);
 		}
 	}
 
@@ -43,21 +27,9 @@ export class OrderService extends EntityService<IOrder> {
 		try {
 			const response = await this.axiosInstance.get<UserOrdersDto[]>(
 				`${this.basePath}/GetUsersOrders`)
-
-			if (response.status <= 300) {
-				return {
-					statusCode: response.status,
-					data: response.data
-				}
-			}
-
-			return {
-				statusCode: response.status,
-				errors: [(response.status.toString() + ' ' + response.statusText).trim()]
-			}
+			return this.handleResponse(response);
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
-			return this.handleError(error)
+			return this.handleError(error);
 		}
 	}
 
@@ -65,21 +37,9 @@ export class OrderService extends EntityService<IOrder> {
 		try {
 			const response = await this.axiosInstance.get<PlacedOrderDto[]>(
 				`${this.basePath}/GetAllPlacedOrder`)
-
-			if (response.status <= 300) {
-				return {
-					statusCode: response.status,
-					data: response.data
-				}
-			}
-
-			return {
-				statusCode: response.status,
-				errors: [(response.status.toString() + ' ' + response.statusText).trim()]
-			}
+			return this.handleResponse(response);
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
-			return this.handleError(error)
+			return this.handleError(error);
 		}
 	}
 
@@ -87,21 +47,9 @@ export class OrderService extends EntityService<IOrder> {
 		try {
 			const response = await this.axiosInstance.put(
 				`${this.basePath}/ChangeOrderStatus`, dto)
-
-			if (response.status <= 300) {
-				return {
-					statusCode: response.status,
-					data: response.data
-				}
-			}
-
-			return {
-				statusCode: response.status,
-				errors: [(response.status.toString() + ' ' + response.statusText).trim()]
-			}
+			return this.handleResponse(response);
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
-			return this.handleError(error)
+			return this.handleError(error);
 		}
 	}
 }

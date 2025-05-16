@@ -1,9 +1,7 @@
 import {EntityService} from "@/Services/EntityService";
 import {ErrorResponse} from "@/Types/Responses/ErrorResponse";
-import {AxiosError} from "axios";
 import {IUser} from "@/Types/Domain/IUser";
 
-// TODO REFACTORING
 export class PersonsService extends EntityService<IUser> {
 	constructor() {
 		super('persons');
@@ -18,23 +16,9 @@ export class PersonsService extends EntityService<IUser> {
 				{
 					headers: { Authorization: token ? `Bearer ${token}` : "" }
 				})
-			if (response.status <= 300) {
-				return {
-					statusCode: response.status,
-					data: response.data
-				}
-			}
-
-			return {
-				statusCode: response.status,
-				errors: [(response.status.toString() + ' ' + response.statusText).trim()]
-			}
+			return this.handleResponse(response)
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
-			return {
-				statusCode: (error as AxiosError)?.status,
-				errors: [(error as AxiosError).code ?? ""],
-			}
+			return this.handleError(error);
 		}
 	}
 }

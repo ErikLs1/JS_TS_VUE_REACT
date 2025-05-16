@@ -11,10 +11,8 @@ export abstract class EntityService<TEntity> extends  BaseService {
 	async getAllAsync(): Promise<ErrorResponse<TEntity[]>> {
 		try {
 			const response = await this.axiosInstance.get<TEntity[]>(this.basePath)
-			console.log('getAll response', response)
 			return this.handleResponse(response)
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
 			return this.handleError(error)
 		}
 	}
@@ -22,10 +20,8 @@ export abstract class EntityService<TEntity> extends  BaseService {
 	async getById(id: string): Promise<ErrorResponse<TEntity>> {
 		try {
 			const response = await this.axiosInstance.get<TEntity>(`${this.basePath}/${id}`)
-			console.log('get by id', response)
 			return this.handleResponse(response)
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
 			return this.handleError(error)
 		}
 	}
@@ -33,10 +29,8 @@ export abstract class EntityService<TEntity> extends  BaseService {
 	async create(item: TEntity): Promise<ErrorResponse<TEntity>> {
 		try {
 			const response = await this.axiosInstance.post<TEntity>(this.basePath, item)
-			console.log('create', response)
 			return this.handleResponse(response)
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
 			return this.handleError(error)
 		}
 	}
@@ -48,10 +42,8 @@ export abstract class EntityService<TEntity> extends  BaseService {
 				{
 					headers: { Authorization: token ? `Bearer ${token}` : "" }
 				})
-			console.log('update', response)
 			return this.handleResponse(response)
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
 			return this.handleError(error)
 		}
 	}
@@ -59,10 +51,8 @@ export abstract class EntityService<TEntity> extends  BaseService {
 	async delete(id: string): Promise<ErrorResponse<null>> {
 		try {
 			const response = await this.axiosInstance.delete<null>(`${this.basePath}/${id}`)
-			console.log('delete response', response)
 			return this.handleResponse(response)
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
 			return this.handleError(error)
 		}
 	}

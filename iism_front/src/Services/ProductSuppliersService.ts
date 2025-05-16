@@ -1,12 +1,10 @@
 import {EntityService} from "@/Services/EntityService";
 import {IProductSupplier} from "@/Types/Domain/IProductSupplier";
 import {ErrorResponse} from "@/Types/Responses/ErrorResponse";
-import {AxiosError} from "axios";
 import {SupplierProductFilterResponse} from "@/Types/Responses/SupplierProductFilterResponse";
 import {PagedData} from "@/Types/Responses/PagedData";
 import {ProductSupplierDto} from "@/Types/Responses/ProductSupplierDto";
 
-// TODO REFACTORING
 export class ProductSuppliersService extends EntityService<IProductSupplier> {
 	constructor() {
 		super('ProductSuppliers');
@@ -15,24 +13,9 @@ export class ProductSuppliersService extends EntityService<IProductSupplier> {
 	async getFilters(): Promise<ErrorResponse<SupplierProductFilterResponse>> {
 		try {
 			const response = await this.axiosInstance.get<SupplierProductFilterResponse>(`${this.basePath}/GetFilters`)
-
-			if (response.status <= 300) {
-				return {
-					statusCode: response.status,
-					data: response.data
-				}
-			}
-
-			return {
-				statusCode: response.status,
-				errors: [(response.status.toString() + ' ' + response.statusText).trim()]
-			}
+			return this.handleResponse(response);
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
-			return {
-				statusCode: (error as AxiosError)?.status,
-				errors: [(error as AxiosError).code ?? ""],
-			}
+			return this.handleError(error);
 		}
 	}
 
@@ -57,24 +40,9 @@ export class ProductSuppliersService extends EntityService<IProductSupplier> {
 			const response = await this.axiosInstance.get<PagedData<ProductSupplierDto>>(
 				`${this.basePath}/GetFilteredProductSuppliers`,
 				{ params: filterParams })
-
-			if (response.status <= 300) {
-				return {
-					statusCode: response.status,
-					data: response.data
-				}
-			}
-
-			return {
-				statusCode: response.status,
-				errors: [(response.status.toString() + ' ' + response.statusText).trim()]
-			}
+			return this.handleResponse(response);
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
-			return {
-				statusCode: (error as AxiosError)?.status,
-				errors: [(error as AxiosError).code ?? ""],
-			}
+			return this.handleError(error);
 		}
 	}
 }

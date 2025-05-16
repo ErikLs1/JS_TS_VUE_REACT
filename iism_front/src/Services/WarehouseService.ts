@@ -1,10 +1,9 @@
 import {EntityService} from "@/Services/EntityService";
 import {IWarehouse} from "@/Types/Domain/IWarehouse";
 import {ErrorResponse} from "@/Types/Responses/ErrorResponse";
-import {AxiosError} from "axios";
 import {WarehouseFiltersResponse} from "@/Types/Responses/WarehouseFiltersResponse";
 
-// TODO REFACTORING
+
 export class WarehouseService extends EntityService<IWarehouse> {
 	constructor() {
 		super('warehouses');
@@ -13,24 +12,9 @@ export class WarehouseService extends EntityService<IWarehouse> {
 	async getFilters(): Promise<ErrorResponse<WarehouseFiltersResponse>> {
 		try {
 			const response = await this.axiosInstance.get<WarehouseFiltersResponse>(`${this.basePath}/GetFilters`)
-
-			if (response.status <= 300) {
-				return {
-					statusCode: response.status,
-					data: response.data
-				}
-			}
-
-			return {
-				statusCode: response.status,
-				errors: [(response.status.toString() + ' ' + response.statusText).trim()]
-			}
+			return this.handleResponse(response);
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
-			return {
-				statusCode: (error as AxiosError)?.status,
-				errors: [(error as AxiosError).code ?? ""],
-			}
+			return this.handleError(error)
 		}
 	}
 
@@ -44,24 +28,9 @@ export class WarehouseService extends EntityService<IWarehouse> {
 			const response = await this.axiosInstance.get<IWarehouse[]>(
 				`${this.basePath}/GetFilteredWarehouses`,
 				{ params: filters })
-
-			if (response.status <= 300) {
-				return {
-					statusCode: response.status,
-					data: response.data
-				}
-			}
-
-			return {
-				statusCode: response.status,
-				errors: [(response.status.toString() + ' ' + response.statusText).trim()]
-			}
+			return this.handleResponse(response)
 		} catch (error) {
-			console.log('error: ', (error as Error).message)
-			return {
-				statusCode: (error as AxiosError)?.status,
-				errors: [(error as AxiosError).code ?? ""],
-			}
+			return this.handleError(error);
 		}
 	}
 }
