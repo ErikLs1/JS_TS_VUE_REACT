@@ -22,8 +22,8 @@ import {useContext, useEffect, useState} from "react";
 import { useRouter } from "next/navigation";
 import {CategoryService} from "@/Services/CategoryService";
 import {ICategory} from "@/Types/Domain/ICategory";
-import CategoryEditDialog from "@/Components/CategoryEditDialog";
-import CategoryDeleteDialog from "@/Components/CategoryDeleteDialog";
+import CategoryEditDialog from "@/Components/dialogs/CategoryEditDialog";
+import CategoryDeleteDialog from "@/Components/dialogs/CategoryDeleteDialog";
 
 export default function Category() {
 	const categoryService = new CategoryService();
@@ -85,7 +85,7 @@ export default function Category() {
 					<Typography variant="h4" component="h1">
 						Categories
 					</Typography>
-					<Link href="/category/create" passHref>
+					<Link href="/iism_front/src/Components/dialogs/category/create" passHref>
 						<Button
 							variant="contained"
 							startIcon={<AddIcon />}

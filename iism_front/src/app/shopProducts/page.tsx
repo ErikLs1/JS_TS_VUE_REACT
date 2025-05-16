@@ -12,11 +12,11 @@ import {InventoryProductsDto} from "@/Types/Responses/InventoryProductsDto";
 import { useCart } from "@/Context/CartContext";
 import {AccountContext} from "@/Context/AccountContext";
 import SnackBarAlert from "@/Components/SnackBarAlert";
-import ShopProductFilters from "@/Components/ProductFilters";
-import ShopProductDialog from "@/Components/ShopProductDialog";
+import ShopProductFilters from "@/Components/filters/ProductFilters";
+import ShopProductDialog from "@/Components/dialogs/ShopProductDialog";
 import ShopProductCard from "@/Components/ShopProductCard";
 
-// TODO PAGINATION
+// TODO 1) PAGINATION; 2) FETCH DISTINCT CATEGORIES
 export default function ShopProducts() {
 	const inventoryService = new InventoryService();
 	const { accountInfo } = useContext(AccountContext);

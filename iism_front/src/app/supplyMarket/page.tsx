@@ -14,16 +14,17 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import {IWarehouse} from "@/Types/Domain/IWarehouse";
 import {WarehouseService} from "@/Services/WarehouseService";
-import SupplyOrderWarehousesDialog from "@/Components/SupplyOrderWarehousesDialog";
-import SupplyOrderInfoDialog from "@/Components/SupplyOrderInfoDialog";
+import SupplyOrderWarehousesDialog from "@/Components/dialogs/SupplyOrderWarehousesDialog";
+import SupplyOrderInfoDialog from "@/Components/dialogs/SupplyOrderInfoDialog";
 import SupplyCard from "@/Components/SupplyCard";
-import SupplyMarketFilters from "@/Components/SupplyMarketFilters";
+import SupplyMarketFilters from "@/Components/filters/SupplyMarketFilters";
 import {AccountContext} from "@/Context/AccountContext";
 import {useRouter} from "next/navigation";
 import {ProductSuppliersService} from "@/Services/ProductSuppliersService";
 import {ProductSupplierDto} from "@/Types/Responses/ProductSupplierDto";
 import {StockOrderService} from "@/Services/StockOrderService";
 import {CreateStockOrderRequest} from "@/Types/Requests/CreateStockOrderRequest";
+import SnackBarAlert from "@/Components/SnackBarAlert";
 
 // TODO REFACTORING
 export default function SupplyMarket() {
@@ -35,16 +36,16 @@ export default function SupplyMarket() {
 	const router = useRouter();
 
 	// State for product supplier filter options
-	const [cities, setCities]       = useState<string[]>([]);
-	const [states, setStates]       = useState<string[]>([]);
-	const [countries, setCountries]    = useState<string[]>([]);
-	const [categories, setCategories]   = useState<string[]>([]);
-	const [suppliers, setSuppliers]    = useState<string[]>([]);
+	const [cities, setCities] = useState<string[]>([]);
+	const [states, setStates] = useState<string[]>([]);
+	const [countries, setCountries] = useState<string[]>([]);
+	const [categories, setCategories] = useState<string[]>([]);
+	const [suppliers, setSuppliers] = useState<string[]>([]);
 
 	// State for selected filter values
-	const [cityFilter,   setCityFilter]   = useState("");
-	const [stateFilter,  setStateFilter]  = useState("");
-	const [countryFilter,setCountryFilter]= useState("");
+	const [cityFilter,   setCityFilter] = useState("");
+	const [stateFilter,  setStateFilter] = useState("");
+	const [countryFilter,setCountryFilter] = useState("");
 	const [categoryFilter, setCategoryFilter] = useState("");
 	const [supplierFilter, setSupplierFilter] = useState("");
 
@@ -204,26 +205,42 @@ export default function SupplyMarket() {
 			}
 		});
 	}
+	// Clear filters helper function
+	const clearFilters = () => {
+		setCityFilter("");
+		setStateFilter("");
+		setCountryFilter("");
+		setCategoryFilter("");
+		setSupplierFilter("");
+	}
 
 	return (
 		<>
 			<Box mt={8} mb={4} sx={{ maxWidth: 1000, mx: 'auto' }}>
-				{/* Header */}
+				{/* HEADER */}
 				<Typography variant="h4" component="h1">Stock market</Typography>
 
-				{/* Filters */}
+				{/* FILTERS */}
 				<SupplyMarketFilters
-					cities={cities} states={states} countries={countries}
-					categories={categories} suppliers={suppliers} city={cityFilter}
-					setCity={setCityFilter} state={stateFilter} setState={setStateFilter} country={countryFilter}
-					setCountry={setCountryFilter} category={categoryFilter} setCategory={setCategoryFilter}
-					supplier={supplierFilter} setSupplier={setSupplierFilter} onClear={ () => {
-						setCityFilter(""); setStateFilter("");
-						setCountryFilter(""); setCategoryFilter("");
-						setSupplierFilter("");}}
+					cities={cities}
+					states={states}
+					countries={countries}
+					categories={categories}
+					suppliers={suppliers}
+					city={cityFilter}
+					setCity={setCityFilter}
+					state={stateFilter}
+					setState={setStateFilter}
+					country={countryFilter}
+					setCountry={setCountryFilter}
+					category={categoryFilter}
+					setCategory={setCategoryFilter}
+					supplier={supplierFilter}
+					setSupplier={setSupplierFilter}
+					onClear={ () => { clearFilters() }}
 				/>
 
-				{/* Card products */}
+				{/* PRODUCTS */}
 				<Grid container spacing={2}>
 					{items.map(item => (
 						<SupplyCard
@@ -237,28 +254,31 @@ export default function SupplyMarket() {
 						/>
 					))}
 				</Grid>
+
+				{/* DIALOGS */}
 				{selectedProductSupplier && (
 					<Dialog open onClose={closeDialog} fullWidth maxWidth="md">
 						<DialogTitle>{selectedProductSupplier.product.productName}</DialogTitle>
 						<DialogContent dividers>
 							{step === 0 ? (
 								<>
+									{/* SELECT QUANTITY */}
 									<SupplyOrderInfoDialog
 										item={{
-											productName:     selectedProductSupplier.product!.productName,
-											description:     selectedProductSupplier.product!.productDescription,
-											supplierName:     selectedProductSupplier.supplier!.supplierName,
-											supplierAddress:     selectedProductSupplier.supplier!.supplierAddress,
-											supplierEmail:     selectedProductSupplier.supplier!.supplierEmail,
-											supplierPhone:     selectedProductSupplier.supplier!.supplierPhoneNumber,
-											unitCost:     selectedProductSupplier.unitCost,
+											productName: selectedProductSupplier.product!.productName,
+											description: selectedProductSupplier.product!.productDescription,
+											supplierName: selectedProductSupplier.supplier!.supplierName,
+											supplierAddress: selectedProductSupplier.supplier!.supplierAddress,
+											supplierEmail: selectedProductSupplier.supplier!.supplierEmail,
+											supplierPhone: selectedProductSupplier.supplier!.supplierPhoneNumber,
+											unitCost: selectedProductSupplier.unitCost,
 										}}
 										quantity={quantity}
 										setQuantity={q => setQuantity(q)}
 									/>
 								</>
 							) : (
-								<>  {/* step 1: choose warehouse */}
+								<>  {/* CHOOSE WAREHOUSE */}
 									<SupplyOrderWarehousesDialog
 										warehouses={warehouses}
 										streets={wStreets}
@@ -284,12 +304,16 @@ export default function SupplyMarket() {
 					</Dialog>
 				)}
 
-				<Snackbar
+				{/* SNACKBAR ALERT */}
+				<SnackBarAlert
 					open={snackbarOpen}
-					onClose={() => setSnackbarOpen(false)}
-					message="Order placed"
-					autoHideDuration={2000}
+					alertType="success"
+					message="Order was placed"
+					duration={3000}
+					action={() => setSnackbarOpen(false)}
 				/>
+
+				{/* PAGINATION */}
 				<Box mt={2} display="flex" justifyContent="center">
 					<Pagination
 						count={Math.ceil(totalCount / pageSize)}
