@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create order listing for currently logged in user">
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/ChangeOrderStatusDto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/PlacedOrderDto.ts" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create order management page with status change connected to back">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/InventoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/InventoryService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/OrderService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/OrderService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/PersonsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/PersonsService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/ProductSuppliersService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/ProductSuppliersService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/StockOrderService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/StockOrderService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/WarehouseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/WarehouseService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/orderManagement/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/orderManagement/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,15 +130,7 @@
       <workItem from="1747214337935" duration="2598000" />
       <workItem from="1747222443274" duration="14368000" />
       <workItem from="1747315815816" duration="14216000" />
-      <workItem from="1747374636848" duration="5142000" />
-    </task>
-    <task id="LOCAL-00001" summary="create gitignore">
-      <option name="closed" value="true" />
-      <created>1740653390719</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1740653390719</updated>
+      <workItem from="1747374636848" duration="5686000" />
     </task>
     <task id="LOCAL-00002" summary="create main page with 3 buttons">
       <option name="closed" value="true" />
@@ -535,7 +516,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747376785306</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="create order management page with status change connected to back">
+      <option name="closed" value="true" />
+      <created>1747392604544</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1747392604544</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create iism frontend project initialization" />
     <MESSAGE value="create login and register pages (not connected to backend)" />
     <MESSAGE value="create products page (not connected to backend)" />
     <MESSAGE value="create some more sample bad code to understand needed calls" />
@@ -578,6 +566,7 @@
     <MESSAGE value="create cart context and cart summary (shit code)" />
     <MESSAGE value="create order placing" />
     <MESSAGE value="create order listing for currently logged in user" />
-    <option name="LAST_COMMIT_MESSAGE" value="create order listing for currently logged in user" />
+    <MESSAGE value="create order management page with status change connected to back" />
+    <option name="LAST_COMMIT_MESSAGE" value="create order management page with status change connected to back" />
   </component>
 </project>
