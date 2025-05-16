@@ -25,6 +25,7 @@ import {ProductSupplierDto} from "@/Types/Responses/ProductSupplierDto";
 import {StockOrderService} from "@/Services/StockOrderService";
 import {CreateStockOrderRequest} from "@/Types/Requests/CreateStockOrderRequest";
 
+// TODO REFACTORING
 export default function SupplyMarket() {
 	const productSuppliersService = new ProductSuppliersService();
 	const warehouseService = new WarehouseService();

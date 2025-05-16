@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create cart context and cart summary (shit code)">
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create order placing">
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/OrderProductDto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/UserOrdersDto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/app/orderManagement/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/EntityService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/OrderService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/OrderService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/profile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/profile/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +27,8 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Vue Composition API Component" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -129,7 +136,8 @@
       <workItem from="1747113981653" duration="4922000" />
       <workItem from="1747214337935" duration="2598000" />
       <workItem from="1747222443274" duration="14368000" />
-      <workItem from="1747315815816" duration="12567000" />
+      <workItem from="1747315815816" duration="14216000" />
+      <workItem from="1747374636848" duration="1722000" />
     </task>
     <task id="LOCAL-00001" summary="create gitignore">
       <option name="closed" value="true" />
@@ -507,7 +515,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747328344782</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="create order placing">
+      <option name="closed" value="true" />
+      <created>1747330691037</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1747330691037</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +541,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create working AI" />
     <MESSAGE value="create small error fix" />
     <MESSAGE value="create iism frontend project initialization" />
     <MESSAGE value="create login and register pages (not connected to backend)" />
@@ -550,6 +565,7 @@
     <MESSAGE value="create product listing for the warehouse" />
     <MESSAGE value="create product listing for the shop" />
     <MESSAGE value="create cart context and cart summary (shit code)" />
-    <option name="LAST_COMMIT_MESSAGE" value="create cart context and cart summary (shit code)" />
+    <MESSAGE value="create order placing" />
+    <option name="LAST_COMMIT_MESSAGE" value="create order placing" />
   </component>
 </project>

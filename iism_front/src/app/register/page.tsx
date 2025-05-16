@@ -8,7 +8,6 @@ import {RegisterRequest} from "@/Types/Requests/RegisterRequest";
 import {useContext, useState} from "react";
 import {AccountContext} from "@/Context/AccountContext";
 import Alert from "@mui/material/Alert";
-import {watch} from "node:fs/promises";
 
 export default function Register() {
 	const router = useRouter();

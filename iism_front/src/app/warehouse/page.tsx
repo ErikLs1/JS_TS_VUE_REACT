@@ -32,7 +32,7 @@ import {WarehouseInventoryItemDto} from "@/Types/Responses/WarehouseInventoryIte
 import Alert from "@mui/material/Alert";
 
 
-// TODO - WAREHOUSE INVENTORY LISTING
+// TODO - REFACTORING
 export default function Warehous() {
 	const warehouseService = new WarehouseService();
 	const inventoryService = new InventoryService();

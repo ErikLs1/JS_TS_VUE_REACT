@@ -2,6 +2,8 @@ import {BaseService} from "@/Services/BaseService";
 import {ErrorResponse} from "@/Types/Responses/ErrorResponse";
 import {AxiosError, AxiosResponse} from "axios";
 
+
+// TODO SERVICE REFACTORING LATER
 export abstract class EntityService<TEntity> extends  BaseService {
 	constructor(protected basePath: string) {
 		super();
@@ -66,14 +68,14 @@ export abstract class EntityService<TEntity> extends  BaseService {
 		}
 	}
 
-	private handleError(e: unknown): ErrorResponse<any> {
+	protected handleError(e: unknown): ErrorResponse<any> {
 		const err = e as AxiosError;
 		return {
 			statusCode: err.response?.status,
 			errors:[err.code ?? ""],}
 	}
 
-	private handleResponse<U>(response: AxiosResponse<U>): ErrorResponse<U> {
+	protected handleResponse<U>(response: AxiosResponse<U>): ErrorResponse<U> {
 		if (response.status <= 300) {
 			return {
 				statusCode: response.status,

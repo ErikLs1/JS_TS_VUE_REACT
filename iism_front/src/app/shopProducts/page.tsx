@@ -141,8 +141,8 @@ export default function ShopProducts() {
 							>
 								<CardMedia
 									component="img"
-									height={160}
-									image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.5ApqY5soOddRufcQKVrH1wHaGF%26cb%3Diwc2%26pid%3DApi&f=1&ipt=200ac27eb1d8e7342e20243cecc7b6368d8208bb372c0490c2cacee5a8afce4c&ipo=images"
+									height={200}
+									image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.1Ci7Tf9gz235soLOWO_K3gHaIT%26cb%3Diwc2%26pid%3DApi&f=1&ipt=36cb3347d06202f7d724086e9edaaea9c827eb4ab7046daaad82f2c203c00e8c&ipo=images"
 									alt={item.productName}
 								/>
 								<CardContent>
@@ -179,7 +179,7 @@ export default function ShopProducts() {
 				<DialogContent dividers>
 					<Box display="flex" gap={2} flexDirection={{ xs: 'column', sm: 'row' }}>
 						<img
-							src={'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.5ApqY5soOddRufcQKVrH1wHaGF%26cb%3Diwc2%26pid%3DApi&f=1&ipt=200ac27eb1d8e7342e20243cecc7b6368d8208bb372c0490c2cacee5a8afce4c&ipo=images'}
+							src={'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.FbfoU3lS7I6GXz5QjfPRvwHaHa%26pid%3DApi&f=1&ipt=d728fb9d4d1d5c76693c7ac182252ed3fa6a7fc209083a370896b7398079d3b0&ipo=images'}
 							alt={selectedProduct?.productName}
 							style={{ width: 120, height: 120, objectFit: 'cover', borderRadius: 4 }}
 						/>
