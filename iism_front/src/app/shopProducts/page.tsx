@@ -15,10 +15,12 @@ import SnackBarAlert from "@/Components/SnackBarAlert";
 import ShopProductFilters from "@/Components/filters/ProductFilters";
 import ShopProductDialog from "@/Components/dialogs/ShopProductDialog";
 import ShopProductCard from "@/Components/ShopProductCard";
+import {CategoryService} from "@/Services/CategoryService";
 
-// TODO 1) PAGINATION; 2) FETCH DISTINCT CATEGORIES
+// TODO 1) PAGINATION;
 export default function ShopProducts() {
 	const inventoryService = new InventoryService();
+	const categoryService = new CategoryService();
 	const { accountInfo } = useContext(AccountContext);
 	const { addItem } = useCart();
 
@@ -49,13 +51,21 @@ export default function ShopProducts() {
 				setItems(res.data.slice((page - 1) * pageSize, page * pageSize));
 			}
 
-			// TODO FETCH DISTINCT CATEGORIES
+			const categories = await categoryService.getCategoryNames()
+			if (!categories.errors && categories.data) {
+				setAllCategories(categories.data.categoryNames);
+			}
 		}
 		load();
 	}, []);
 
 	const applyFilters = async () => {
-		const res = await inventoryService.GetFilteredInventoryProducts(minPrice, maxPrice, category || undefined, productName || undefined);
+		const res =
+			!minPrice && !maxPrice &&
+			!category && productName === ""
+			? await inventoryService.GetInventoryProducts()
+			: await inventoryService.GetFilteredInventoryProducts(minPrice, maxPrice, category || undefined, productName || undefined)
+
 		if (!res.errors && res.data) {
 			setTotalCount(res.data.length);
 			const start = (page - 1) * pageSize;
@@ -64,18 +74,25 @@ export default function ShopProducts() {
 	};
 
 	// Clear filters helper function
-	const clearFilters = () => {
+	const clearFilters = async () => {
 		setProductName("");
 		setCategory(null);
 		setMinPrice(undefined);
 		setMaxPrice(undefined);
 		setPage(1);
+		const res = await inventoryService.GetInventoryProducts()
+		if (!res.errors && res.data) {
+			setTotalCount(res.data.length)
+			const start = (page - 1) * pageSize;
+			setItems(res.data.slice(start, start + pageSize));
+		}
 	}
 
 	// Re-run when filters or page change
 	useEffect(() => {
+		clearFilters();
 		applyFilters();
-	}, [minPrice, maxPrice, category, productName, page]);
+	}, [page]);
 
 	// find currently selected product
 	const selectedProduct = items.find(p => p.productId === selectedProductId) || null;
@@ -121,7 +138,7 @@ export default function ShopProducts() {
 				onMaxPriceChange={setMaxPrice}
 				categories={allCategories}
 				onApply={() => { setPage(1); applyFilters(); }}
-				onClear={() => { clearFilters(); applyFilters(); }}
+				onClear={() => { clearFilters();}}
 			/>
 
 			{/* PRODUCTS GRID */}

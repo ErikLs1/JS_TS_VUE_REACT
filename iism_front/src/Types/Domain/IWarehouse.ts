@@ -8,4 +8,5 @@ export interface IWarehouse {
 	warehousePostalCode: string;
 	warehouseEmail: string;
 	warehouseCapacity: number;
+	warehouseAvailableCapacity: number
 }

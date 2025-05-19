@@ -85,7 +85,7 @@ export default function Category() {
 					<Typography variant="h4" component="h1">
 						Categories
 					</Typography>
-					<Link href="/iism_front/src/Components/dialogs/category/create" passHref>
+					<Link href="/iism_front/src/app/category/create" passHref>
 						<Button
 							variant="contained"
 							startIcon={<AddIcon />}

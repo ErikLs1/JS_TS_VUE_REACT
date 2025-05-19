@@ -58,7 +58,7 @@ export default function WarehouseRow({
 				</TableCell>
 				<TableCell>{warehouse.warehouseAddress}</TableCell>
 				<TableCell>{warehouse.warehouseEmail}</TableCell>
-				<TableCell align="right">{warehouse.warehouseCapacity}</TableCell>
+				<TableCell align="right">{warehouse.warehouseAvailableCapacity}</TableCell>
 				<TableCell align="center">
 					<IconButton onClick={() => onEdit(warehouse)}><EditIcon fontSize="small" /></IconButton>
 				</TableCell>

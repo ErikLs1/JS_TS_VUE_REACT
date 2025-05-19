@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create refactoring of most files and divide some files to components">
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create warehouse service adaptation to the backend">
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/CheckoutDialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/CategoryNamesDto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/WarehouseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/WarehouseService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/WarehouseRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/WarehouseRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/category/create/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/category/create/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/filters/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/filters/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Domain/IWarehouse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IWarehouse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/warehouse/create/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/warehouse/create/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Requests/CreateOrderProductDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/CreateOrderProductDto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,11 +76,11 @@
       <recent name="$PROJECT_DIR$/tic-tac-two-vue/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/iism_front/src/app" />
       <recent name="$PROJECT_DIR$/iism_front/src/Components/dialogs" />
       <recent name="$PROJECT_DIR$/iism_front/src/Components/filters" />
       <recent name="$PROJECT_DIR$/iism_front/src/Types/Responses" />
       <recent name="$PROJECT_DIR$/iism_front/src/app/shopProductDetails/[id]" />
-      <recent name="$PROJECT_DIR$/iism_front/public" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -137,15 +142,7 @@
       <workItem from="1747374636848" duration="18393000" />
       <workItem from="1747407294579" duration="27000" />
       <workItem from="1747458778024" duration="1812000" />
-      <workItem from="1747578972919" duration="6716000" />
-    </task>
-    <task id="LOCAL-00006" summary="create move piece functionality">
-      <option name="closed" value="true" />
-      <created>1740820703175</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1740820703175</updated>
+      <workItem from="1747578972919" duration="16180000" />
     </task>
     <task id="LOCAL-00007" summary="create restrictions when action window appears">
       <option name="closed" value="true" />
@@ -531,7 +528,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747405577262</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="create warehouse service adaptation to the backend">
+      <option name="closed" value="true" />
+      <created>1747641815096</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1747641815096</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +554,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create ui fix + register page." />
     <MESSAGE value="create pages for managing warehouses (not connected to back)" />
     <MESSAGE value="create warehouse page connected to back" />
     <MESSAGE value="create axious instance fix, working login, logout." />
@@ -574,6 +578,7 @@
     <MESSAGE value="create service refactoring" />
     <MESSAGE value="create refactored shop product page" />
     <MESSAGE value="create refactoring of most files and divide some files to components" />
-    <option name="LAST_COMMIT_MESSAGE" value="create refactoring of most files and divide some files to components" />
+    <MESSAGE value="create warehouse service adaptation to the backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="create warehouse service adaptation to the backend" />
   </component>
 </project>
