@@ -21,6 +21,11 @@ export default function WarehouseCreate() {
 	} = useForm<IWarehouse>({
 		defaultValues: {
 			warehouseAddress: '',
+			warehouseStreet: '',
+			warehouseCity: '',
+			warehouseState: '',
+			warehouseCountry: '',
+			warehousePostalCode: '',
 			warehouseEmail: '',
 			warehouseCapacity: 0
 		}
@@ -63,6 +68,61 @@ export default function WarehouseCreate() {
 							error={isSubmitted && !!errors.warehouseAddress}
 							helperText={isSubmitted ? errors.warehouseAddress?.message : ''}
 							{...register('warehouseAddress', { required: 'Address is required' })}
+						/>
+					</div>
+					<div>
+						<FormLabel id="demo-radio-buttons-group-label">Street name</FormLabel>
+						<TextField
+							fullWidth
+							type="text"
+							margin="none"
+							error={isSubmitted && !!errors.warehouseStreet}
+							helperText={isSubmitted ? errors.warehouseStreet?.message : ''}
+							{...register('warehouseStreet', { required: 'Street is required' })}
+						/>
+					</div>
+					<div>
+						<FormLabel id="demo-radio-buttons-group-label">City name</FormLabel>
+						<TextField
+							fullWidth
+							type="text"
+							margin="none"
+							error={isSubmitted && !!errors.warehouseCity}
+							helperText={isSubmitted ? errors.warehouseCity?.message : ''}
+							{...register('warehouseCity', { required: 'City is required' })}
+						/>
+					</div>
+					<div>
+						<FormLabel id="demo-radio-buttons-group-label">State name</FormLabel>
+						<TextField
+							fullWidth
+							type="text"
+							margin="none"
+							error={isSubmitted && !!errors.warehouseState}
+							helperText={isSubmitted ? errors.warehouseState?.message : ''}
+							{...register('warehouseState', { required: 'State is required' })}
+						/>
+					</div>
+					<div>
+						<FormLabel id="demo-radio-buttons-group-label">Country name</FormLabel>
+						<TextField
+							fullWidth
+							type="text"
+							margin="none"
+							error={isSubmitted && !!errors.warehouseCountry}
+							helperText={isSubmitted ? errors.warehouseCountry?.message : ''}
+							{...register('warehouseCountry', { required: 'Country is required' })}
+						/>
+					</div>
+					<div>
+						<FormLabel id="demo-radio-buttons-group-label">Postal code</FormLabel>
+						<TextField
+							fullWidth
+							type="text"
+							margin="none"
+							error={isSubmitted && !!errors.warehousePostalCode}
+							helperText={isSubmitted ? errors.warehousePostalCode?.message : ''}
+							{...register('warehousePostalCode', { required: 'Postal code is required' })}
 						/>
 					</div>
 					<div>

@@ -47,7 +47,7 @@ export abstract class BaseService {
 						refreshPromise = this.axiosInstance.post<LoginResponse>(
 							'/Account/RenewRefreshToken',
 							{
-								jwt:          localStorage.getItem('_jwt'),
+								jwt: localStorage.getItem('_jwt'),
 								refreshToken: localStorage.getItem('_refreshToken')
 							}
 						).finally(() => {
