@@ -17,87 +17,70 @@ import ShopProductDialog from "@/Components/dialogs/ShopProductDialog";
 import ShopProductCard from "@/Components/ShopProductCard";
 import {CategoryService} from "@/Services/CategoryService";
 
-// TODO 1) PAGINATION;
+const PAGE_SIZE = 8;
 export default function ShopProducts() {
 	const inventoryService = new InventoryService();
 	const categoryService = new CategoryService();
 	const { accountInfo } = useContext(AccountContext);
 	const { addItem } = useCart();
-
-	// States
 	const [items, setItems] = useState<InventoryProductsDto[]>([]);
-	const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
-	const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined);
-	const [category, setCategory] = useState<string | null>(null);
-	const [productName, setProductName] = useState<string>("")
-	const [page, setPage] = useState(1);
-	const pageSize = 12;
 	const [totalCount, setTotalCount] = useState(0);
+	const [page, setPage] = useState(1);
+	const [minPrice, setMinPrice] = useState<number>();
+	const [maxPrice, setMaxPrice] = useState<number>();
+	const [category, setCategory] = useState<string | null>(null);
+	const [productName, setProductName] = useState<string>("");
 	const [allCategories, setAllCategories] = useState<string[]>([]);
-
-	// Dialog + alert
 	const [dialogOpen, setDialogOpen] = useState(false);
-	const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+	const [selectedProductId, setSelectedProductId] = useState<string>();
 	const [quantity, setQuantity] = useState(1);
 	const [loginAlertOpen, setLoginAlertOpen] = useState(false);
 	const [successAlertOpen, setSuccessAlertOpen] = useState(false);
 
-	// Load initial data
 	useEffect(() => {
-		const load = async () =>  {
-			const res = await inventoryService.GetInventoryProducts();
-			if (!res.errors && res.data) {
-				setTotalCount(res.data.length);
-				setItems(res.data.slice((page - 1) * pageSize, page * pageSize));
+		(async () => {
+			const catRes = await categoryService.getCategoryNames();
+			if (!catRes.errors && catRes.data) {
+				setAllCategories(catRes.data.categoryNames);
 			}
-
-			const categories = await categoryService.getCategoryNames()
-			if (!categories.errors && categories.data) {
-				setAllCategories(categories.data.categoryNames);
-			}
-		}
-		load();
+			await fetchPage(1);
+		})();
 	}, []);
 
-	const applyFilters = async () => {
-		const res =
-			!minPrice && !maxPrice &&
-			!category && productName === ""
-			? await inventoryService.GetInventoryProducts()
-			: await inventoryService.GetFilteredInventoryProducts(minPrice, maxPrice, category || undefined, productName || undefined)
+	const fetchPage = async (pageIndex: number) => {
+		const res = await inventoryService.GetFilteredInventoryProducts(
+			pageIndex,
+			PAGE_SIZE,
+			minPrice,
+			maxPrice,
+			category ?? undefined,
+			productName || undefined
+		);
 
 		if (!res.errors && res.data) {
-			setTotalCount(res.data.length);
-			const start = (page - 1) * pageSize;
-			setItems(res.data.slice(start, start + pageSize));
+			setItems(res.data.items);
+			setTotalCount(res.data.totalCount);
+			setPage(pageIndex);
 		}
 	};
 
-	// Clear filters helper function
+	const applyFilters = () => fetchPage(1);
+
+
 	const clearFilters = async () => {
-		setProductName("");
-		setCategory(null);
 		setMinPrice(undefined);
 		setMaxPrice(undefined);
-		setPage(1);
-		const res = await inventoryService.GetInventoryProducts()
-		if (!res.errors && res.data) {
-			setTotalCount(res.data.length)
-			const start = (page - 1) * pageSize;
-			setItems(res.data.slice(start, start + pageSize));
-		}
-	}
+		setCategory(null);
+		setProductName("");
+		await fetchPage(1);
+	};
 
-	// Re-run when filters or page change
 	useEffect(() => {
-		clearFilters();
-		applyFilters();
+		fetchPage(page)
 	}, [page]);
 
-	// find currently selected product
 	const selectedProduct = items.find(p => p.productId === selectedProductId) || null;
 
-	// handle add to cart
 	const handleAddToCart = () => {
 		if (!accountInfo?.jwt) {
 			setLoginAlertOpen(true);
@@ -138,7 +121,7 @@ export default function ShopProducts() {
 				onMaxPriceChange={setMaxPrice}
 				categories={allCategories}
 				onApply={() => { setPage(1); applyFilters(); }}
-				onClear={() => { clearFilters();}}
+				onClear={() => { clearFilters() }}
 			/>
 
 			{/* PRODUCTS GRID */}
@@ -159,7 +142,7 @@ export default function ShopProducts() {
 			{/* Pagination */}
 			<Box mt={4} display="flex" justifyContent="center">
 				<Pagination
-					count={Math.ceil(totalCount / pageSize)}
+					count={Math.ceil(totalCount / PAGE_SIZE)}
 					page={page}
 					onChange={(_, p) => setPage(p)}
 				/>
@@ -183,6 +166,7 @@ export default function ShopProducts() {
 				duration={3000}
 				action={() => setLoginAlertOpen(false)}
 			/>
+
 			<SnackBarAlert
 				open={successAlertOpen}
 				alertType="success"

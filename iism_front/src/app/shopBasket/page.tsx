@@ -100,7 +100,7 @@ export default function BasketPage() {
 									<Box flexGrow={1}>
 										<Typography variant="h6">{item.name}</Typography>
 										<Typography color="primary" fontWeight="bold">
-											${item.price.toFixed(2)} each
+											${item.price.toFixed(2)}
 										</Typography>
 									</Box>
 									<Box display="flex" alignItems="center">
@@ -171,7 +171,7 @@ export default function BasketPage() {
 					fullWidth
 					maxWidth="xs"
 				>
-					<DialogTitle id="confirm-empty-title">Empty your basket?</DialogTitle>
+					<DialogTitle id="confirm-empty-title" fontWeight="bold">Empty your basket?</DialogTitle>
 					<DialogContent>
 						<Typography>
 							Are you sure you want to remove all items from your basket?

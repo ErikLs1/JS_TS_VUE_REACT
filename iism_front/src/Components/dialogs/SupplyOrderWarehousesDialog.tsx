@@ -81,7 +81,7 @@ export default function SupplyOrderWarehousesDialog({
 							<TableRow key={w.id} hover>
 								<TableCell>{w.warehouseAddress}</TableCell>
 								<TableCell>{w.warehouseEmail}</TableCell>
-								<TableCell align="right">{w.warehouseCapacity}</TableCell>
+								<TableCell align="right">{w.warehouseAvailableCapacity}</TableCell>
 								<TableCell align="center">
 									<Button size="small" onClick={() => handleOrder(w)}>
 										Order

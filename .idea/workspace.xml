@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create warehouse service adaptation to the backend">
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/CheckoutDialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/CategoryNamesDto.ts" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create some UI and business logic fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/WarehouseRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/WarehouseRow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/category/create/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/category/create/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/filters/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/filters/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Domain/IWarehouse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Domain/IWarehouse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Requests/CreateOrderProductDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Requests/CreateOrderProductDto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/OrderRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/OrderRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderWarehousesDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderWarehousesDialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/InventoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/InventoryService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Responses/UserOrdersDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/UserOrdersDto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/orderManagement/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/orderManagement/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/profile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/profile/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" afterDir="false" />
     </list>
@@ -142,15 +140,7 @@
       <workItem from="1747374636848" duration="18393000" />
       <workItem from="1747407294579" duration="27000" />
       <workItem from="1747458778024" duration="1812000" />
-      <workItem from="1747578972919" duration="16180000" />
-    </task>
-    <task id="LOCAL-00007" summary="create restrictions when action window appears">
-      <option name="closed" value="true" />
-      <created>1740823525235</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1740823525235</updated>
+      <workItem from="1747578972919" duration="20948000" />
     </task>
     <task id="LOCAL-00008" summary="create fix of win condition">
       <option name="closed" value="true" />
@@ -536,7 +526,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747641815096</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="create some UI and business logic fix">
+      <option name="closed" value="true" />
+      <created>1747658622725</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1747658622725</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +552,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create pages for managing warehouses (not connected to back)" />
     <MESSAGE value="create warehouse page connected to back" />
     <MESSAGE value="create axious instance fix, working login, logout." />
     <MESSAGE value="create manager view" />
@@ -579,6 +576,7 @@
     <MESSAGE value="create refactored shop product page" />
     <MESSAGE value="create refactoring of most files and divide some files to components" />
     <MESSAGE value="create warehouse service adaptation to the backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="create warehouse service adaptation to the backend" />
+    <MESSAGE value="create some UI and business logic fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="create some UI and business logic fix" />
   </component>
 </project>

@@ -24,7 +24,7 @@ import { PlacedOrderDto } from '@/Types/Responses/PlacedOrderDto';
 import OrderRow from "@/Components/OrderRow";
 import SnackBarAlert from "@/Components/SnackBarAlert";
 
-const statusOptions = ['PENDING', 'CONFIRMED', 'IN_DELIVERY', 'DELIVERED', 'CANCELLED'];
+const statusOptions = ['PENDING', 'CONFIRMED', 'SHIPPING', 'DELIVERED', 'CANCELLED'];
 
 // TODO - FILTERING LATER
 export default function OrderManagement() {
