@@ -4,16 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create some UI and business logic fix">
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create pagination to main market">
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/domain/ICategory.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/domain/IDomainId.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/services/CategoryService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/types/IResultObject.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/OrderRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/OrderRow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderWarehousesDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderWarehousesDialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/InventoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/InventoryService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Types/Responses/UserOrdersDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Types/Responses/UserOrdersDto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/orderManagement/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/orderManagement/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/profile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/profile/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/eslint.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/next.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/public/file.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/public/globe.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/public/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/public/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/public/window.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/src/app/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/src/app/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-js/tsconfig.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +37,8 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Vue Composition API Component" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -44,31 +54,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Node.js.BaseService.ts.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.GameBrain.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-vue/src&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/next-js/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Node.js.BaseService.ts.executor": "Run",
+    "Node.js.GameBrain.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-vue/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/ttt-vue/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tic-tac-two-vue/src" />
@@ -140,15 +150,7 @@
       <workItem from="1747374636848" duration="18393000" />
       <workItem from="1747407294579" duration="27000" />
       <workItem from="1747458778024" duration="1812000" />
-      <workItem from="1747578972919" duration="20948000" />
-    </task>
-    <task id="LOCAL-00008" summary="create fix of win condition">
-      <option name="closed" value="true" />
-      <created>1740825894588</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1740825894588</updated>
+      <workItem from="1747578972919" duration="26246000" />
     </task>
     <task id="LOCAL-00009" summary="creat time with random move, AI functionality (not tested).">
       <option name="closed" value="true" />
@@ -534,7 +536,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747658622725</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="create pagination to main market">
+      <option name="closed" value="true" />
+      <created>1747665054416</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1747665054416</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,7 +562,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create warehouse page connected to back" />
     <MESSAGE value="create axious instance fix, working login, logout." />
     <MESSAGE value="create manager view" />
     <MESSAGE value="create register and logout" />
@@ -577,6 +586,7 @@
     <MESSAGE value="create refactoring of most files and divide some files to components" />
     <MESSAGE value="create warehouse service adaptation to the backend" />
     <MESSAGE value="create some UI and business logic fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="create some UI and business logic fix" />
+    <MESSAGE value="create pagination to main market" />
+    <option name="LAST_COMMIT_MESSAGE" value="create pagination to main market" />
   </component>
 </project>
