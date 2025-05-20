@@ -72,12 +72,11 @@ export default function ShopProducts() {
 		setMaxPrice(undefined);
 		setCategory(null);
 		setProductName("");
-		await fetchPage(1);
 	};
 
 	useEffect(() => {
-		fetchPage(page)
-	}, [page]);
+		fetchPage(1);
+	}, [minPrice, maxPrice, category, productName]);
 
 	const selectedProduct = items.find(p => p.productId === selectedProductId) || null;
 
@@ -120,8 +119,8 @@ export default function ShopProducts() {
 				maxPrice={maxPrice}
 				onMaxPriceChange={setMaxPrice}
 				categories={allCategories}
-				onApply={() => { setPage(1); applyFilters(); }}
-				onClear={() => { clearFilters() }}
+				onApply={applyFilters}
+				onClear={clearFilters}
 			/>
 
 			{/* PRODUCTS GRID */}

@@ -17,16 +17,14 @@ import {
 	FormControl,
 	InputLabel,
 	Stack,
-	TextField
 } from '@mui/material';
 import { OrderService } from '@/Services/OrderService';
 import { PlacedOrderDto } from '@/Types/Responses/PlacedOrderDto';
 import OrderRow from "@/Components/OrderRow";
 import SnackBarAlert from "@/Components/SnackBarAlert";
 
-const statusOptions = ['PENDING', 'CONFIRMED', 'SHIPPING', 'DELIVERED', 'CANCELLED'];
+const statusOptions = ['PENDING', 'SHIPPING', 'DELIVERED'];
 
-// TODO - FILTERING LATER
 export default function OrderManagement() {
 	const orderService = new OrderService();
 	const [orders, setOrders] = useState<PlacedOrderDto[]>([]);
@@ -76,11 +74,6 @@ export default function OrderManagement() {
 							))}
 						</Select>
 					</FormControl>
-					<TextField
-						type="date"
-						size="small"
-						// TODO: wire up date filtering
-					/>
 					<Button variant="contained" onClick={loadOrders}>Apply Filters</Button>
 				</Stack>
 			</Stack>

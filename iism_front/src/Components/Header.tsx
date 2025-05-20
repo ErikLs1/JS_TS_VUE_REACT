@@ -3,7 +3,6 @@
 import Link from "next/link";
 import React, {useContext, useState} from "react";
 import { AccountContext } from "@/Context/AccountContext";
-import { ThemeSwitch } from "@/Components/ThemeSwitch";
 import {usePathname, useRouter} from "next/navigation";
 import {AccountService} from "@/Services/AccountService";
 import {LogoutRequest} from "@/Types/Requests/LogoutRequest";
@@ -58,11 +57,6 @@ export default function Header(){
 		);
 	}
 
-	const handleThemeSwitch = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setDarkMode(e.target.checked);
-		// TODO: Later
-	};
-
 	return (
 
 		<AppBar position="static" color={darkMode ? "default" : "primary"}>
@@ -99,8 +93,6 @@ export default function Header(){
 
 				{/* Actions */}
 				<Box sx={{ display: "flex", alignItems: "center" }}>
-					<ThemeSwitch checked={darkMode} onChange={handleThemeSwitch} sx={{ mr: 2 }} />
-
 					{accountInfo?.jwt ? (
 						<>
 							<IconButton color="inherit" onClick={handleLogout} sx={{ mr: 1 }}>
