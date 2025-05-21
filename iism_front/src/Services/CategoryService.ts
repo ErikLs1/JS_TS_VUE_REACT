@@ -1,7 +1,6 @@
 import {ICategory} from "@/Types/Domain/ICategory";
 import {EntityService} from "@/Services/EntityService";
 import {ErrorResponse} from "@/Types/Responses/ErrorResponse";
-import {WarehouseFiltersResponse} from "@/Types/Responses/WarehouseFiltersResponse";
 import {CategoryNamesDto} from "@/Types/Responses/CategoryNamesDto";
 
 export class CategoryService extends EntityService<ICategory> {

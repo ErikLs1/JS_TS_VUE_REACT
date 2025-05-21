@@ -6,8 +6,6 @@ import SendIcon from '@mui/icons-material/Send';
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useRouter} from "next/navigation";
 import {useState} from "react";
-import {IWarehouse} from "@/Types/Domain/IWarehouse";
-import {WarehouseService} from "@/Services/WarehouseService";
 import {CategoryService} from "@/Services/CategoryService";
 import {ICategory} from "@/Types/Domain/ICategory";
 

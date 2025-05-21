@@ -19,7 +19,6 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import {useState} from "react";
 import {OrderService} from '@/Services/OrderService';
-import {useRouter} from "next/navigation";
 import {CreateOrderProductDto} from "@/Types/Requests/CreateOrderProductDto";
 import {CreateOrderDto} from "@/Types/Requests/CreateOrderDto";
 import CheckoutDialog, {CheckoutData} from "@/Components/dialogs/CheckoutDialog";
@@ -40,7 +39,6 @@ export default function BasketPage() {
 	const [checkoutOpen, setCheckoutOpen] = useState(false);
 	const [confirmOpen, setConfirmOpen] = useState(false);
 	const [clearedBasketSnack, setClearedBasketSnack] = useState(false);
-	const router = useRouter();
 
 	const handleOrder = () => {
 		if (items.length === 0)  {

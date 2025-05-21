@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create vue project initial create">
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create some UI fix">
+      <change afterPath="$PROJECT_DIR$/iism_front/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/next.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/orderManagement/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/orderManagement/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopProducts/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/ThemeSwitch.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/WarehouseProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/WarehouseProduct.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/category/create/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/category/create/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/app/supplyMarket/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/supplyMarket/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,31 +47,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Node.js.BaseService.ts.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.GameBrain.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-vue/src&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/ttt-vue/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Node.js.BaseService.ts.executor": "Run",
+    "Node.js.GameBrain.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/tic-tac-two-vue/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/eriklihhats/WebstormProjects/icd0006-24-25-s/ttt-vue/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tic-tac-two-vue/src" />
@@ -137,15 +144,8 @@
       <workItem from="1747407294579" duration="27000" />
       <workItem from="1747458778024" duration="1812000" />
       <workItem from="1747578972919" duration="26335000" />
-      <workItem from="1747720921865" duration="2092000" />
-    </task>
-    <task id="LOCAL-00010" summary="creat documentation for AI moves and some working version of the AI.">
-      <option name="closed" value="true" />
-      <created>1742895050047</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1742895050047</updated>
+      <workItem from="1747720921865" duration="5348000" />
+      <workItem from="1747805839091" duration="4482000" />
     </task>
     <task id="LOCAL-00011" summary="creat fixed ai.">
       <option name="closed" value="true" />
@@ -531,7 +531,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747670721920</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="create some UI fix">
+      <option name="closed" value="true" />
+      <created>1747732032811</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1747732032811</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create manager view" />
     <MESSAGE value="create register and logout" />
     <MESSAGE value="create personal profile page" />
     <MESSAGE value="create warehouse crud" />
@@ -574,6 +581,7 @@
     <MESSAGE value="create some UI and business logic fix" />
     <MESSAGE value="create pagination to main market" />
     <MESSAGE value="create vue project initial create" />
-    <option name="LAST_COMMIT_MESSAGE" value="create vue project initial create" />
+    <MESSAGE value="create some UI fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="create some UI fix" />
   </component>
 </project>

@@ -4,7 +4,6 @@ import {
 	Box,
 	Button, Grid,
 	Pagination,
-	Snackbar,
 	Typography
 } from "@mui/material";
 import {useContext, useEffect, useState} from "react";
@@ -26,7 +25,6 @@ import {StockOrderService} from "@/Services/StockOrderService";
 import {CreateStockOrderRequest} from "@/Types/Requests/CreateStockOrderRequest";
 import SnackBarAlert from "@/Components/SnackBarAlert";
 
-// TODO REFACTORING
 export default function SupplyMarket() {
 	const productSuppliersService = new ProductSuppliersService();
 	const warehouseService = new WarehouseService();

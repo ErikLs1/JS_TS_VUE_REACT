@@ -15,7 +15,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 export default function Header(){
 	const { accountInfo, setAccountInfo } = useContext(AccountContext);
-	const [darkMode, setDarkMode] = useState(false);
 	const router = useRouter();
 	const pathname = usePathname();
 	const accountService = new AccountService();
@@ -59,7 +58,7 @@ export default function Header(){
 
 	return (
 
-		<AppBar position="static" color={darkMode ? "default" : "primary"}>
+		<AppBar position="static" color={"primary"}>
 			<Toolbar>
 				<Typography
 					variant="h6"
