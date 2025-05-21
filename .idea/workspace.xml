@@ -4,19 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create some UI fix">
-      <change afterPath="$PROJECT_DIR$/iism_front/Dockerfile" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create some dockerfile and delete unused imports">
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/components/Header.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/services/AccountService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/services/BaseService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/services/EntityService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/stores/userStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/types/ErrorResponse.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/types/LoginRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/types/LoginResponse.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/types/LogoutRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/types/RegisterRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/CategoriesView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/CategoryCreateView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/CategoryDeleteView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/CategoryEditView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/HomeView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/LoginView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/RegisterView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/ThemeSwitch.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/ShopProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/ShopProductCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/SupplyCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/SupplyCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iism_front/src/Components/WarehouseProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/WarehouseProduct.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/AccountService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/BaseService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Services/CategoryService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/category/create/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/category/create/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/shopBasket/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/app/supplyMarket/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/app/supplyMarket/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/CategoryDeleteDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/CategoryDeleteDialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/CategoryEditDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/CategoryEditDialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderInfoDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderInfoDialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderWarehousesDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderWarehousesDialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/WarehouseDeleteDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/WarehouseDeleteDialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/WarehouseEditDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/WarehouseEditDialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/src/services/CategoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/services/CategoryService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/src/types/IResultObject.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +52,8 @@
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="Vue Composition API Component" />
         <option value="TypeScript JSX File" />
+        <option value="Vue Composition API Component" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -145,15 +168,7 @@
       <workItem from="1747458778024" duration="1812000" />
       <workItem from="1747578972919" duration="26335000" />
       <workItem from="1747720921865" duration="5348000" />
-      <workItem from="1747805839091" duration="4482000" />
-    </task>
-    <task id="LOCAL-00011" summary="creat fixed ai.">
-      <option name="closed" value="true" />
-      <created>1742897413216</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1742897413216</updated>
+      <workItem from="1747805839091" duration="20374000" />
     </task>
     <task id="LOCAL-00012" summary="creat advanced ai">
       <option name="closed" value="true" />
@@ -539,7 +554,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747732032811</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="create some dockerfile and delete unused imports">
+      <option name="closed" value="true" />
+      <created>1747810395607</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1747810395607</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +580,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create register and logout" />
     <MESSAGE value="create personal profile page" />
     <MESSAGE value="create warehouse crud" />
     <MESSAGE value="create category crud" />
@@ -582,6 +604,7 @@
     <MESSAGE value="create pagination to main market" />
     <MESSAGE value="create vue project initial create" />
     <MESSAGE value="create some UI fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="create some UI fix" />
+    <MESSAGE value="create some dockerfile and delete unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="create some dockerfile and delete unused imports" />
   </component>
 </project>

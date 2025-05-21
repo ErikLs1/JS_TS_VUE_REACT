@@ -1,3 +1,5 @@
+"use client"
+
 import {Stack} from "@mui/system";
 import {
 	Autocomplete, Button,

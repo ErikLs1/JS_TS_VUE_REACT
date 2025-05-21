@@ -1,3 +1,5 @@
+"use client"
+
 import {Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 import {InventoryProductsDto} from "@/Types/Responses/InventoryProductsDto";
 

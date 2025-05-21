@@ -1,3 +1,5 @@
+"use client"
+
 import {Card, CardActionArea, CardContent, Grid, Typography} from "@mui/material";
 
 interface SupplyCardProps {

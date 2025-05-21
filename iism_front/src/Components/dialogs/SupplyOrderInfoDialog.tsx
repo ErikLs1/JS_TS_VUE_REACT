@@ -1,3 +1,5 @@
+"use client"
+
 import {Box, Divider, Paper, TextField, Typography} from "@mui/material";
 
 interface SupplyOrderInfoDialogProps {
