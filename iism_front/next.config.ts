@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
 	typescript: {
 		ignoreBuildErrors: true,
 	},
+	base: process.env.VITE_BASE_PATCH || "/JS_TS_VUE_REACT"
 };
 
 export default nextConfig;
