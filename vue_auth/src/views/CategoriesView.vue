@@ -3,7 +3,9 @@ import {onMounted, ref} from "vue";
 import type {ICategory} from "@/domain/ICategory.ts";
 import type {ErrorResponse} from "@/types/ErrorResponse.ts";
 import {CategoryService} from "@/services/CategoryService.ts";
+import {useRouter} from "vue-router";
 
+const router = useRouter();
 const loading = ref(false);
 const errorMessage = ref<string | null>(null);
 const categories = ref<ICategory[]>([])
@@ -28,6 +30,21 @@ const fetchCategories = async () => {
   }
 }
 
+
+async function deleteCategory(id: string) {
+  if (!confirm('Are you sure you want to delete this category?')) return
+  try {
+    const res = await categoryService.delete(id)
+    if (res.errors?.length) {
+      alert('Delete failed: ' + res.errors.join(', '))
+    } else {
+      await fetchCategories()
+    }
+  } catch {
+    alert('Unexpected error during delete.')
+  }
+}
+
 onMounted(fetchCategories);
 
 </script>
@@ -36,14 +53,14 @@ onMounted(fetchCategories);
   <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h1 class="h3">Categories</h1>
-      <router-link to="/categories/create" class="btn btn-primary">
+      <button @click="router.push('/categories/create')" class="btn btn-primary">
         Add New Category
-      </router-link>
+      </button>
     </div>
 
     <div v-if="loading" class="text-center py-5">
       <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
+        <span class="visually-hidden">Loading…</span>
       </div>
     </div>
 
@@ -55,28 +72,35 @@ onMounted(fetchCategories);
       <table v-else class="table table-striped table-hover">
         <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Description</th>
-          <th scope="col" class="text-end">Actions</th>
+          <th>#</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th class="text-end">Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(cat, index) in categories" :key="cat.id">
-          <th scope="row">{{ index + 1 }}</th>
+        <tr v-for="(cat, i) in categories" :key="cat.id">
+          <td>{{ i + 1 }}</td>
           <td>{{ cat.categoryName }}</td>
           <td>{{ cat.categoryDescription }}</td>
           <td class="text-end">
-            <router-link :to="`/categories/edit/${cat.id}`" class="btn btn-sm btn-outline-secondary me-2">
+            <button
+                @click="router.push(`/categories/edit/${cat.id}`)"
+                class="btn btn-sm btn-outline-secondary me-2"
+            >
               Edit
-            </router-link>
-            <button class="btn btn-sm btn-outline-danger">
+            </button>
+            <button
+                @click="deleteCategory(cat.id)"
+                class="btn btn-sm btn-outline-danger"
+            >
               Delete
             </button>
           </td>
         </tr>
         </tbody>
       </table>
+
       <div v-if="!categories.length && !errorMessage" class="text-center text-muted">
         No categories found.
       </div>

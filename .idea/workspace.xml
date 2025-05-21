@@ -4,42 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create some dockerfile and delete unused imports">
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/components/Header.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/services/AccountService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/services/BaseService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/services/EntityService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/stores/userStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/types/ErrorResponse.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/types/LoginRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/types/LoginResponse.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/types/LogoutRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/types/RegisterRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/CategoriesView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/CategoryCreateView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/CategoryDeleteView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/CategoryEditView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/HomeView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/LoginView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue_auth/src/views/RegisterView.vue" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create dockerfile change, vue login and getAllAsync">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/ShopProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/ShopProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/SupplyCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/SupplyCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/WarehouseProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/WarehouseProduct.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/CategoryDeleteDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/CategoryDeleteDialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/CategoryEditDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/CategoryEditDialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderInfoDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderInfoDialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderWarehousesDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/SupplyOrderWarehousesDialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/WarehouseDeleteDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/WarehouseDeleteDialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Components/dialogs/WarehouseEditDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Components/dialogs/WarehouseEditDialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue_auth/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue_auth/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue_auth/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue_auth/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue_auth/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/router/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue_auth/src/services/CategoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/services/CategoryService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue_auth/src/types/IResultObject.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/src/views/CategoriesView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/views/CategoriesView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/src/views/CategoryCreateView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/views/CategoryCreateView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/src/views/CategoryDeleteView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/src/views/CategoryEditView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/views/CategoryEditView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_auth/src/views/RegisterView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue_auth/src/views/RegisterView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,15 +141,7 @@
       <workItem from="1747458778024" duration="1812000" />
       <workItem from="1747578972919" duration="26335000" />
       <workItem from="1747720921865" duration="5348000" />
-      <workItem from="1747805839091" duration="20374000" />
-    </task>
-    <task id="LOCAL-00012" summary="creat advanced ai">
-      <option name="closed" value="true" />
-      <created>1742983313543</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1742983313543</updated>
+      <workItem from="1747805839091" duration="24326000" />
     </task>
     <task id="LOCAL-00013" summary="creat code refactoring">
       <option name="closed" value="true" />
@@ -562,7 +527,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747810395607</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="create dockerfile change, vue login and getAllAsync">
+      <option name="closed" value="true" />
+      <created>1747834438471</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1747834438471</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +553,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create personal profile page" />
     <MESSAGE value="create warehouse crud" />
     <MESSAGE value="create category crud" />
     <MESSAGE value="create warehouse filtering" />
@@ -605,6 +577,7 @@
     <MESSAGE value="create vue project initial create" />
     <MESSAGE value="create some UI fix" />
     <MESSAGE value="create some dockerfile and delete unused imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="create some dockerfile and delete unused imports" />
+    <MESSAGE value="create dockerfile change, vue login and getAllAsync" />
+    <option name="LAST_COMMIT_MESSAGE" value="create dockerfile change, vue login and getAllAsync" />
   </component>
 </project>

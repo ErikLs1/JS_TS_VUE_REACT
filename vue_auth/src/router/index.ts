@@ -4,6 +4,8 @@ import CategoriesView from "@/views/CategoriesView.vue";
 import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import {useAccountStore} from "@/stores/userStore.ts";
+import CategoryCreateView from "@/views/CategoryCreateView.vue";
+import CategoryEditView from "@/views/CategoryEditView.vue";
 
 
 const routes = [
@@ -17,6 +19,16 @@ const routes = [
         name: 'Categories',
         component: CategoriesView,
         meta: { requiresAuth: true },
+    },
+    {
+        path: '/categories/create',
+        name: 'CategoriesCreate',
+        component: CategoryCreateView
+    },
+    {
+        path: '/categories/edit/:id',
+        name: 'CategoriesEdit',
+        component: CategoryEditView
     },
     {
         path: '/login',
