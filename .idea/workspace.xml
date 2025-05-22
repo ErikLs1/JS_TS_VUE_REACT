@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create vue hw4 auth + crud">
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/next.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,15 +135,8 @@
       <workItem from="1747578972919" duration="26335000" />
       <workItem from="1747720921865" duration="5348000" />
       <workItem from="1747805839091" duration="26203000" />
-      <workItem from="1747842894230" duration="535000" />
-    </task>
-    <task id="LOCAL-00014" summary="creat tic tac two typescript project initialization">
-      <option name="closed" value="true" />
-      <created>1743059889254</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1743059889254</updated>
+      <workItem from="1747842894230" duration="1422000" />
+      <workItem from="1747892052837" duration="775000" />
     </task>
     <task id="LOCAL-00015" summary="creat ts code">
       <option name="closed" value="true" />
@@ -530,7 +522,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747839559638</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary=".">
+      <option name="closed" value="true" />
+      <created>1747843439839</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1747843439839</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +548,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create category crud" />
     <MESSAGE value="create warehouse filtering" />
     <MESSAGE value="create demo for suppliers listing and ordering" />
     <MESSAGE value="create initial demo divided to components" />
@@ -573,6 +572,7 @@
     <MESSAGE value="create some dockerfile and delete unused imports" />
     <MESSAGE value="create dockerfile change, vue login and getAllAsync" />
     <MESSAGE value="create vue hw4 auth + crud" />
-    <option name="LAST_COMMIT_MESSAGE" value="create vue hw4 auth + crud" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>

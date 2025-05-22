@@ -79,7 +79,7 @@ function handleClick(x: number, y: number) {
     </div>
 
     <div v-if="!store.gameOver && showActionButtons && store.actionActive === null && !isAiTurn()">
-      <button v-if="currentPlayerPieces > 0" @click="store.actionActive = 'makeMove'">Make a Move</button>
+      <button v-if="currentPlayerPieces! > 0" @click="store.actionActive = 'makeMove'">Make a Move</button>
       <button @click="store.actionActive = 'grid'">Move the Grid</button>
       <button @click="store.actionActive = 'movePiece'">Move a Piece</button>
     </div>
