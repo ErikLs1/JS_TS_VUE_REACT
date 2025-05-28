@@ -4,14 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create react exam project (some base code)">
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create base for react done">
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/components/Header.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/service/AccountService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/service/BaseService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/service/EntityService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/service/PersonService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/stores/userStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/types/Domain/IUser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/types/Request/LoginRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/types/Request/LogoutRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/types/Request/RefisterRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/types/Response/ErrorResponse.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/types/Response/LoginResponse.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/views/LoginView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/views/ProfileView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-exam-sample/src/views/RegisterView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-exam-sample/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-exam-sample/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/app/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/app/profile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/app/profile/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/app/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/app/register/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/services/BaseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/services/BaseService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-exam-sample/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-exam-sample/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-exam-sample/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/assets/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/assets/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/components/TheWelcome.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/components/WelcomeItem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/components/icons/IconCommunity.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/components/icons/IconDocumentation.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/components/icons/IconEcosystem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/components/icons/IconSupport.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/components/icons/IconTooling.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue-exam-sample/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue-exam-sample/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/stores/counter.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/views/AboutView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-exam-sample/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-exam-sample/src/views/HomeView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +52,9 @@
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="Vue Composition API Component" />
         <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="Vue Composition API Component" />
       </list>
     </option>
   </component>
@@ -72,11 +100,11 @@
       <recent name="$PROJECT_DIR$/tic-tac-two-vue/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vue-exam-sample/src/types/Request" />
       <recent name="$PROJECT_DIR$/react-exam-sample/src/app" />
       <recent name="$PROJECT_DIR$/tic-tac-two-ts/src/ui" />
       <recent name="$PROJECT_DIR$/iism_front/src/app" />
       <recent name="$PROJECT_DIR$/iism_front/src/Components/dialogs" />
-      <recent name="$PROJECT_DIR$/iism_front/src/Components/filters" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -146,15 +174,7 @@
       <workItem from="1747936078141" duration="1108000" />
       <workItem from="1747977835184" duration="3362000" />
       <workItem from="1748370058801" duration="1308000" />
-      <workItem from="1748411486101" duration="5674000" />
-    </task>
-    <task id="LOCAL-00019" summary="create gameBoard and direction/action buttons">
-      <option name="closed" value="true" />
-      <created>1744469943711</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1744469943711</updated>
+      <workItem from="1748411486101" duration="8240000" />
     </task>
     <task id="LOCAL-00020" summary="create move, grid move, piece move">
       <option name="closed" value="true" />
@@ -540,7 +560,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748415442612</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="create base for react done">
+      <option name="closed" value="true" />
+      <created>1748419061913</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1748419061913</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +586,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create supply market filtering and product listing" />
     <MESSAGE value="create complete stock order" />
     <MESSAGE value="create base for inventory listing" />
     <MESSAGE value="create product listing for the warehouse" />
@@ -583,6 +610,7 @@
     <MESSAGE value="create react exam sample base" />
     <MESSAGE value="create vue exam sample base" />
     <MESSAGE value="create react exam project (some base code)" />
-    <option name="LAST_COMMIT_MESSAGE" value="create react exam project (some base code)" />
+    <MESSAGE value="create base for react done" />
+    <option name="LAST_COMMIT_MESSAGE" value="create base for react done" />
   </component>
 </project>
