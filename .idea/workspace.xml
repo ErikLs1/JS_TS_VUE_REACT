@@ -4,32 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create vue exam sample base">
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/app/login/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/app/profile/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/app/register/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/components/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/context/AccountContext.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/helpers/BootstrapActivation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/services/AccountService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/services/BaseService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/services/EntityService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/services/PersonService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/types/Domain/IUser.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/types/Request/LoginRequestDto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/types/Request/LogoutRequestDto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/types/Request/RefreshTokenRequestDto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/types/Request/RegisterRequestDto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/types/Response/ErrorResponseDto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-exam-sample/src/types/Response/LoginResponseDto.ts" afterDir="false" />
+    <list default="true" id="51de8417-c310-42ec-bdda-ee3acebaccb7" name="Changes" comment="create react exam project (some base code)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iism_front/src/Context/CartContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/iism_front/src/Context/CartContext.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-exam-sample/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-exam-sample/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/app/page.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/app/page.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/app/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/app/profile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/app/profile/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/app/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/app/register/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-exam-sample/src/services/BaseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/react-exam-sample/src/services/BaseService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,15 +146,7 @@
       <workItem from="1747936078141" duration="1108000" />
       <workItem from="1747977835184" duration="3362000" />
       <workItem from="1748370058801" duration="1308000" />
-      <workItem from="1748411486101" duration="3361000" />
-    </task>
-    <task id="LOCAL-00018" summary="create landing page + user input">
-      <option name="closed" value="true" />
-      <created>1744460955800</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1744460955800</updated>
+      <workItem from="1748411486101" duration="5674000" />
     </task>
     <task id="LOCAL-00019" summary="create gameBoard and direction/action buttons">
       <option name="closed" value="true" />
@@ -558,7 +532,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748370451446</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="create react exam project (some base code)">
+      <option name="closed" value="true" />
+      <created>1748415442611</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1748415442612</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +558,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create initial demo divided to components" />
     <MESSAGE value="create supply market filtering and product listing" />
     <MESSAGE value="create complete stock order" />
     <MESSAGE value="create base for inventory listing" />
@@ -601,6 +582,7 @@
     <MESSAGE value="." />
     <MESSAGE value="create react exam sample base" />
     <MESSAGE value="create vue exam sample base" />
-    <option name="LAST_COMMIT_MESSAGE" value="create vue exam sample base" />
+    <MESSAGE value="create react exam project (some base code)" />
+    <option name="LAST_COMMIT_MESSAGE" value="create react exam project (some base code)" />
   </component>
 </project>
