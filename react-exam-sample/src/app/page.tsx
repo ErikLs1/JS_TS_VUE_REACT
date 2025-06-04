@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <>
-      OK
+      Welcome to the cool school
     </>
   );
 }

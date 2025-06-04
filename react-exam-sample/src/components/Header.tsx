@@ -1,3 +1,5 @@
+"use client"
+
 import {LogoutRequestDto} from "@/types/Request/LogoutRequestDto";
 import {AccountService} from "@/services/AccountService";
 import {usePathname, useRouter} from "next/navigation";
@@ -8,6 +10,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import {AppBar, Badge, Box, Button, IconButton, Toolbar, Typography} from "@mui/material";
 import {pink} from "@mui/material/colors";
+
 
 export default function Header(){
     const { accountInfo, setAccountInfo } = useContext(AccountContext);
@@ -38,16 +41,17 @@ export default function Header(){
     }
 
     const navItems: { label: string; href: string }[] = [
-        { label: "Home", href: "/" },
-        { label: "Products", href: "/shopProducts" },
-        { label: "Basket", href: "/shopBasket" },
+        { label: "Home", href: "/"},
+        { label: "Choose", href: "/chooseSchool"},
+        { label: "Semester Subjects", href: "/semesterSubjects"},
+        { label: "Requested Subjects", href: "/unfinishedStudentSubjects"},
     ];
 
     if (accountInfo?.role === "manager" && accountInfo?.jwt) {
         navItems.push(
-            { label: "Warehouse", href: "/warehouse" },
-            { label: "Market", href: "/supplyMarket" },
-            { label: "Orders", href: "/orderManagement" }
+            { label: "Available Subjects", href: "/availableSubjects" },
+            { label: "Teacher Subjects", href: "/teacherSubjects" },
+            { label: "Choose Subjects", href: "/teachingSubjects" }
         );
     }
 
